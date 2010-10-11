@@ -3,9 +3,17 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
     Height="480" Width="800">
 
     <Grid x:Name="LayoutRoot" Background="White">
+    	<Grid.ColumnDefinitions>
+    		<ColumnDefinition Width="56"/>
+    		<ColumnDefinition/>
+    		<ColumnDefinition Width="56"/>
+    	</Grid.ColumnDefinitions>
 
+		<navigation:Frame x:Name="player" Grid.Row="0" Grid.Column="1" Source="/Views/basic.xaml">	
+		</navigation:Frame>
     </Grid>
 </UserControl>
