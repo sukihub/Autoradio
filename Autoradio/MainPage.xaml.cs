@@ -8,6 +8,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Autoradio.Views;
 using Autoradio.Helpers;
@@ -53,8 +54,15 @@ namespace Autoradio
         {
             this.state = newState;
 
-            if (newState == State.Paused) MainWindow.Background.Opacity = 0.5;
-            else MainWindow.Background.Opacity = 1.0;
+            ImageSource tmp = AnimationTmpImage.Source;
+
+            AnimationTmpImage.Source = BackgroundImage.ImageSource;
+            AnimationTmpImage.Visibility = Visibility.Visible;
+            AnimationTmpImage.Opacity = 1.0;
+
+            BackgroundImage.ImageSource = tmp;
+
+            BackgroundSwap.Begin();
         }
     }
 }
