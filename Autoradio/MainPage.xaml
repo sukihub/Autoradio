@@ -4,16 +4,62 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
-    Height="480" Width="800">
+    Height="480" Width="800" mc:Ignorable="d">
+	<UserControl.Resources>
+		<Style x:Key="ButtonOff" TargetType="Button">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="Button">
+						<Canvas x:Name="Button_Off" Clip="M0,0L32,0 40,32 0,32z" UseLayoutRounding="False">
+							<VisualStateManager.VisualStateGroups>
+								<VisualStateGroup x:Name="CommonStates">
+									<VisualStateGroup.Transitions>
+										<VisualTransition GeneratedDuration="0:0:0.2" To="MouseOver"/>
+										<VisualTransition From="MouseOver" GeneratedDuration="0:0:0.2"/>
+									</VisualStateGroup.Transitions>
+									<VisualState x:Name="Normal"/>
+									<VisualState x:Name="MouseOver">
+										<Storyboard>
+											<DoubleAnimation Duration="0" To="0.895" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Off_button" d:IsOptimized="True"/>
+										</Storyboard>
+									</VisualState>
+									<VisualState x:Name="Pressed"/>
+									<VisualState x:Name="Disabled"/>
+								</VisualStateGroup>
+							</VisualStateManager.VisualStateGroups>
+							<Image x:Name="Off_button" Height="32" Source="button_off_Images/Off button.png" Canvas.Top="0" Width="40" Opacity="0.7" RenderTransformOrigin="0.497,0.5"/>
+						</Canvas>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</UserControl.Resources>
 
-    <Grid x:Name="LayoutRoot" Background="White">
+    <Grid x:Name="MainWindow">
     	<Grid.ColumnDefinitions>
     		<ColumnDefinition Width="56"/>
     		<ColumnDefinition/>
     		<ColumnDefinition Width="56"/>
     	</Grid.ColumnDefinitions>
-
-		<navigation:Frame x:Name="player" Grid.Row="0" Grid.Column="1" Source="/Views/basic.xaml">	
-		</navigation:Frame>
+		
+		<Grid.Background>
+			<ImageBrush ImageSource="/Views/BackgroundBlue.png" />
+		</Grid.Background>
+		
+		<Rectangle x:Name="LeftPanel" Fill="Black" Stroke="Black" Grid.Row="0" Grid.Column="0">
+			<Rectangle.Effect>
+				<DropShadowEffect Direction="0" BlurRadius="10" ShadowDepth="3"/>
+			</Rectangle.Effect>
+		</Rectangle>
+		
+		<navigation:Frame x:Name="Content" Grid.Row="0" Grid.Column="1" Source="/Views/basic.xaml" BorderBrush="{x:Null}" Background="{x:Null}" Navigated="Content_Navigated"/>
+		
+		<Rectangle x:Name="RightPanel" Fill="Black" Stroke="Black" Grid.Row="0" Grid.Column="2">
+			<Rectangle.Effect>
+				<DropShadowEffect Direction="180" BlurRadius="10" ShadowDepth="3"/>
+			</Rectangle.Effect>
+		</Rectangle>
+		
+		<Button x:Name="buttonOff" Content="" Grid.Column="2" HorizontalAlignment="Right" Height="32" Margin="0,8,8,0" Style="{StaticResource ButtonOff}" VerticalAlignment="Top" Width="40" Click="ButtonOff_Click" />
     </Grid>
 </UserControl>

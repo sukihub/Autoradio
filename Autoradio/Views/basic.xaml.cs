@@ -10,11 +10,14 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Windows.Navigation;
+using Autoradio.Helpers;
 
 namespace Autoradio.Views
 {
     public partial class basic : Page
     {
+        private StateChangedNotify stateChanged;
+
         public basic()
         {
             InitializeComponent();
@@ -23,6 +26,22 @@ namespace Autoradio.Views
         // Executes when the user navigates to this page.
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            stateChanged(State.Paused);
+        }
+
+        /**
+         *  Metoda volana hlavnou aplikaciou tesne po vytvoreni stranky.
+         *  Hlavna aplikacia moze posielat informacie modulu.
+         *  
+         *  @param stateChanged: Referencia na metodu volanu pri zmene stavu prehravania.
+         */
+        public void initialize(StateChangedNotify stateChanged)
+        {
+            this.stateChanged = stateChanged;
         }
 
     }

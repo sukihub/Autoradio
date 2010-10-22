@@ -9,14 +9,52 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using Autoradio.Views;
+using Autoradio.Helpers;
 
 namespace Autoradio
 {
     public partial class MainPage : UserControl
     {
+        //instacia aktualne zobrazenej stranky
+        private basic current;
+
+        //stav prehravaca
+        private State state;
+
         public MainPage()
         {
             InitializeComponent();
+        }
+
+        /**
+         *  Event handler kliknutia na OFF tlacitko. 
+         */
+        private void ButtonOff_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.MainWindow.Close();
+        }
+
+        /**
+         *  Event handler volany po dokonceni nacitavania stranky/modulu.
+         */
+        private void Content_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
+            current = (basic) e.Content;
+            current.initialize(stateChanged);
+        }
+
+        /**
+         *  Event handler volany pri zmene stavu prehravaca.
+         *  
+         *  @param newState: Novy stav prehravaca.
+         */
+        public void stateChanged(State newState)
+        {
+            this.state = newState;
+
+            if (newState == State.Paused) MainWindow.Background.Opacity = 0.5;
+            else MainWindow.Background.Opacity = 1.0;
         }
     }
 }

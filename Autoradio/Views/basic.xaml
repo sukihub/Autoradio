@@ -8,6 +8,6 @@
            Width="660" Height="480"
            Title="basic Page">
     <Grid x:Name="LayoutRoot">
-        <Button Content="Button" Height="39" HorizontalAlignment="Left" Margin="315,105,0,0" Name="button1" VerticalAlignment="Top" Width="95" />
+        <Button Content="Button" Height="40" HorizontalAlignment="Left" Margin="320,112,0,0" Name="button1" VerticalAlignment="Top" Width="96" Click="button1_Click" />
     </Grid>
 </navigation:Page>
