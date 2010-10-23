@@ -18,7 +18,7 @@ namespace Autoradio
     public partial class MainPage : UserControl
     {
         //instacia aktualne zobrazenej stranky
-        private basic current;
+        private IModuleInterface current;
 
         //stav prehravaca
         private State state;
@@ -41,7 +41,7 @@ namespace Autoradio
          */
         private void Content_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
         {
-            current = (basic) e.Content;
+            current = (IModuleInterface) e.Content;
             current.initialize(stateChanged);
         }
 

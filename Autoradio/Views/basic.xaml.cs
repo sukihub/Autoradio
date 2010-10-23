@@ -14,7 +14,7 @@ using Autoradio.Helpers;
 
 namespace Autoradio.Views
 {
-    public partial class basic : Page
+    public partial class basic : Page, IModuleInterface
     {
         private StateChangedNotify stateChanged;
 
