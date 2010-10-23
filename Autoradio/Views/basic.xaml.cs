@@ -39,9 +39,15 @@ namespace Autoradio.Views
          *  
          *  @param stateChanged: Referencia na metodu volanu pri zmene stavu prehravania.
          */
-        public void initialize(StateChangedNotify stateChanged)
+        public void initialize(StateChangedNotify stateChanged, Playlist playlist)
         {
             this.stateChanged = stateChanged;
+
+            playlist.Open();
+            foreach (PlaylistItem item in playlist.items)
+            {
+                listBox1.Items.Add(item.uri);
+            }
         }
 
     }

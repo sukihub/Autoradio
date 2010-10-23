@@ -12,6 +12,6 @@
     //interface pouzitych modulov/stranok viditelny hlavnej aplikacii
     interface IModuleInterface
     {
-        void initialize(StateChangedNotify stateChanged);
+        void initialize(StateChangedNotify stateChanged, Playlist playlist);
     }
 }

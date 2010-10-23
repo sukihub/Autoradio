@@ -20,6 +20,9 @@ namespace Autoradio
         //instacia aktualne zobrazenej stranky
         private IModuleInterface current;
 
+        //playlist
+        private Playlist playlist = new Playlist();
+
         //stav prehravaca
         private State state;
 
@@ -42,7 +45,7 @@ namespace Autoradio
         private void Content_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
         {
             current = (IModuleInterface) e.Content;
-            current.initialize(stateChanged);
+            current.initialize(stateChanged, playlist);
         }
 
         /**

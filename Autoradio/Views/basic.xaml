@@ -9,5 +9,6 @@
            Title="basic Page">
     <Grid x:Name="LayoutRoot">
         <Button Content="Button" Height="40" HorizontalAlignment="Left" Margin="320,112,0,0" Name="button1" VerticalAlignment="Top" Width="96" Click="button1_Click" />
+        <ListBox Height="278" HorizontalAlignment="Left" Margin="57,42,0,0" Name="listBox1" VerticalAlignment="Top" Width="234" />
     </Grid>
 </navigation:Page>
