@@ -37,5 +37,28 @@ namespace Autoradio.Views
         {
             stateChanged(State.TurnedOff);
         }
+
+        private Boolean progressFrameDown = false;
+
+        private void progressFrame_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            progressFrameDown = true;
+
+            uint position = (uint)e.GetPosition(progressArea).X - 12;
+            progressBar.Width = position;
+        }
+
+        private void progressFrame_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (!progressFrameDown) return;
+
+            uint position = (uint)e.GetPosition(progressArea).X - 12;
+            progressBar.Width = position;
+        }
+
+        private void progressFrame_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            progressFrameDown = false;
+        }
     }
 }
