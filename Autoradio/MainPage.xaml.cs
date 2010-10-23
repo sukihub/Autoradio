@@ -23,12 +23,17 @@ namespace Autoradio
         //playlist
         private Playlist playlist = new Playlist();
 
+        //URI modulov
+        private Uri RadioUri = new Uri("/Views/Radio.xaml", UriKind.Relative);
+        private Uri PlayerUri;
+
         //stav prehravaca
         private State state;
 
         public MainPage()
         {
             InitializeComponent();
+            PlayerUri = Content.Source;
         }
 
         /**
@@ -57,6 +62,8 @@ namespace Autoradio
         {
             this.state = newState;
 
+            //if (newState != State.TurnedOff) return;
+
             ImageSource tmp = AnimationTmpImage.Source;
 
             AnimationTmpImage.Source = BackgroundImage.ImageSource;
@@ -66,6 +73,8 @@ namespace Autoradio
             BackgroundImage.ImageSource = tmp;
 
             BackgroundSwap.Begin();
+
+            Content.Navigate(RadioUri);
         }
     }
 }

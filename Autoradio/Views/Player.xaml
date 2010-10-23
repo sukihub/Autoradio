@@ -5,9 +5,9 @@
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
            mc:Ignorable="d"
            xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
-           d:DesignWidth="640" d:DesignHeight="480"
+           Width="660" Height="480"
            Title="Player Page">
     <Grid x:Name="LayoutRoot">
-
+        <Button Content="Button" Height="9" HorizontalAlignment="Left" Name="button1" VerticalAlignment="Top" Width="14" Click="button1_Click" />
     </Grid>
 </navigation:Page>

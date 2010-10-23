@@ -38,6 +38,7 @@ namespace Autoradio.Views
          *  Hlavna aplikacia moze posielat informacie modulu.
          *  
          *  @param stateChanged: Referencia na metodu volanu pri zmene stavu prehravania.
+         *  @param playlist: Referencia na playlist.
          */
         public void initialize(StateChangedNotify stateChanged, Playlist playlist)
         {
