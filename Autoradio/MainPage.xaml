@@ -71,7 +71,7 @@
 			</Rectangle.Effect>
 		</Rectangle>
 		
-		<navigation:Frame x:Name="Content" Grid.Row="0" Grid.Column="1" Source="/Views/basic.xaml" BorderBrush="{x:Null}" Background="{x:Null}" Navigated="Content_Navigated"/>
+		<navigation:Frame x:Name="Content" Grid.Row="0" Grid.Column="1" Source="/Views/basic.xaml" BorderBrush="{x:Null}" Background="{x:Null}" Navigated="Content_Navigated" Opacity="0"/>
 		
 		<Rectangle x:Name="RightPanel" Fill="Black" Stroke="Black" Grid.Row="0" Grid.Column="2">
 			<Rectangle.Effect>
