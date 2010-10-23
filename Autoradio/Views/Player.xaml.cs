@@ -44,16 +44,20 @@ namespace Autoradio.Views
         {
             progressFrameDown = true;
 
-            uint position = (uint)e.GetPosition(progressArea).X - 12;
-            progressBar.Width = position;
+            progressFrame_MouseMove(sender, e);
         }
 
         private void progressFrame_MouseMove(object sender, MouseEventArgs e)
         {
             if (!progressFrameDown) return;
 
-            uint position = (uint)e.GetPosition(progressArea).X - 12;
+            uint position = (uint)e.GetPosition(progressArea).X - 4;
             progressBar.Width = position;
+
+            uint minutes = (uint)progressBar.Width / 60;
+            uint seconds = (uint)progressBar.Width % 60;
+            timeMinutes.Text = minutes.ToString();
+            timeSeconds.Text = (seconds < 10 ? "0" : "") + seconds.ToString();
         }
 
         private void progressFrame_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)

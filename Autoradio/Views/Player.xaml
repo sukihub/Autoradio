@@ -6,7 +6,7 @@
            xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
            xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" x:Class="Autoradio.Views.Player"
            mc:Ignorable="d"
-           Width="660" Height="480"
+           Width="688" Height="480"
            Title="Player Page">
 	<navigation:Page.Resources>
 		<Style x:Key="ProgressBarStyle1" TargetType="ProgressBar">
@@ -27,10 +27,22 @@
 		</Style>
 	</navigation:Page.Resources>
     <Grid x:Name="LayoutRoot">
+    	<Grid.ColumnDefinitions>
+    		<ColumnDefinition Width="0.244*"/>
+    		<ColumnDefinition Width="0.512*"/>
+    		<ColumnDefinition Width="0.244*"/>
+    	</Grid.ColumnDefinitions>
+    	<Grid.RowDefinitions>
+    		<RowDefinition Height="0.633*"/>
+    		<RowDefinition Height="0.367*"/>
+    	</Grid.RowDefinitions>
         <Button Content="Button" Height="9" HorizontalAlignment="Left" x:Name="button1" VerticalAlignment="Top" Width="14" Click="button1_Click" />
-        <Grid x:Name="progressArea" Height="24" VerticalAlignment="Bottom" MouseLeftButtonDown="progressFrame_MouseLeftButtonDown" MouseMove="progressFrame_MouseMove" MouseLeftButtonUp="progressFrame_MouseLeftButtonUp" Background="#00000000">
-        	<Rectangle x:Name="progressBar" HorizontalAlignment="Left" Margin="12,7,0,0" Stroke="White" Width="0" Opacity="0.495" Height="2" VerticalAlignment="Top" MaxWidth="636"/>
-        	<Rectangle x:Name="progressFrame" Opacity="0.2" RadiusY="8" RadiusX="8" Stroke="White" Margin="8,5,8,0" Height="6" VerticalAlignment="Top"/>
+        <Grid x:Name="progressArea" Height="24" VerticalAlignment="Bottom" MouseLeftButtonDown="progressFrame_MouseLeftButtonDown" MouseMove="progressFrame_MouseMove" MouseLeftButtonUp="progressFrame_MouseLeftButtonUp" Background="#00000000" Grid.Row="1" Grid.ColumnSpan="3" Margin="16,0">
+        	<Rectangle x:Name="progressBar" HorizontalAlignment="Left" Margin="4,7,4,0" Stroke="White" Width="0" Opacity="0.495" Height="2" VerticalAlignment="Top" MaxWidth="648"/>
+        	<Rectangle x:Name="progressFrame" Opacity="0.2" RadiusY="8" RadiusX="8" Stroke="White" Margin="0,5,0,0" Height="6" VerticalAlignment="Top"/>
         </Grid>
+        <TextBlock Margin="0,24,0,36" Grid.Row="1" TextWrapping="Wrap" Text=":" FontSize="96" FontFamily="Candara" HorizontalAlignment="Right" Width="24" Foreground="White" Opacity="0.4"/>
+        <TextBlock x:Name="timeSeconds" Margin="0,24,0,36" Grid.Row="1" TextWrapping="Wrap" Text="46" FontSize="96" FontFamily="Candara" HorizontalAlignment="Left" Width="112" Grid.Column="1" Foreground="White" Opacity="0.4"/>
+        <TextBlock x:Name="timeMinutes" Margin="32,24,24,36" Grid.Row="1" TextWrapping="Wrap" Text="2" FontSize="96" FontFamily="Candara" TextAlignment="Right" Foreground="White" Opacity="0.4"/>
     </Grid>
 </navigation:Page>
