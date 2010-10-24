@@ -10,11 +10,14 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Windows.Navigation;
+using Autoradio.Helpers;
 
 namespace Autoradio.Views
 {
-    public partial class Radio : Page
+    public partial class Radio : Page, IModuleInterface
     {
+        private StateChangedNotify stateChanged;
+
         public Radio()
         {
             InitializeComponent();
@@ -23,6 +26,11 @@ namespace Autoradio.Views
         // Executes when the user navigates to this page.
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+        }
+
+        public void initialize(StateChangedNotify stateChanged, Playlist playlist)
+        {
+            this.stateChanged = stateChanged;
         }
 
     }
