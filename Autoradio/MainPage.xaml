@@ -46,7 +46,7 @@
 				</DiscreteObjectKeyFrame>
 				<DiscreteObjectKeyFrame KeyTime="0:0:1">
 					<DiscreteObjectKeyFrame.Value>
-						<Visibility>Collapsed</Visibility>
+						<Visibility>Visible</Visibility>
 					</DiscreteObjectKeyFrame.Value>
 				</DiscreteObjectKeyFrame>
 			</ObjectAnimationUsingKeyFrames>
@@ -63,24 +63,23 @@
 		<Grid.Background>
 			<ImageBrush ImageSource="/Views/BackgroundBlue.png" x:Name="BackgroundImage" />
 		</Grid.Background>		
-		<Image Source="/Views/BackgroundPurple.png" x:Name="AnimationTmpImage" Stretch="Fill" Grid.ColumnSpan="3" Visibility="Collapsed" />
-		
-		
-		
-		<navigation:Frame x:Name="Content" Grid.Row="0" Grid.Column="1" Source="/Views/Player.xaml" BorderBrush="{x:Null}" Background="{x:Null}" Navigated="Content_Navigated"/>
-		
-		<Rectangle x:Name="LeftPanel" Fill="Black" Stroke="Black" Grid.Row="0" Grid.Column="0">
+		<Image x:Name="AnimationTmpImage" Stretch="Fill" Grid.ColumnSpan="3" Visibility="Collapsed" />
+
+        <navigation:Frame x:Name="Content" Grid.Row="0" Grid.Column="1" BorderBrush="{x:Null}" Background="{x:Null}" Navigated="Content_Navigated"/>
+
+        <Rectangle x:Name="LeftPanel" Fill="Black" Stroke="Black" Grid.Row="0" Grid.Column="0">
 			<Rectangle.Effect>
 				<DropShadowEffect Direction="0" BlurRadius="10" ShadowDepth="3"/>
 			</Rectangle.Effect>
 		</Rectangle>
-		
-		
+        
 		<Rectangle x:Name="RightPanel" Fill="Black" Stroke="Black" Grid.Row="0" Grid.Column="2">
 			<Rectangle.Effect>
 				<DropShadowEffect Direction="180" BlurRadius="10" ShadowDepth="3"/>
 			</Rectangle.Effect>
 		</Rectangle>
+		
+		
 		
 		<Button x:Name="buttonOff" Content="" Grid.Column="2" HorizontalAlignment="Right" Height="32" Margin="0,8,8,0" Style="{StaticResource ButtonOff}" VerticalAlignment="Top" Width="40" Click="ButtonOff_Click" />
     </Grid>

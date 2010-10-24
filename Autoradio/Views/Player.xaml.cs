@@ -17,6 +17,7 @@ namespace Autoradio.Views
     public partial class Player : Page, IModuleInterface
     {
         private StateChangedNotify stateChanged;
+        private State state = State.Playing;
 
         public Player()
         {
@@ -67,7 +68,93 @@ namespace Autoradio.Views
 
         private void coverNext_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            animNext.Source = coverNext.Source;
+            animNow.Source = coverNow.Source;
+            animPrevious.Source = coverPrevious.Source;
+            //nacitat z playlistu
+            //animNew.Source = 
+
             rotateNext.Begin();
+
+            coverNow.Source = animNext.Source;
+            coverPrevious.Source = animNow.Source;
+            coverNext.Source = animNew.Source;
+        }
+
+        private void coverPrevious_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            animNext.Source = coverNext.Source;
+            animNow.Source = coverNow.Source;
+            animPrevious.Source = coverPrevious.Source;
+            //nacitat z playlistu
+            //animNew.Source = 
+
+            rotatePrevious.Begin();
+
+            coverNow.Source = animPrevious.Source;
+            coverPrevious.Source = animNew.Source;
+            coverNext.Source = animNow.Source;
+        }
+
+        private Boolean coverMouseDown = false;
+        private Point startPoint, tmpPoint;
+
+        private void coverNow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            coverMouseDown = true;
+            startPoint = e.GetPosition(coverNow);
+        }
+
+        private void coverNow_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            coverMouseDown = false;
+        }
+
+        private void coverNow_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (!coverMouseDown) return;
+
+            //poloha mysky
+            tmpPoint = e.GetPosition(coverNow);
+
+            int xDistance = (int)startPoint.X - (int)tmpPoint.X;
+            int yDistance = (int)startPoint.Y - (int)tmpPoint.Y;
+
+            if (xDistance > 30)
+            {
+                coverNext_MouseLeftButtonDown(sender, null);
+                coverMouseDown = false;
+            }
+            else if (xDistance < -30)
+            {
+                coverPrevious_MouseLeftButtonDown(sender, null);
+                coverMouseDown = false;
+            }
+            else if (yDistance > 70)
+            {
+                stateChanged(State.TurnedOff);
+            }
+        }
+
+        private void coverNow_MouseLeave(object sender, MouseEventArgs e)
+        {
+            coverMouseDown = false;
+        }
+
+        private void controlWrapper_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (state == State.Playing)
+            {
+                state = State.Paused;
+                Pause.Begin();
+            }
+            else
+            {
+                state = State.Playing;
+                Play.Begin();
+            }
+
+            stateChanged(state);
         }
     }
 }
