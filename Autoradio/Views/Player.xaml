@@ -26,93 +26,135 @@
 			</Setter>
 		</Style>
 		<Storyboard x:Name="rotateNext">
-			<DoubleAnimation Duration="0:0:0.8" To="-248" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="coverNext" d:IsOptimized="True">
-				<DoubleAnimation.EasingFunction>
-					<SineEase EasingMode="EaseOut"/>
-				</DoubleAnimation.EasingFunction>
-			</DoubleAnimation>
-			<DoubleAnimation Duration="0:0:0.8" To="-32" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="coverNext" d:IsOptimized="True">
-				<DoubleAnimation.EasingFunction>
-					<SineEase EasingMode="EaseOut"/>
-				</DoubleAnimation.EasingFunction>
-			</DoubleAnimation>
-			<DoubleAnimation Duration="0:0:0.8" To="1.777" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="coverNext" d:IsOptimized="True">
-				<DoubleAnimation.EasingFunction>
-					<CircleEase EasingMode="EaseOut"/>
-				</DoubleAnimation.EasingFunction>
-			</DoubleAnimation>
-			<DoubleAnimation Duration="0:0:0.8" To="1.777" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="coverNext" d:IsOptimized="True">
-				<DoubleAnimation.EasingFunction>
-					<CircleEase EasingMode="EaseOut"/>
-				</DoubleAnimation.EasingFunction>
-			</DoubleAnimation>
-			<DoubleAnimation Duration="0:0:0.8" To="20" Storyboard.TargetProperty="(UIElement.Effect).(DropShadowEffect.BlurRadius)" Storyboard.TargetName="coverNext" d:IsOptimized="True"/>
-			<DoubleAnimation Duration="0:0:0.8" To="8" Storyboard.TargetProperty="(UIElement.Effect).(DropShadowEffect.ShadowDepth)" Storyboard.TargetName="coverNext" d:IsOptimized="True"/>
-			<ColorAnimation Duration="0:0:0.8" To="White" Storyboard.TargetProperty="(UIElement.OpacityMask).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="coverNext" d:IsOptimized="True"/>
-			<DoubleAnimation Duration="0:0:0.8" To="-243.924" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="coverNow" d:IsOptimized="True">
-				<DoubleAnimation.EasingFunction>
-					<SineEase EasingMode="EaseOut"/>
-				</DoubleAnimation.EasingFunction>
-			</DoubleAnimation>
-			<DoubleAnimation Duration="0:0:0.8" To="0.545" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="coverNow" d:IsOptimized="True">
-				<DoubleAnimation.EasingFunction>
-					<CircleEase EasingMode="EaseOut"/>
-				</DoubleAnimation.EasingFunction>
-			</DoubleAnimation>
-			<DoubleAnimation Duration="0:0:0.8" To="0.545" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="coverNow" d:IsOptimized="True">
-				<DoubleAnimation.EasingFunction>
-					<CircleEase EasingMode="EaseOut"/>
-				</DoubleAnimation.EasingFunction>
-			</DoubleAnimation>
-			<DoubleAnimation Duration="0:0:0.8" To="36.003" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="coverNow" d:IsOptimized="True">
-				<DoubleAnimation.EasingFunction>
-					<SineEase EasingMode="EaseOut"/>
-				</DoubleAnimation.EasingFunction>
-			</DoubleAnimation>
-			<ColorAnimation Duration="0:0:0.8" To="Transparent" Storyboard.TargetProperty="(UIElement.OpacityMask).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="coverNow" d:IsOptimized="True"/>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="animNext">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="-248">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="animNext">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="-32">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="animNext">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="1.777">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<CircleEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="animNext">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="1.777">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<CircleEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.OpacityMask).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="animNext">
+				<EasingColorKeyFrame KeyTime="0" Value="Transparent"/>
+				<EasingColorKeyFrame KeyTime="0:0:0.8" Value="White"/>
+			</ColorAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="animNow">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="-248.257">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="animNow">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0.563">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<CircleEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="animNow">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0.563">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<CircleEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="animNow">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="32.337">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.OpacityMask).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="animNow">
+				<EasingColorKeyFrame KeyTime="0" Value="White"/>
+				<EasingColorKeyFrame KeyTime="0:0:0.8" Value="Transparent"/>
+			</ColorAnimationUsingKeyFrames>
 			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="labelTitle">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
 				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
 				<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
 				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="1"/>
 			</DoubleAnimationUsingKeyFrames>
 			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="labelInterpret">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
 				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
 				<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
 				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0.999023"/>
 			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimation Duration="0:0:0.8" To="-152" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="coverPrevious" d:IsOptimized="True">
-				<DoubleAnimation.EasingFunction>
-					<SineEase EasingMode="EaseOut"/>
-				</DoubleAnimation.EasingFunction>
-			</DoubleAnimation>
-			<DoubleAnimation Duration="0:0:0.8" To="16" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="coverPrevious" d:IsOptimized="True">
-				<DoubleAnimation.EasingFunction>
-					<SineEase EasingMode="EaseOut"/>
-				</DoubleAnimation.EasingFunction>
-			</DoubleAnimation>
-			<DoubleAnimation Duration="0:0:0.8" To="0.334" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="coverPrevious" d:IsOptimized="True">
-				<DoubleAnimation.EasingFunction>
-					<CircleEase EasingMode="EaseOut"/>
-				</DoubleAnimation.EasingFunction>
-			</DoubleAnimation>
-			<DoubleAnimation Duration="0:0:0.8" To="0.333" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="coverPrevious" d:IsOptimized="True">
-				<DoubleAnimation.EasingFunction>
-					<CircleEase EasingMode="EaseOut"/>
-				</DoubleAnimation.EasingFunction>
-			</DoubleAnimation>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="coverNew">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="animPrevious">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="-152">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="animPrevious">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="16">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="animPrevious">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0.334">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<CircleEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="animPrevious">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0.333">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<CircleEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="animNew">
 				<EasingDoubleKeyFrame KeyTime="0" Value="280">
 					<EasingDoubleKeyFrame.EasingFunction>
 						<SineEase EasingMode="EaseOut"/>
 					</EasingDoubleKeyFrame.EasingFunction>
 				</EasingDoubleKeyFrame>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="267.25">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="264.25">
 					<EasingDoubleKeyFrame.EasingFunction>
 						<SineEase EasingMode="EaseOut"/>
 					</EasingDoubleKeyFrame.EasingFunction>
 				</EasingDoubleKeyFrame>
 			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="coverNew">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="animNew">
 				<EasingDoubleKeyFrame KeyTime="0" Value="408">
 					<EasingDoubleKeyFrame.EasingFunction>
 						<SineEase EasingMode="EaseOut"/>
@@ -124,7 +166,7 @@
 					</EasingDoubleKeyFrame.EasingFunction>
 				</EasingDoubleKeyFrame>
 			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="coverNew">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="animNew">
 				<EasingDoubleKeyFrame KeyTime="0" Value="0.332">
 					<EasingDoubleKeyFrame.EasingFunction>
 						<CubicEase EasingMode="EaseOut"/>
@@ -136,7 +178,7 @@
 					</EasingDoubleKeyFrame.EasingFunction>
 				</EasingDoubleKeyFrame>
 			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="coverNew">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="animNew">
 				<EasingDoubleKeyFrame KeyTime="0" Value="0.332">
 					<EasingDoubleKeyFrame.EasingFunction>
 						<CubicEase EasingMode="EaseOut"/>
@@ -148,7 +190,7 @@
 					</EasingDoubleKeyFrame.EasingFunction>
 				</EasingDoubleKeyFrame>
 			</DoubleAnimationUsingKeyFrames>
-			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="coverNew">
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="animNew">
 				<DiscreteObjectKeyFrame KeyTime="0">
 					<DiscreteObjectKeyFrame.Value>
 						<Thickness>96,-152,112,0</Thickness>
@@ -160,20 +202,408 @@
 					</DiscreteObjectKeyFrame.Value>
 				</DiscreteObjectKeyFrame>
 			</ObjectAnimationUsingKeyFrames>
-			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.OpacityMask).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="coverNew">
+			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.OpacityMask).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="animNew">
 				<EasingColorKeyFrame KeyTime="0" Value="Transparent"/>
 				<EasingColorKeyFrame KeyTime="0:0:0.8" Value="Transparent"/>
 			</ColorAnimationUsingKeyFrames>
 			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="labelTitle">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
 				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="11.988"/>
 				<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="12.016"/>
 				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0.024"/>
 			</DoubleAnimationUsingKeyFrames>
 			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="labelInterpret">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
 				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="11.988"/>
 				<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="12.016"/>
 				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0.024"/>
 			</DoubleAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="coverNow">
+				<DiscreteObjectKeyFrame KeyTime="0">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Collapsed</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.8">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Visible</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+			</ObjectAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="coverNext">
+				<DiscreteObjectKeyFrame KeyTime="0">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Collapsed</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.8">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Visible</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+			</ObjectAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="coverPrevious">
+				<DiscreteObjectKeyFrame KeyTime="0">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Collapsed</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.8">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Visible</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+			</ObjectAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="animNow">
+				<DiscreteObjectKeyFrame KeyTime="0">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Visible</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.8">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Collapsed</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+			</ObjectAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="animNext">
+				<DiscreteObjectKeyFrame KeyTime="0">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Visible</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.8">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Collapsed</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+			</ObjectAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="animPrevious">
+				<DiscreteObjectKeyFrame KeyTime="0">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Visible</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.8">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Collapsed</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+			</ObjectAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="animNew">
+				<DiscreteObjectKeyFrame KeyTime="0">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Visible</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.8">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Collapsed</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+			</ObjectAnimationUsingKeyFrames>
+			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.OpacityMask).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="animPrevious">
+				<EasingColorKeyFrame KeyTime="0" Value="Transparent"/>
+				<EasingColorKeyFrame KeyTime="0:0:0.8" Value="Transparent"/>
+			</ColorAnimationUsingKeyFrames>
+			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.OpacityMask).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="animNow">
+				<EasingColorKeyFrame KeyTime="0" Value="White"/>
+				<EasingColorKeyFrame KeyTime="0:0:0.8" Value="White"/>
+			</ColorAnimationUsingKeyFrames>
+			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.OpacityMask).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="animNew">
+				<EasingColorKeyFrame KeyTime="0" Value="White"/>
+				<EasingColorKeyFrame KeyTime="0:0:0.8" Value="White"/>
+			</ColorAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Name="rotatePrevious">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="animNext">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="152">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="animNext">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="16">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="animNext">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0.333">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<CircleEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="animNext">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0.333">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<CircleEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.OpacityMask).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="animNext">
+				<EasingColorKeyFrame KeyTime="0" Value="Transparent"/>
+				<EasingColorKeyFrame KeyTime="0:0:0.8" Value="Transparent"/>
+			</ColorAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="animNow">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="247.743">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="animNow">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0.563">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<CircleEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="animNow">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0.563">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<CircleEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="animNow">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="32.337">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.OpacityMask).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="animNow">
+				<EasingColorKeyFrame KeyTime="0" Value="White"/>
+				<EasingColorKeyFrame KeyTime="0:0:0.8" Value="White"/>
+			</ColorAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="labelTitle">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="labelInterpret">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0.999023"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="animPrevious">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="248">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="animPrevious">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="-32">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="animPrevious">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="1.778">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<CircleEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="animPrevious">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="1.777">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<CircleEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="animNew">
+				<EasingDoubleKeyFrame KeyTime="0" Value="280">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="264.25">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="animNew">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-392">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="-239.875">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="animNew">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.332">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<CubicEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<CubicEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="animNew">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.332">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<CubicEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<CubicEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="animNew">
+				<DiscreteObjectKeyFrame KeyTime="0">
+					<DiscreteObjectKeyFrame.Value>
+						<Thickness>96,-152,112,0</Thickness>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.8">
+					<DiscreteObjectKeyFrame.Value>
+						<Thickness>96,-152,112,0</Thickness>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+			</ObjectAnimationUsingKeyFrames>
+			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.OpacityMask).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="animNew">
+				<EasingColorKeyFrame KeyTime="0" Value="Transparent"/>
+				<EasingColorKeyFrame KeyTime="0:0:0.8" Value="White"/>
+			</ColorAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="labelTitle">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="11.988"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="12.016"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0.024"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="labelInterpret">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="11.988"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="12.016"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0.024"/>
+			</DoubleAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="coverNow">
+				<DiscreteObjectKeyFrame KeyTime="0">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Collapsed</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.8">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Visible</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+			</ObjectAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="coverNext">
+				<DiscreteObjectKeyFrame KeyTime="0">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Collapsed</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.8">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Visible</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+			</ObjectAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="coverPrevious">
+				<DiscreteObjectKeyFrame KeyTime="0">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Collapsed</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.8">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Visible</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+			</ObjectAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="animNow">
+				<DiscreteObjectKeyFrame KeyTime="0">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Visible</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.8">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Collapsed</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+			</ObjectAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="animNext">
+				<DiscreteObjectKeyFrame KeyTime="0">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Visible</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.8">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Collapsed</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+			</ObjectAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="animPrevious">
+				<DiscreteObjectKeyFrame KeyTime="0">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Visible</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.8">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Collapsed</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+			</ObjectAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="animNew">
+				<DiscreteObjectKeyFrame KeyTime="0">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Visible</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.8">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Collapsed</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+			</ObjectAnimationUsingKeyFrames>
+			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.OpacityMask).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="animNew">
+				<EasingColorKeyFrame KeyTime="0" Value="Transparent"/>
+				<EasingColorKeyFrame KeyTime="0:0:0.8" Value="Transparent"/>
+			</ColorAnimationUsingKeyFrames>
+			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.OpacityMask).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="animNow">
+				<EasingColorKeyFrame KeyTime="0" Value="White"/>
+				<EasingColorKeyFrame KeyTime="0:0:0.8" Value="Transparent"/>
+			</ColorAnimationUsingKeyFrames>
+			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.OpacityMask).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="animPrevious">
+				<EasingColorKeyFrame KeyTime="0" Value="Transparent"/>
+				<EasingColorKeyFrame KeyTime="0:0:0.8" Value="White"/>
+			</ColorAnimationUsingKeyFrames>
 		</Storyboard>
 	</navigation:Page.Resources>
     <Grid x:Name="LayoutRoot">
@@ -210,7 +640,7 @@
         		</LinearGradientBrush>
         	</Image.OpacityMask>
         	<Image.Effect>
-        		<DropShadowEffect ShadowDepth="8" BlurRadius="20"/>
+        		<DropShadowEffect ShadowDepth="10" BlurRadius="20"/>
         	</Image.Effect>
         </Image>
         <Image x:Name="coverNext" Grid.Column="2" Margin="0,112,24,48" Source="cover2.jpg" Stretch="Fill" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="coverNext_MouseLeftButtonDown" >
@@ -230,7 +660,7 @@
         		</LinearGradientBrush>
         	</Image.OpacityMask>
         </Image>
-        <Image x:Name="coverPrevious" Margin="24,112,0,48" Source="cover3.jpg" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+        <Image x:Name="coverPrevious" Margin="24,112,0,48" Source="cover3.jpg" Stretch="Fill" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="coverPrevious_MouseLeftButtonDown">
         	<Image.RenderTransform>
         		<CompositeTransform/>
         	</Image.RenderTransform>
@@ -249,7 +679,62 @@
         		<DropShadowEffect BlurRadius="10" ShadowDepth="7"/>
         	</Image.Effect>
         </Image>
-        <Image x:Name="coverNew" Grid.Column="1" Margin="96,-152,112,0" Source="cover4.jpg" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Height="144" VerticalAlignment="Top">
+        <Image x:Name="animNow" Grid.Column="1" Margin="48,24" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
+        	<Image.RenderTransform>
+        		<CompositeTransform/>
+        	</Image.RenderTransform>
+        	<Image.OpacityMask>
+        		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        			<LinearGradientBrush.RelativeTransform>
+        				<CompositeTransform CenterY="0.5" CenterX="0.5" Rotation="-90"/>
+        			</LinearGradientBrush.RelativeTransform>
+        			<GradientStop Color="White" Offset="0"/>
+        			<GradientStop Color="White" Offset="1"/>
+        			<GradientStop Color="Black" Offset="0.4"/>
+        			<GradientStop Color="Black" Offset="0.6"/>
+        		</LinearGradientBrush>
+        	</Image.OpacityMask>
+        	<Image.Effect>
+        		<DropShadowEffect ShadowDepth="10" BlurRadius="20"/>
+        	</Image.Effect>
+        </Image>
+        <Image x:Name="animNext" Grid.Column="2" Margin="0,112,24,48" Stretch="Fill" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="coverNext_MouseLeftButtonDown" Visibility="Collapsed" >
+        	<Image.Effect>
+        		<DropShadowEffect BlurRadius="10" ShadowDepth="7"/>
+        	</Image.Effect>
+        	<Image.RenderTransform>
+        		<CompositeTransform/>
+        	</Image.RenderTransform>
+        	<Image.OpacityMask>
+        		<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+        			<LinearGradientBrush.RelativeTransform>
+        				<CompositeTransform CenterY="0.5" CenterX="0.5" Rotation="-90"/>
+        			</LinearGradientBrush.RelativeTransform>
+        			<GradientStop Color="Black" Offset="0.6"/>
+        			<GradientStop Color="Transparent" Offset="1"/>
+        		</LinearGradientBrush>
+        	</Image.OpacityMask>
+        </Image>
+        <Image x:Name="animPrevious" Margin="24,112,0,48" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed" MouseLeftButtonDown="coverPrevious_MouseLeftButtonDown">
+        	<Image.Effect>
+        		<DropShadowEffect BlurRadius="10" ShadowDepth="7"/>
+        	</Image.Effect>
+        	<Image.RenderTransform>
+        		<CompositeTransform/>
+        	</Image.RenderTransform>
+        	<Image.OpacityMask>
+        		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        			<LinearGradientBrush.RelativeTransform>
+        				<CompositeTransform CenterY="0.5" CenterX="0.5" Rotation="-90"/>
+        			</LinearGradientBrush.RelativeTransform>
+        			<GradientStop Color="Transparent" Offset="0"/>
+        			<GradientStop Color="White" Offset="1"/>
+        			<GradientStop Color="Black" Offset="0.4"/>
+        			<GradientStop Color="Black" Offset="0.6"/>
+        		</LinearGradientBrush>
+        	</Image.OpacityMask>
+        </Image>
+        <Image x:Name="animNew" Grid.Column="1" Margin="96,-152,112,0" Source="cover4.jpg" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Height="144" VerticalAlignment="Top" Visibility="Collapsed">
         	<Image.RenderTransform>
         		<CompositeTransform/>
         	</Image.RenderTransform>

@@ -67,7 +67,32 @@ namespace Autoradio.Views
 
         private void coverNext_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            animNext.Source = coverNext.Source;
+            animNow.Source = coverNow.Source;
+            animPrevious.Source = coverPrevious.Source;
+            //nacitat z playlistu
+            //animNew.Source = 
+
             rotateNext.Begin();
+
+            coverNow.Source = animNext.Source;
+            coverPrevious.Source = animNow.Source;
+            coverNext.Source = animNew.Source;
+        }
+
+        private void coverPrevious_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            animNext.Source = coverNext.Source;
+            animNow.Source = coverNow.Source;
+            animPrevious.Source = coverPrevious.Source;
+            //nacitat z playlistu
+            //animNew.Source = 
+
+            rotatePrevious.Begin();
+
+            coverNow.Source = animPrevious.Source;
+            coverPrevious.Source = animNew.Source;
+            coverNext.Source = animNow.Source;
         }
     }
 }
