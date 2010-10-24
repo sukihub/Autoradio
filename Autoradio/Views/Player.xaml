@@ -9,22 +9,6 @@
            Width="688" Height="480"
            Title="Player Page">
 	<navigation:Page.Resources>
-		<Style x:Key="ProgressBarStyle1" TargetType="ProgressBar">
-			<Setter Property="Template">
-				<Setter.Value>
-					<ControlTemplate TargetType="ProgressBar">
-						<Grid>
-							<VisualStateManager.CustomVisualStateManager>
-								<ei:ExtendedVisualStateManager/>
-							</VisualStateManager.CustomVisualStateManager>
-							<VisualStateManager.VisualStateGroups>
-								<VisualStateGroup x:Name="CommonStates"/>
-							</VisualStateManager.VisualStateGroups>
-						</Grid>
-					</ControlTemplate>
-				</Setter.Value>
-			</Setter>
-		</Style>
 		<Storyboard x:Name="rotateNext">
 			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="animNext">
 				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
@@ -622,9 +606,9 @@
         	<Rectangle x:Name="progressFrame" Opacity="0.2" RadiusY="8" RadiusX="8" Stroke="White" Margin="0,5,0,0" Height="6" VerticalAlignment="Top"/>
         </Grid>
         <TextBlock Margin="0,24,0,36" Grid.Row="1" TextWrapping="Wrap" Text=":" FontSize="96" FontFamily="Candara" HorizontalAlignment="Right" Width="24" Foreground="White" Opacity="0.4"/>
-        <TextBlock x:Name="timeSeconds" Margin="0,24,0,36" Grid.Row="1" TextWrapping="Wrap" Text="46" FontSize="96" FontFamily="Candara" HorizontalAlignment="Left" Width="112" Grid.Column="1" Foreground="White" Opacity="0.4"/>
-        <TextBlock x:Name="timeMinutes" Margin="32,24,24,36" Grid.Row="1" TextWrapping="Wrap" Text="2" FontSize="96" FontFamily="Candara" TextAlignment="Right" Foreground="White" Opacity="0.4"/>
-        <Image x:Name="coverNow" Grid.Column="1" Margin="48,24" Source="cover1.jpg" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+        <TextBlock x:Name="timeSeconds" Margin="0,24,0,36" Grid.Row="1" TextWrapping="Wrap" Text="00" FontSize="96" FontFamily="Candara" HorizontalAlignment="Left" Width="112" Grid.Column="1" Foreground="White" Opacity="0.4"/>
+        <TextBlock x:Name="timeMinutes" Margin="32,24,24,36" Grid.Row="1" TextWrapping="Wrap" Text="0" FontSize="96" FontFamily="Candara" TextAlignment="Right" Foreground="White" Opacity="0.4"/>
+        <Image x:Name="coverNow" Grid.Column="1" Margin="48,24" Source="cover1.jpg" Stretch="Fill" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="coverNow_MouseLeftButtonDown" MouseLeftButtonUp="coverNow_MouseLeftButtonUp" MouseMove="coverNow_MouseMove" MouseLeave="coverNow_MouseLeave">
         	<Image.RenderTransform>
         		<CompositeTransform/>
         	</Image.RenderTransform>
@@ -644,7 +628,7 @@
         	</Image.Effect>
         </Image>
         <Image x:Name="coverNext" Grid.Column="2" Margin="0,112,24,48" Source="cover2.jpg" Stretch="Fill" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="coverNext_MouseLeftButtonDown" >
-        	<Image.RenderTransform>
+            <Image.RenderTransform>
         		<CompositeTransform/>
         	</Image.RenderTransform>
         	<Image.Effect>
@@ -661,7 +645,7 @@
         	</Image.OpacityMask>
         </Image>
         <Image x:Name="coverPrevious" Margin="24,112,0,48" Source="cover3.jpg" Stretch="Fill" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="coverPrevious_MouseLeftButtonDown">
-        	<Image.RenderTransform>
+            <Image.RenderTransform>
         		<CompositeTransform/>
         	</Image.RenderTransform>
         	<Image.OpacityMask>
@@ -680,7 +664,7 @@
         	</Image.Effect>
         </Image>
         <Image x:Name="animNow" Grid.Column="1" Margin="48,24" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
-        	<Image.RenderTransform>
+            <Image.RenderTransform>
         		<CompositeTransform/>
         	</Image.RenderTransform>
         	<Image.OpacityMask>
@@ -702,7 +686,7 @@
         	<Image.Effect>
         		<DropShadowEffect BlurRadius="10" ShadowDepth="7"/>
         	</Image.Effect>
-        	<Image.RenderTransform>
+            <Image.RenderTransform>
         		<CompositeTransform/>
         	</Image.RenderTransform>
         	<Image.OpacityMask>
@@ -719,7 +703,7 @@
         	<Image.Effect>
         		<DropShadowEffect BlurRadius="10" ShadowDepth="7"/>
         	</Image.Effect>
-        	<Image.RenderTransform>
+            <Image.RenderTransform>
         		<CompositeTransform/>
         	</Image.RenderTransform>
         	<Image.OpacityMask>
@@ -735,7 +719,7 @@
         	</Image.OpacityMask>
         </Image>
         <Image x:Name="animNew" Grid.Column="1" Margin="96,-152,112,0" Source="cover4.jpg" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Height="144" VerticalAlignment="Top" Visibility="Collapsed">
-        	<Image.RenderTransform>
+            <Image.RenderTransform>
         		<CompositeTransform/>
         	</Image.RenderTransform>
         	<Image.OpacityMask>

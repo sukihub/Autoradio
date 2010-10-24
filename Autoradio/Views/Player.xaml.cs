@@ -94,5 +94,50 @@ namespace Autoradio.Views
             coverPrevious.Source = animNew.Source;
             coverNext.Source = animNow.Source;
         }
+
+        private Boolean coverMouseDown = false;
+        private Point startPoint, tmpPoint;
+
+        private void coverNow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            coverMouseDown = true;
+            startPoint = e.GetPosition(coverNow);
+        }
+
+        private void coverNow_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            coverMouseDown = false;
+        }
+
+        private void coverNow_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (!coverMouseDown) return;
+
+            //poloha mysky
+            tmpPoint = e.GetPosition(coverNow);
+
+            int xDistance = (int)startPoint.X - (int)tmpPoint.X;
+            int yDistance = (int)startPoint.Y - (int)tmpPoint.Y;
+
+            if (xDistance > 30)
+            {
+                coverNext_MouseLeftButtonDown(sender, null);
+                coverMouseDown = false;
+            }
+            else if (xDistance < -30)
+            {
+                coverPrevious_MouseLeftButtonDown(sender, null);
+                coverMouseDown = false;
+            }
+            else if (yDistance > 50)
+            {
+                stateChanged(State.TurnedOff);
+            }
+        }
+
+        private void coverNow_MouseLeave(object sender, MouseEventArgs e)
+        {
+            coverMouseDown = false;
+        }
     }
 }
