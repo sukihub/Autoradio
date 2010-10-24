@@ -64,5 +64,10 @@ namespace Autoradio.Views
         {
             progressFrameDown = false;
         }
+
+        private void coverNext_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            rotateNext.Begin();
+        }
     }
 }

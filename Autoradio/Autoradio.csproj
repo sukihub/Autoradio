@@ -121,6 +121,10 @@
   <ItemGroup>
     <Resource Include="button_off_Images\Off button.png" />
     <Resource Include="Properties\OutOfBrowserSettings.xml" />
+    <Resource Include="Views\cover1.jpg" />
+    <Resource Include="Views\cover2.jpg" />
+    <Resource Include="Views\cover3.jpg" />
+    <Resource Include="Views\cover4.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\BackgroundBlue.png">
