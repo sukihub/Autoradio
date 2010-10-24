@@ -4,7 +4,7 @@
            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
            xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
-           xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" x:Class="Autoradio.Views.Player"
+           xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" x:Class="Autoradio.Views.Player"
            mc:Ignorable="d"
            Width="688" Height="480"
            Title="Player Page">
@@ -589,6 +589,82 @@
 				<EasingColorKeyFrame KeyTime="0:0:0.8" Value="White"/>
 			</ColorAnimationUsingKeyFrames>
 		</Storyboard>
+		<Storyboard x:Name="Pause">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangle">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.495">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangle1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.495">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="regularPolygon">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseIn"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0.5">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseIn"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Name="Play">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangle">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseIn"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0.5">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseIn"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangle1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseIn"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0.5">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseIn"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="regularPolygon">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.5">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
 	</navigation:Page.Resources>
     <Grid x:Name="LayoutRoot">
     	<Grid.ColumnDefinitions>
@@ -605,9 +681,6 @@
         	<Rectangle x:Name="progressBar" HorizontalAlignment="Left" Margin="4,7,4,0" Stroke="White" Width="0" Opacity="0.495" Height="2" VerticalAlignment="Top" MaxWidth="648"/>
         	<Rectangle x:Name="progressFrame" Opacity="0.2" RadiusY="8" RadiusX="8" Stroke="White" Margin="0,5,0,0" Height="6" VerticalAlignment="Top"/>
         </Grid>
-        <TextBlock Margin="0,24,0,36" Grid.Row="1" TextWrapping="Wrap" Text=":" FontSize="96" FontFamily="Candara" HorizontalAlignment="Right" Width="24" Foreground="White" Opacity="0.4"/>
-        <TextBlock x:Name="timeSeconds" Margin="0,24,0,36" Grid.Row="1" TextWrapping="Wrap" Text="00" FontSize="96" FontFamily="Candara" HorizontalAlignment="Left" Width="112" Grid.Column="1" Foreground="White" Opacity="0.4"/>
-        <TextBlock x:Name="timeMinutes" Margin="32,24,24,36" Grid.Row="1" TextWrapping="Wrap" Text="0" FontSize="96" FontFamily="Candara" TextAlignment="Right" Foreground="White" Opacity="0.4"/>
         <Image x:Name="coverNow" Grid.Column="1" Margin="48,24" Source="cover1.jpg" Stretch="Fill" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="coverNow_MouseLeftButtonDown" MouseLeftButtonUp="coverNow_MouseLeftButtonUp" MouseMove="coverNow_MouseMove" MouseLeave="coverNow_MouseLeave">
         	<Image.RenderTransform>
         		<CompositeTransform/>
@@ -753,5 +826,19 @@
         		<DropShadowEffect ShadowDepth="3"/>
         	</TextBlock.Effect>
         </TextBlock>
+        <Grid x:Name="controlWrapper" Grid.Column="2" Margin="-120,24,24,36" Grid.Row="1" Background="#00000000" MouseLeftButtonDown="controlWrapper_MouseLeftButtonDown">
+        	<Rectangle x:Name="rectangle" Fill="#FFF4F4F5" HorizontalAlignment="Left" Margin="96,48,0,28" Width="24" Opacity="0.495"/>
+        	<Rectangle x:Name="rectangle1" Fill="#FFF4F4F5" HorizontalAlignment="Right" Margin="0,48,104,28" Width="24" Opacity="0.495"/>
+        	<ed:RegularPolygon x:Name="regularPolygon" Fill="#FFF4F4F5" InnerRadius="1" Margin="108,36,116,16" PointCount="3" Stretch="Fill" UseLayoutRounding="False" RenderTransformOrigin="0.5,0.5" Opacity="0">
+        		<ed:RegularPolygon.RenderTransform>
+        			<CompositeTransform Rotation="90"/>
+        		</ed:RegularPolygon.RenderTransform>
+        	</ed:RegularPolygon>
+        </Grid>
+        <Grid x:Name="timeWrapper" Margin="24,24,-120,36" Grid.Row="1" Background="#00000000">
+        	<TextBlock Margin="120,0" TextWrapping="Wrap" Text=":" FontSize="96" FontFamily="Candara" Foreground="White" Opacity="0.4"/>
+        	<TextBlock x:Name="timeSeconds" Margin="0,0,8,0" TextWrapping="Wrap" Text="00" FontSize="96" FontFamily="Candara" HorizontalAlignment="Right" Width="112" Foreground="White" Opacity="0.4"/>
+        	<TextBlock x:Name="timeMinutes" Margin="8,0,0,0" TextWrapping="Wrap" Text="0" FontSize="96" FontFamily="Candara" TextAlignment="Right" Foreground="White" Opacity="0.4" HorizontalAlignment="Left" Width="112"/>
+        </Grid>
     </Grid>
 </navigation:Page>
