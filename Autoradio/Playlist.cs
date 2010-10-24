@@ -15,10 +15,10 @@ namespace Autoradio
 {
     public struct PlaylistItem
     {
-        public string uri, title, artist;
+        public string uri, title, artist, radioName;
 
         public TimeSpan duration;
-        public float frequency;
+        public double frequency;
 
         public BitmapImage cover;
     }
@@ -101,9 +101,10 @@ namespace Autoradio
                     items[i].artist = null;
                 }
 
+                items[i].radioName = "Radio " + (i+1).ToString();
                 items[i].cover = null;
                 items[i].duration = new TimeSpan(0, rand.Next(10), rand.Next(60));
-                items[i].frequency = (float)rand.NextDouble() * 100;
+                items[i].frequency = Math.Round( (87 + (float)rand.NextDouble() * 21), 1);
             }
         }
     }

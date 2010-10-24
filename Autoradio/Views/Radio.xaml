@@ -15,16 +15,33 @@
 		</Storyboard>
 	</navigation:Page.Resources>
     <Grid x:Name="LayoutRoot">
-    	<Image Height="110" Source="radio.png" Stretch="Fill" VerticalAlignment="Bottom"/>
+        <Image x:Name="radioImage" Height="110" Source="radio.png" Stretch="Fill" VerticalAlignment="Bottom" MouseLeftButtonDown="radioDown_MouseLeftButtonDown" MouseLeftButtonUp="radioDown_MouseLeftButtonUp" MouseMove="radioDown_MouseMove" MouseLeave="coverNow_MouseLeave" />
     	<Image x:Name="image" Height="72" Margin="-155,0,-155,18" Source="frekvencie.png" Stretch="Fill" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5">
     		<Image.RenderTransform>
     			<CompositeTransform/>
     		</Image.RenderTransform>
     	</Image>
-    	<Image Height="110" Source="gradient_gradient.png" Stretch="Fill" VerticalAlignment="Bottom"/>
+        <Image x:Name="Gradient" Height="110" Source="gradient_gradient.png" Stretch="Fill" VerticalAlignment="Bottom" MouseLeftButtonDown="radioDown_MouseLeftButtonDown" MouseLeftButtonUp="radioDown_MouseLeftButtonUp" MouseMove="radioDown_MouseMove" MouseLeave="coverNow_MouseLeave"/>
     	<Image Height="73" Width="8" Margin="316,0" Source="palicka.png" Stretch="Fill" VerticalAlignment="Bottom"/>
-    	<Button x:Name="button_left" Content="Left" Height="37" Margin="243,0,316,138" VerticalAlignment="Bottom" Click="button_left_Click"/>
-    	<Button x:Name="button_right" Content="Right" HorizontalAlignment="Right" Height="37" Margin="0,0,222,138" VerticalAlignment="Bottom" Width="90" Click="button_right_Click" />
-    	<TextBlock x:Name="frekvencia_text" Margin="222,132,213,0" TextWrapping="Wrap" FontSize="64" Height="106" VerticalAlignment="Top"/>
+        <TextBlock x:Name="frekvencia_text" Margin="137,54,137,0" TextWrapping="Wrap" FontSize="100" Height="151" VerticalAlignment="Top" TextAlignment="Center" Text="98,5" FontWeight="Bold">
+    		<TextBlock.Foreground>
+    			<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+    				<GradientStop Color="#FFC6C6C6" Offset="0"/>
+    				<GradientStop Color="White" Offset="1"/>
+    			</LinearGradientBrush>
+    		</TextBlock.Foreground>
+    		<TextBlock.Effect>
+    			<DropShadowEffect ShadowDepth="0" BlurRadius="38" Direction="300"/>
+    		</TextBlock.Effect></TextBlock>
+    	<TextBlock x:Name="nazov_stanice" Margin="80,176,80,0" TextWrapping="Wrap" FontSize="40" TextAlignment="Center" FontWeight="Bold" Height="57" VerticalAlignment="Top">
+    		<TextBlock.Foreground>
+    			<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+    				<GradientStop Color="#FFC6C6C6" Offset="0"/>
+    				<GradientStop Color="White" Offset="1"/>
+    			</LinearGradientBrush>
+    		</TextBlock.Foreground>
+    		<TextBlock.Effect>
+    			<DropShadowEffect ShadowDepth="0" BlurRadius="38" Direction="300"/>
+    		</TextBlock.Effect></TextBlock>
     </Grid>
 </navigation:Page>
