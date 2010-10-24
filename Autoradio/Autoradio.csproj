@@ -84,11 +84,20 @@
     <Compile Include="Playlist.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Helpers.cs" />
+    <Compile Include="SampleData\SampleDataSource1\SampleDataSource1.xaml.cs">
+      <DependentUpon>SampleDataSource1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SampleData\SampleDataSource\SampleDataSource.xaml.cs">
+      <DependentUpon>SampleDataSource.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\basic.xaml.cs">
       <DependentUpon>basic.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Player.xaml.cs">
       <DependentUpon>Player.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PlaylistView.xaml.cs">
+      <DependentUpon>PlaylistView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Radio.xaml.cs">
       <DependentUpon>Radio.xaml</DependentUpon>
@@ -103,11 +112,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="SampleData\SampleDataSource1\SampleDataSource1.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SampleData\SampleDataSource\SampleDataSource.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\basic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Player.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PlaylistView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -118,10 +139,25 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
+    <DesignTimeOnly Include="SampleData\SampleDataSource\SampleDataSource.xsd" />
+    <DesignTimeOnly Include="SampleData\SampleDataSource1\SampleDataSource1.xsd" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="button_off_Images\Off button.png" />
     <Resource Include="Properties\OutOfBrowserSettings.xml" />
+    <Resource Include="SampleData\SampleDataSource1\SampleDataSource1_Files\image01.png" />
+    <Resource Include="SampleData\SampleDataSource1\SampleDataSource1_Files\image02.png" />
+    <Resource Include="SampleData\SampleDataSource1\SampleDataSource1_Files\image03.png" />
+    <Resource Include="SampleData\SampleDataSource1\SampleDataSource1_Files\image04.png" />
+    <Resource Include="SampleData\SampleDataSource1\SampleDataSource1_Files\image05.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\BackgroundBlue.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\BackgroundPurple.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\default.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\image01.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\image02.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\image03.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\image04.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\image05.png" />
     <Resource Include="Views\cover1.jpg" />
     <Resource Include="Views\cover2.jpg" />
     <Resource Include="Views\cover3.jpg" />

@@ -51,6 +51,77 @@
 				</DiscreteObjectKeyFrame>
 			</ObjectAnimationUsingKeyFrames>
 		</Storyboard>
+		<Storyboard x:Name="PlaylistShow">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="AboveContent">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseIn"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseIn"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="AboveContent">
+				<DiscreteObjectKeyFrame KeyTime="0">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Visible</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+			</ObjectAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Content">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0.1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Name="PlaylistHide">
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="AboveContent">
+				<DiscreteObjectKeyFrame KeyTime="0">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Visible</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.5">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Collapsed</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+			</ObjectAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Content">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseIn"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseIn"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="AboveContent">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
 	</UserControl.Resources>
 
     <Grid x:Name="MainWindow">
@@ -65,7 +136,7 @@
 		</Grid.Background>		
 		<Image x:Name="AnimationTmpImage" Stretch="Fill" Grid.ColumnSpan="3" Visibility="Collapsed" />
 
-        <navigation:Frame x:Name="Content" Grid.Row="0" Grid.Column="1" BorderBrush="{x:Null}" Background="{x:Null}" Navigated="Content_Navigated"/>
+        <navigation:Frame x:Name="Content" Grid.Row="0" Grid.Column="1" BorderBrush="{x:Null}" Background="{x:Null}" Navigated="Content_Navigated" JournalOwnership="OwnsJournal"/>
 
         <Rectangle x:Name="LeftPanel" Fill="Black" Stroke="Black" Grid.Row="0" Grid.Column="0">
 			<Rectangle.Effect>
@@ -79,7 +150,7 @@
 			</Rectangle.Effect>
 		</Rectangle>
 		
-		
+		<navigation:Frame x:Name="AboveContent" Grid.Row="0" Grid.Column="1" BorderBrush="{x:Null}" Background="{x:Null}" JournalOwnership="OwnsJournal" IsHitTestVisible="False" Visibility="Collapsed" Navigated="AboveContent_Navigated" />
 		
 		<Button x:Name="buttonOff" Content="" Grid.Column="2" HorizontalAlignment="Right" Height="32" Margin="0,8,8,0" Style="{StaticResource ButtonOff}" VerticalAlignment="Top" Width="40" Click="ButtonOff_Click" />
     </Grid>

@@ -15,12 +15,14 @@ namespace Autoradio
 {
     public struct PlaylistItem
     {
-        public string uri, title, artist;
+        public string uri { get; set; }
+        public string title { get; set; }
+        public string artist { get; set; }
 
-        public TimeSpan duration;
-        public float frequency;
+        public TimeSpan duration { get; set; }
+        public float frequency { get; set; }
 
-        public BitmapImage cover;
+        public BitmapImage cover { get; set; }
     }
 
     public class Playlist
