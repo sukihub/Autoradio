@@ -17,6 +17,7 @@ namespace Autoradio.Views
     public partial class Player : Page, IModuleInterface
     {
         private StateChangedNotify stateChanged;
+        private State state = State.Playing;
 
         public Player()
         {
@@ -129,7 +130,7 @@ namespace Autoradio.Views
                 coverPrevious_MouseLeftButtonDown(sender, null);
                 coverMouseDown = false;
             }
-            else if (yDistance > 50)
+            else if (yDistance > 70)
             {
                 stateChanged(State.TurnedOff);
             }
@@ -138,6 +139,22 @@ namespace Autoradio.Views
         private void coverNow_MouseLeave(object sender, MouseEventArgs e)
         {
             coverMouseDown = false;
+        }
+
+        private void controlWrapper_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (state == State.Playing)
+            {
+                state = State.Paused;
+                Pause.Begin();
+            }
+            else
+            {
+                state = State.Playing;
+                Play.Begin();
+            }
+
+            stateChanged(state);
         }
     }
 }

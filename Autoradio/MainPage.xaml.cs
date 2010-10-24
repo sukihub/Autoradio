@@ -19,13 +19,17 @@ namespace Autoradio
     {
         //instacia aktualne zobrazenej stranky
         private IModuleInterface current;
+        private Boolean player = true;
 
         //playlist
         private Playlist playlist = new Playlist();
 
         //URI modulov
         private Uri RadioUri = new Uri("/Views/Radio.xaml", UriKind.Relative);
-        private Uri PlayerUri;
+        private Uri PlayerUri = new Uri("/Views/Player.xaml", UriKind.Relative);
+
+        //pozadia
+        BitmapImage backRadio, backPlayer, backPaused;
 
         //stav prehravaca
         private State state;
@@ -33,7 +37,13 @@ namespace Autoradio
         public MainPage()
         {
             InitializeComponent();
-            PlayerUri = Content.Source;
+
+            backRadio = new BitmapImage(new Uri("/Views/BackgroundPurple.png", UriKind.Relative));
+            backPlayer = new BitmapImage(new Uri("/Views/BackgroundBlue.png", UriKind.Relative));
+            backPaused = new BitmapImage(new Uri("/Views/BackgroundYellow.png", UriKind.Relative));
+
+            BackgroundImage.ImageSource = backPlayer;
+            Content.Navigate(PlayerUri);
         }
 
         /**
@@ -61,20 +71,32 @@ namespace Autoradio
         public void stateChanged(State newState)
         {
             this.state = newState;
+            ImageSource tmp = backPaused;
 
-            //if (newState != State.TurnedOff) return;
+            switch (newState)
+            { 
+                case State.TurnedOff:
+                    tmp = (this.player) ? backRadio : backPlayer;
+                    Content.Navigate((this.player) ? RadioUri : PlayerUri);
+                    this.player = !this.player;
+                    break;
 
-            ImageSource tmp = AnimationTmpImage.Source;
+                case State.Paused:
+                    tmp = backPaused;
+                    break;
 
+                case State.Playing:
+                    tmp = (this.player) ? backPlayer : backRadio;
+                    break;
+            }
+            
             AnimationTmpImage.Source = BackgroundImage.ImageSource;
             AnimationTmpImage.Visibility = Visibility.Visible;
-            AnimationTmpImage.Opacity = 1.0;
-
             BackgroundImage.ImageSource = tmp;
 
             BackgroundSwap.Begin();
 
-            Content.Navigate(RadioUri);
+            
         }
     }
 }
