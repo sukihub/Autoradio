@@ -16,6 +16,7 @@ namespace Autoradio
     public struct PlaylistItem
     {
         public string uri { get; set; }
+        public string radioName { get; set; }
         public string title { get; set; }
         public string artist { get; set; }
 
@@ -103,9 +104,10 @@ namespace Autoradio
                     items[i].artist = null;
                 }
 
+                items[i].radioName = "Radio " + (i+1).ToString();
                 items[i].cover = null;
                 items[i].duration = new TimeSpan(0, rand.Next(10), rand.Next(60));
-                items[i].frequency = (float)rand.NextDouble() * 100;
+                items[i].frequency = (float) Math.Round( (87 + (float)rand.NextDouble() * 21), 1);
             }
         }
     }
