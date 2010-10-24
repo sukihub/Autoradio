@@ -125,6 +125,11 @@
     <Resource Include="Views\cover2.jpg" />
     <Resource Include="Views\cover3.jpg" />
     <Resource Include="Views\cover4.jpg" />
+    <Resource Include="Views\frekvencie.png" />
+    <Resource Include="Views\gradient_gradient.png" />
+    <Resource Include="Views\palicka.png" />
+    <Resource Include="Views\radio-skin_02.png" />
+    <Resource Include="Views\radio.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\BackgroundBlue.png">

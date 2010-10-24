@@ -65,13 +65,16 @@
 		</Grid.Background>		
 		<Image Source="/Views/BackgroundPurple.png" x:Name="AnimationTmpImage" Stretch="Fill" Grid.ColumnSpan="3" Visibility="Collapsed" />
 		
+		
+		
+		<navigation:Frame x:Name="Content" Grid.Row="0" Grid.Column="1" Source="/Views/Player.xaml" BorderBrush="{x:Null}" Background="{x:Null}" Navigated="Content_Navigated"/>
+		
 		<Rectangle x:Name="LeftPanel" Fill="Black" Stroke="Black" Grid.Row="0" Grid.Column="0">
 			<Rectangle.Effect>
 				<DropShadowEffect Direction="0" BlurRadius="10" ShadowDepth="3"/>
 			</Rectangle.Effect>
 		</Rectangle>
 		
-		<navigation:Frame x:Name="Content" Grid.Row="0" Grid.Column="1" Source="/Views/Player.xaml" BorderBrush="{x:Null}" Background="{x:Null}" Navigated="Content_Navigated"/>
 		
 		<Rectangle x:Name="RightPanel" Fill="Black" Stroke="Black" Grid.Row="0" Grid.Column="2">
 			<Rectangle.Effect>
