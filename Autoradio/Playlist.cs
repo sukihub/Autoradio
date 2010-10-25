@@ -23,7 +23,7 @@ namespace Autoradio
         public TimeSpan duration { get; set; }
         public float frequency { get; set; }
 
-        public BitmapImage cover { get; set; }
+        public ImageSource cover { get; set; }
     }
 
     public class Playlist
@@ -88,24 +88,22 @@ namespace Autoradio
         {
             items = new PlaylistItem[10];
             int i;
+            BitmapImage[] img = new BitmapImage[4];
+
+            img[0] = new BitmapImage(new Uri("cover1.jpg", UriKind.Relative));
+            img[1] = new BitmapImage(new Uri("cover2.jpg", UriKind.Relative));
+            img[2] = new BitmapImage(new Uri("cover3.jpg", UriKind.Relative));
+            img[3] = new BitmapImage(new Uri("cover4.jpg", UriKind.Relative));
 
             for (i = 0; i < 10; i++)
             {
                 items[i].uri = i.ToString() + ". subor";
 
-                if (rand.Next(3) == 1)
-                {
-                    items[i].title = "Nazov prehravanej pesnicky";
-                    items[i].artist = "Super cool interpret";
-                }
-                else
-                {
-                    items[i].title = null;
-                    items[i].artist = null;
-                }
-
+                items[i].title = "Nazov prehravanej pesnicky";
+                items[i].artist = "Super cool interpret";
+                
                 items[i].radioName = "Radio " + (i+1).ToString();
-                items[i].cover = null;
+                items[i].cover = img[rand.Next(4)];
                 items[i].duration = new TimeSpan(0, rand.Next(10), rand.Next(60));
                 items[i].frequency = (float) Math.Round( (87 + (float)rand.NextDouble() * 21), 1);
             }

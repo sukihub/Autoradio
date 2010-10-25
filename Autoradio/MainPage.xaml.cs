@@ -102,6 +102,14 @@ namespace Autoradio
                     AboveContent.IsHitTestVisible = true;
                     AboveContent.Navigate(PlaylistUri);
                     break;
+
+                case State.PlaylistOff:
+                    PlaylistHide.Begin();
+                    Content.IsHitTestVisible = true;
+                    AboveContent.IsHitTestVisible = false;
+                    //TODO tmp odnavigovat prec
+                    //AboveContent.
+                    break;
             }
 
             if (tmp == null) return;
