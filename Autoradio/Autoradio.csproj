@@ -143,6 +143,7 @@
     <Resource Include="SampleData\SampleDataSource1\SampleDataSource1_Files\image04.png" />
     <Resource Include="SampleData\SampleDataSource1\SampleDataSource1_Files\image05.png" />
     <Resource Include="Views\back_Images\Image.png" />
+    <Resource Include="Views\cd_Images\Image.png" />
     <Resource Include="Views\cover1.jpg" />
     <Resource Include="Views\cover2.jpg" />
     <Resource Include="Views\cover3.jpg" />
@@ -152,9 +153,10 @@
     <Resource Include="Views\palicka.png" />
     <Resource Include="Views\radio-skin_02.png" />
     <Resource Include="Views\radio.png" />
+    <Resource Include="Views\radio_Images\Image.png" />
     <Resource Include="Views\repeat_Images\Image.png" />
-    <Resource Include="Views\repeat_Images\media-repeat-alt.png" />
     <Resource Include="Views\shuffle_Images\Image.png" />
+    <Resource Include="Views\usb_Images\Image.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\BackgroundBlue.png">

@@ -676,7 +676,6 @@
     		<RowDefinition Height="0.633*"/>
     		<RowDefinition Height="0.367*"/>
     	</Grid.RowDefinitions>
-        <Button Content="Button" Height="9" HorizontalAlignment="Left" x:Name="button1" VerticalAlignment="Top" Width="14" Click="button1_Click" />
         <Grid x:Name="progressArea" Height="24" VerticalAlignment="Bottom" MouseLeftButtonDown="progressFrame_MouseLeftButtonDown" MouseMove="progressFrame_MouseMove" MouseLeftButtonUp="progressFrame_MouseLeftButtonUp" Background="#00000000" Grid.Row="1" Grid.ColumnSpan="3" Margin="16,0">
         	<Rectangle x:Name="progressBar" HorizontalAlignment="Left" Margin="4,7,4,0" Stroke="White" Width="0" Opacity="0.495" Height="2" VerticalAlignment="Top" MaxWidth="648"/>
         	<Rectangle x:Name="progressFrame" Opacity="0.2" RadiusY="8" RadiusX="8" Stroke="White" Margin="0,5,0,0" Height="6" VerticalAlignment="Top"/>

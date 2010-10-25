@@ -17,6 +17,8 @@ namespace Autoradio
 {
     public partial class MainPage : UserControl
     {
+        //static public MainPage mainPage;
+
         //instacia aktualne zobrazenej stranky
         private IModuleInterface current, aboveCurrent;
         private Boolean player = true;
@@ -38,6 +40,8 @@ namespace Autoradio
         public MainPage()
         {
             InitializeComponent();
+
+            //mainPage = this;
 
             backRadio = new BitmapImage(new Uri("/Views/BackgroundPurple.png", UriKind.Relative));
             backPlayer = new BitmapImage(new Uri("/Views/BackgroundBlue.png", UriKind.Relative));
@@ -100,7 +104,7 @@ namespace Autoradio
                     PlaylistShow.Begin();
                     Content.IsHitTestVisible = false;
                     AboveContent.IsHitTestVisible = true;
-                    AboveContent.Navigate(PlaylistUri);
+                    if (AboveContent.Source != PlaylistUri) AboveContent.Navigate(PlaylistUri);
                     break;
 
                 case State.PlaylistOff:

@@ -4,7 +4,7 @@
            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
            xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
-           xmlns:SampleData="clr-namespace:Expression.Blend.SampleData.SampleDataSource" xmlns:SampleData1="clr-namespace:Expression.Blend.SampleData.SampleDataSource1" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" x:Class="Autoradio.Views.PlaylistView"
+           xmlns:SampleData="clr-namespace:Expression.Blend.SampleData.SampleDataSource1" xmlns:SampleData1="clr-namespace:Expression.Blend.SampleData.SampleDataSource1" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" x:Class="Autoradio.Views.PlaylistView"
            mc:Ignorable="d"
            Width="688" Height="480"
            Title="PlaylistView Page">
@@ -16,7 +16,7 @@
 					<ColumnDefinition Width="67"/>
 					<ColumnDefinition />
 				</Grid.ColumnDefinitions>
-				<Image Source="{Binding cover}" d:LayoutOverrides="HorizontalAlignment" Height="43" Grid.Column="0" VerticalAlignment="Top" Margin="16,3,8,0" Width="43" Stretch="Fill">
+				<Image Source="{Binding cover}" d:LayoutOverrides="HorizontalAlignment" Height="43" Grid.Column="0" VerticalAlignment="Top" Margin="16,2,8,0" Width="43" Stretch="Fill">
 					<Image.Effect>
 						<DropShadowEffect ShadowDepth="2"/>
 					</Image.Effect>
@@ -47,6 +47,9 @@
 						<Grid Background="{TemplateBinding Background}">
 							<VisualStateManager.VisualStateGroups>
 								<VisualStateGroup x:Name="CommonStates">
+									<VisualStateGroup.Transitions>
+										<VisualTransition GeneratedDuration="0:0:0.1"/>
+									</VisualStateGroup.Transitions>
 									<VisualState x:Name="Normal"/>
 									<VisualState x:Name="MouseOver">
 										<Storyboard>
@@ -60,72 +63,36 @@
 									</VisualState>
 								</VisualStateGroup>
 								<VisualStateGroup x:Name="SelectionStates">
+									<VisualStateGroup.Transitions>
+										<VisualTransition GeneratedDuration="0:0:0.1"/>
+									</VisualStateGroup.Transitions>
 									<VisualState x:Name="Unselected"/>
 									<VisualState x:Name="Selected">
 										<Storyboard>
-											<DoubleAnimation Duration="0" To=".75" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="fillColor2"/>
+											<DoubleAnimation Duration="0" To="0.8" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="fillColor2"/>
+											<ColorAnimation Duration="0" To="#FF001A2B" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="fillColor2" d:IsOptimized="True"/>
 										</Storyboard>
 									</VisualState>
 									<VisualState x:Name="SelectedUnfocused"/>
 								</VisualStateGroup>
 								<VisualStateGroup x:Name="FocusStates">
-									<VisualState x:Name="Focused">
-										<Storyboard>
-											<ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Visibility" Storyboard.TargetName="FocusVisualElement">
-												<DiscreteObjectKeyFrame KeyTime="0">
-													<DiscreteObjectKeyFrame.Value>
-														<Visibility>Visible</Visibility>
-													</DiscreteObjectKeyFrame.Value>
-												</DiscreteObjectKeyFrame>
-											</ObjectAnimationUsingKeyFrames>
-										</Storyboard>
-									</VisualState>
+									<VisualState x:Name="Focused"/>
 									<VisualState x:Name="Unfocused"/>
 								</VisualStateGroup>
 								<VisualStateGroup x:Name="LayoutStates">
-									<VisualStateGroup.Transitions>
-										<VisualTransition GeneratedDuration="0" To="AfterLoaded">
-											<Storyboard>
-												<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="contentPresenter">
-													<EasingDoubleKeyFrame KeyTime="0" Value="-50">
-														<EasingDoubleKeyFrame.EasingFunction>
-															<SineEase EasingMode="EaseOut"/>
-														</EasingDoubleKeyFrame.EasingFunction>
-													</EasingDoubleKeyFrame>
-													<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
-														<EasingDoubleKeyFrame.EasingFunction>
-															<SineEase EasingMode="EaseOut"/>
-														</EasingDoubleKeyFrame.EasingFunction>
-													</EasingDoubleKeyFrame>
-												</DoubleAnimationUsingKeyFrames>
-												<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="contentPresenter">
-													<EasingDoubleKeyFrame KeyTime="0" Value="0.1">
-														<EasingDoubleKeyFrame.EasingFunction>
-															<SineEase EasingMode="EaseOut"/>
-														</EasingDoubleKeyFrame.EasingFunction>
-													</EasingDoubleKeyFrame>
-													<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1">
-														<EasingDoubleKeyFrame.EasingFunction>
-															<SineEase EasingMode="EaseOut"/>
-														</EasingDoubleKeyFrame.EasingFunction>
-													</EasingDoubleKeyFrame>
-												</DoubleAnimationUsingKeyFrames>
-											</Storyboard>
-										</VisualTransition>
-									</VisualStateGroup.Transitions>
 									<VisualState x:Name="AfterLoaded"/>
 									<VisualState x:Name="BeforeLoaded"/>
 									<VisualState x:Name="BeforeUnloaded"/>
 								</VisualStateGroup>
 							</VisualStateManager.VisualStateGroups>
-							<Rectangle x:Name="fillColor" Fill="#FFBADDE9" IsHitTestVisible="False" Opacity="0" RadiusY="6" RadiusX="6"/>
-							<Rectangle x:Name="fillColor2" Fill="#FFBADDE9" IsHitTestVisible="False" Opacity="0" RadiusY="6" RadiusX="6"/>
+							<Rectangle x:Name="fillColor" Fill="#FF002040" IsHitTestVisible="False" Opacity="0" RadiusY="6" RadiusX="6"/>
+							<Rectangle x:Name="fillColor2" Fill="#FF000020" IsHitTestVisible="False" Opacity="0" RadiusY="6" RadiusX="6"/>
 							<ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RenderTransformOrigin="0.5,0.5">
 								<ContentPresenter.RenderTransform>
 									<CompositeTransform/>
 								</ContentPresenter.RenderTransform>
 							</ContentPresenter>
-							<Rectangle x:Name="FocusVisualElement" RadiusY="6" RadiusX="6" Stroke="#FF6DBDD1" StrokeThickness="1" Visibility="Collapsed"/>
+							<Rectangle x:Name="FocusVisualElement" RadiusY="6" RadiusX="6" Stroke="#FF000010" StrokeThickness="1" Visibility="Collapsed"/>
 						</Grid>
 					</ControlTemplate>
 				</Setter.Value>
@@ -223,6 +190,81 @@
 				</Setter.Value>
 			</Setter>
 		</Style>
+		<Style x:Key="RadioStyle" TargetType="RadioButton">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="RadioButton">
+						<Canvas x:Name="radio" Clip="M0,0L56,0 56,56 0,56z" UseLayoutRounding="False" Opacity="0.5">
+							<VisualStateManager.VisualStateGroups>
+								<VisualStateGroup x:Name="CheckStates">
+									<VisualStateGroup.Transitions>
+										<VisualTransition GeneratedDuration="0:0:0.2"/>
+									</VisualStateGroup.Transitions>
+									<VisualState x:Name="Checked">
+										<Storyboard>
+											<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="radio" d:IsOptimized="True"/>
+										</Storyboard>
+									</VisualState>
+									<VisualState x:Name="Unchecked"/>
+									<VisualState x:Name="Indeterminate"/>
+								</VisualStateGroup>
+							</VisualStateManager.VisualStateGroups>
+							<Image x:Name="PsdLayer" Height="56" Canvas.Left="0" Source="radio_Images/Image.png" Canvas.Top="0" Width="56"/>
+						</Canvas>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style x:Key="DiscStyle" TargetType="RadioButton">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="RadioButton">
+						<Canvas x:Name="cd" Clip="M0,0L56,0 56,56 0,56z" UseLayoutRounding="False" Opacity="0.5">
+							<VisualStateManager.VisualStateGroups>
+								<VisualStateGroup x:Name="CheckStates">
+									<VisualStateGroup.Transitions>
+										<VisualTransition GeneratedDuration="0:0:0.2"/>
+									</VisualStateGroup.Transitions>
+									<VisualState x:Name="Checked">
+										<Storyboard>
+											<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="cd" d:IsOptimized="True"/>
+										</Storyboard>
+									</VisualState>
+									<VisualState x:Name="Unchecked"/>
+									<VisualState x:Name="Indeterminate"/>
+								</VisualStateGroup>
+							</VisualStateManager.VisualStateGroups>
+							<Image x:Name="PsdLayer1" Height="56" Canvas.Left="0" Source="cd_Images/Image.png" Width="56"/>
+						</Canvas>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style x:Key="UsbStyle" TargetType="RadioButton">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="RadioButton">
+						<Canvas x:Name="usb" Clip="M0,0L56,0 56,56 0,56z" UseLayoutRounding="False" Opacity="0.5">
+							<VisualStateManager.VisualStateGroups>
+								<VisualStateGroup x:Name="CheckStates">
+									<VisualStateGroup.Transitions>
+										<VisualTransition GeneratedDuration="0:0:0.2"/>
+									</VisualStateGroup.Transitions>
+									<VisualState x:Name="Checked">
+										<Storyboard>
+											<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="usb" d:IsOptimized="True"/>
+										</Storyboard>
+									</VisualState>
+									<VisualState x:Name="Unchecked"/>
+									<VisualState x:Name="Indeterminate"/>
+								</VisualStateGroup>
+							</VisualStateManager.VisualStateGroups>
+							<Image x:Name="PsdLayer2" Height="56" Canvas.Left="0" Source="usb_Images/Image.png" Width="56"/>
+						</Canvas>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
 		
 	</navigation:Page.Resources>
 	<Grid x:Name="LayoutRoot">
@@ -231,10 +273,13 @@
 			<ColumnDefinition Width="0.244*"/>
 		</Grid.ColumnDefinitions>
 		<ListBox x:Name="List" Margin="96,16,16,24" Background="{x:Null}" BorderBrush="{x:Null}" DataContext="{Binding}" ItemTemplate="{StaticResource ItemTemplate}" ItemsSource="{Binding Collection, Source={StaticResource SampleDataSource1}}" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden" ItemContainerStyle="{StaticResource ListBoxItemStyle1}" />
-		<CheckBox x:Name="Repeat" Content="CheckBox" Grid.Column="1" HorizontalAlignment="Left" Height="56" Margin="8,0,0,40" Style="{StaticResource RepeatStyle}" VerticalAlignment="Bottom" Width="56" Click="Repeat_Click" />
-		<CheckBox x:Name="Shuffle" Content="CheckBox" Grid.Column="1" Height="56" Margin="80,0,32,40" Style="{StaticResource ShuffleStyle}" VerticalAlignment="Bottom" Click="Shuffle_Click"/>
-		<Grid x:Name="BackArea" HorizontalAlignment="Left" Margin="8,8,0,8" Width="72" Background="#00000000" MouseLeftButtonDown="BackArea_MouseLeftButtonDown">
-			<Button x:Name="Back" Content="Button" Height="50" Margin="8,16,8,0" Style="{StaticResource BackStyle}" VerticalAlignment="Top" Click="Back_Click" />
+		<CheckBox x:Name="Repeat" Grid.Column="1" HorizontalAlignment="Left" Height="56" Margin="8,0,0,40" Style="{StaticResource RepeatStyle}" VerticalAlignment="Bottom" Width="56" Click="Repeat_Click" />
+		<CheckBox x:Name="Shuffle" Grid.Column="1" Height="56" Margin="80,0,32,40" Style="{StaticResource ShuffleStyle}" VerticalAlignment="Bottom" Click="Shuffle_Click"/>
+		<Grid x:Name="BackArea" HorizontalAlignment="Left" Margin="0,8" Width="88" Background="#00000000" MouseLeftButtonDown="BackArea_MouseLeftButtonDown">
+			<Button x:Name="Back" Height="50" Margin="24,24,8,0" Style="{StaticResource BackStyle}" VerticalAlignment="Top" Click="Back_Click" />
 		</Grid>
+		<RadioButton x:Name="Radio" Grid.Column="1" Height="56" Margin="80,32,32,0" Style="{StaticResource RadioStyle}" VerticalAlignment="Top" GroupName="PlaylistSrc" Checked="Radio_Checked"/>
+		<RadioButton x:Name="Disc" Grid.Column="1" Height="56" Margin="80,176,32,0" Style="{StaticResource DiscStyle}" VerticalAlignment="Top" GroupName="PlaylistSrc" Checked="Disc_Checked"/>
+		<RadioButton x:Name="Usb" Grid.Column="1" Height="56" Margin="80,104,32,0" Style="{StaticResource UsbStyle}" VerticalAlignment="Top" GroupName="PlaylistSrc" IsChecked="True" Checked="Usb_Checked"/>
 	</Grid>
 </navigation:Page>

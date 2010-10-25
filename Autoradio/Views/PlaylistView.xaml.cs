@@ -19,6 +19,8 @@ namespace Autoradio.Views
         private Playlist playlist;
         private StateChangedNotify stateChanged;
 
+        private Boolean player = true;
+
         public PlaylistView()
         {
             InitializeComponent();
@@ -52,12 +54,39 @@ namespace Autoradio.Views
 
         private void BackArea_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            //stateChanged(State.PlaylistOff);
+            stateChanged(State.PlaylistOff);
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
             stateChanged(State.PlaylistOff);
+        }
+
+        private void Radio_Checked(object sender, RoutedEventArgs e)
+        {
+            if (player)
+            {
+                stateChanged(State.TurnedOff);
+                player = false;
+            }
+        }
+
+        private void Disc_Checked(object sender, RoutedEventArgs e)
+        {
+            if (!player)
+            {
+                stateChanged(State.TurnedOff);
+                player = true;
+            }
+        }
+
+        private void Usb_Checked(object sender, RoutedEventArgs e)
+        {
+            if (!player)
+            {
+                stateChanged(State.TurnedOff);
+                player = true;
+            }
         }
     }
 }
