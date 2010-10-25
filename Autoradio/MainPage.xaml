@@ -56,7 +56,7 @@
     <Grid x:Name="MainWindow">
     	<Grid.ColumnDefinitions>
     		<ColumnDefinition Width="56"/>
-    		<ColumnDefinition/>
+    		<ColumnDefinition Width="688"/>
     		<ColumnDefinition Width="56"/>
     	</Grid.ColumnDefinitions>
 		
@@ -82,5 +82,10 @@
 		
 		
 		<Button x:Name="buttonOff" Content="" Grid.Column="2" HorizontalAlignment="Right" Height="32" Margin="0,8,8,0" Style="{StaticResource ButtonOff}" VerticalAlignment="Top" Width="40" Click="ButtonOff_Click" />
+		<Slider Margin="-209,226,-206,226" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Style="{StaticResource AutoradioSlideSkin}">
+			<Slider.RenderTransform>
+				<CompositeTransform Rotation="90"/>
+			</Slider.RenderTransform>
+		</Slider>
     </Grid>
 </UserControl>
