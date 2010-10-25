@@ -20,7 +20,10 @@ namespace Autoradio
         //instacia aktualne zobrazenej stranky
         private IModuleInterface current, aboveCurrent;
         private Boolean player = true;
+        private Boolean vysunMenu = false;
 
+        private Menu menu;
+		
         //playlist
         private Playlist playlist = new Playlist();
 
@@ -28,7 +31,8 @@ namespace Autoradio
         private Uri RadioUri = new Uri("/Views/Radio.xaml", UriKind.Relative);
         private Uri PlayerUri = new Uri("/Views/Player.xaml", UriKind.Relative);
         private Uri PlaylistUri = new Uri("/Views/PlaylistView.xaml", UriKind.Relative);
-
+		private Uri MenuUri = new Uri("/Views/Menu.xaml", UriKind.Relative);
+		
         //pozadia
         BitmapImage backRadio, backPlayer, backPaused;
 
@@ -68,7 +72,14 @@ namespace Autoradio
         {
             aboveCurrent = (IModuleInterface) e.Content;
             aboveCurrent.initialize(stateChanged, playlist);
-        }
+
+           //ak bolo nacitane menu
+           if (aboveCurrent is Menu)
+            {
+                menu = aboveCurrent as Menu;
+                menu.fadeIn();
+            }
+       }
 
         /**
          *  Event handler volany pri zmene stavu prehravaca.
@@ -114,5 +125,45 @@ namespace Autoradio
 
             
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            if (!vysunMenu)
+            {
+                VysunMenu.Begin();
+                vysunMenu = true;
+                if (AboveContent.Source != MenuUri)
+                {
+                    AboveContent.Navigate(MenuUri);
+                    AboveContent.IsHitTestVisible = true;
+                    AboveContent.Visibility = System.Windows.Visibility.Visible;
+                }
+                else
+                {
+                    AboveContent.IsHitTestVisible = true;
+                    AboveContent.Visibility = System.Windows.Visibility.Visible;
+                    menu.fadeIn();
+                }
+                
+                
+				
+            }
+            else
+            {
+                menu.fadeOut();
+                ZasunMenu.Begin();
+                vysunMenu = false;
+
+                if (AboveContent.Source == MenuUri)
+                {
+                    AboveContent.IsHitTestVisible = false;
+                    //AboveContent.Visibility = System.Windows.Visibility.Collapsed; 
+                }
+
+            }
+        }
+
+    
+    
     }
 }

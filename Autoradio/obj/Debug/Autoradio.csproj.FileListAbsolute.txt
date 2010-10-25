@@ -32,4 +32,6 @@ C:\Users\stevo\Documents\Visual Studio 2010\Projects\Autoradio\Autoradio\obj\Deb
 C:\Users\stevo\Documents\Visual Studio 2010\Projects\Autoradio\Autoradio\obj\Debug\MainPage.g.i.cs
 C:\Users\stevo\Documents\Visual Studio 2010\Projects\Autoradio\Autoradio\obj\Debug\Views\basic.g.i.cs
 C:\Users\stevo\Documents\Visual Studio 2010\Projects\Autoradio\Autoradio\obj\Debug\Views\Player.g.i.cs
+C:\Users\stevo\Documents\Visual Studio 2010\Projects\Autoradio\Autoradio\obj\Debug\Views\PlaylistView.g.i.cs
 C:\Users\stevo\Documents\Visual Studio 2010\Projects\Autoradio\Autoradio\obj\Debug\Views\Radio.g.i.cs
+C:\Users\stevo\Documents\Visual Studio 2010\Projects\Autoradio\Autoradio\obj\Debug\Views\Menu.g.i.cs

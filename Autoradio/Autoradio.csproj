@@ -93,6 +93,9 @@
     <Compile Include="Views\basic.xaml.cs">
       <DependentUpon>basic.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Menu.xaml.cs">
+      <DependentUpon>Menu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Player.xaml.cs">
       <DependentUpon>Player.xaml</DependentUpon>
     </Compile>
@@ -124,6 +127,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Menu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Player.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -143,6 +150,7 @@
     <DesignTimeOnly Include="SampleData\SampleDataSource1\SampleDataSource1.xsd" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="arrow.png" />
     <Resource Include="button_off_Images\Off button.png" />
     <Resource Include="Properties\OutOfBrowserSettings.xml" />
     <Resource Include="SampleData\SampleDataSource1\SampleDataSource1_Files\image01.png" />

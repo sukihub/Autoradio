@@ -122,21 +122,84 @@
 				</EasingDoubleKeyFrame>
 			</DoubleAnimationUsingKeyFrames>
 		</Storyboard>
+		<Style x:Key="ArowButton" TargetType="Button">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="Button">
+						<Grid>
+							<VisualStateManager.VisualStateGroups>
+								<VisualStateGroup x:Name="CommonStates">
+									<VisualStateGroup.Transitions>
+										<VisualTransition From="MouseOver" GeneratedDuration="0:0:0.2" To="Normal">
+											<Storyboard>
+												<DoubleAnimation Duration="0:0:0.2" To="0.395" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image" d:IsOptimized="True"/>
+											</Storyboard>
+										</VisualTransition>
+										<VisualTransition From="Normal" GeneratedDuration="0" To="MouseOver">
+											<Storyboard>
+												<DoubleAnimation Duration="0:0:0.2" To="0.55" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image"/>
+											</Storyboard>
+										</VisualTransition>
+									</VisualStateGroup.Transitions>
+									<VisualState x:Name="Normal">
+										<Storyboard>
+											<DoubleAnimation Duration="0" To="0.395" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image" d:IsOptimized="True"/>
+										</Storyboard>
+									</VisualState>
+									<VisualState x:Name="MouseOver">
+										<Storyboard>
+											<DoubleAnimation Duration="0" To="0.55" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image" d:IsOptimized="True"/>
+										</Storyboard>
+									</VisualState>
+									<VisualState x:Name="Pressed"/>
+									<VisualState x:Name="Disabled"/>
+								</VisualStateGroup>
+							</VisualStateManager.VisualStateGroups>
+							<Image x:Name="image" Source="arrow.png" Stretch="Fill"/>
+							<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+						</Grid>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Storyboard x:Name="VysunMenu">
+			<DoubleAnimation Duration="0:0:0.5" To="5.708" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="RightPanel" d:IsOptimized="True"/>
+			<DoubleAnimation Duration="0:0:0.5" To="-131.822" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="RightPanel" d:IsOptimized="True"/>
+			<DoubleAnimation Duration="0:0:0.5" To="-180" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="button" d:IsOptimized="True"/>
+		</Storyboard>
+		<Storyboard x:Name="ZasunMenu">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="RightPanel">
+				<EasingDoubleKeyFrame KeyTime="0" Value="5.691"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="5.69"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="RightPanel">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-131.333"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-131.333"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="button">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-180"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-180"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="-360"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
 	</UserControl.Resources>
 
     <Grid x:Name="MainWindow">
     	<Grid.ColumnDefinitions>
     		<ColumnDefinition Width="56"/>
-    		<ColumnDefinition Width="688"/>
+    		<ColumnDefinition Width="449"/>
+    		<ColumnDefinition Width="239"/>
     		<ColumnDefinition Width="56"/>
     	</Grid.ColumnDefinitions>
 		
 		<Grid.Background>
 			<ImageBrush ImageSource="/Views/BackgroundBlue.png" x:Name="BackgroundImage" />
 		</Grid.Background>		
-		<Image x:Name="AnimationTmpImage" Stretch="Fill" Grid.ColumnSpan="3" Visibility="Collapsed" />
+		<Image x:Name="AnimationTmpImage" Stretch="Fill" Grid.ColumnSpan="4" Visibility="Collapsed" d:IsHidden="True" />
 
-        <navigation:Frame x:Name="Content" Grid.Row="0" Grid.Column="1" BorderBrush="{x:Null}" Background="{x:Null}" Navigated="Content_Navigated" JournalOwnership="OwnsJournal"/>
+        <navigation:Frame x:Name="Content" Grid.Row="0" Grid.Column="1" BorderBrush="{x:Null}" Background="{x:Null}" Navigated="Content_Navigated" JournalOwnership="OwnsJournal" Grid.ColumnSpan="2"/>
 
         <Rectangle x:Name="LeftPanel" Fill="Black" Stroke="Black" Grid.Row="0" Grid.Column="0">
 			<Rectangle.Effect>
@@ -144,19 +207,23 @@
 			</Rectangle.Effect>
 		</Rectangle>
         
-		<Rectangle x:Name="RightPanel" Fill="Black" Stroke="Black" Grid.Row="0" Grid.Column="2">
+		<Rectangle x:Name="RightPanel" Fill="Black" Stroke="Black" Grid.Row="0" Grid.Column="3" RenderTransformOrigin="0.5,0.5">
+			<Rectangle.RenderTransform>
+				<CompositeTransform/>
+			</Rectangle.RenderTransform>
 			<Rectangle.Effect>
 				<DropShadowEffect Direction="180" BlurRadius="10" ShadowDepth="3"/>
 			</Rectangle.Effect>
 		</Rectangle>
 		
-		<navigation:Frame x:Name="AboveContent" Grid.Row="0" Grid.Column="1" BorderBrush="{x:Null}" Background="{x:Null}" JournalOwnership="OwnsJournal" IsHitTestVisible="False" Visibility="Collapsed" Navigated="AboveContent_Navigated" />
+		<navigation:Frame x:Name="AboveContent" Grid.Row="0" Grid.Column="1" BorderBrush="{x:Null}" Background="{x:Null}" JournalOwnership="OwnsJournal" IsHitTestVisible="False" Visibility="Collapsed" Navigated="AboveContent_Navigated" Grid.ColumnSpan="2" />
 		
-		<Button x:Name="buttonOff" Content="" Grid.Column="2" HorizontalAlignment="Right" Height="32" Margin="0,8,8,0" Style="{StaticResource ButtonOff}" VerticalAlignment="Top" Width="40" Click="ButtonOff_Click" />
-		<Slider Margin="-209,226,-206,226" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Style="{StaticResource AutoradioSlideSkin}">
-			<Slider.RenderTransform>
-				<CompositeTransform Rotation="90"/>
-			</Slider.RenderTransform>
-		</Slider>
+		<Button x:Name="buttonOff" Content="" Grid.Column="3" HorizontalAlignment="Right" Height="32" Margin="0,8,8,0" Style="{StaticResource ButtonOff}" VerticalAlignment="Top" Width="40" Click="ButtonOff_Click" />
+		<Button x:Name="button" Content="" Grid.Column="3" Margin="17,213" Style="{StaticResource ArowButton}" RenderTransformOrigin="0.5,0.5" Click="button_Click">
+			<Button.RenderTransform>
+				<CompositeTransform/>
+			</Button.RenderTransform>
+		</Button>
+		<Slider Margin="18,8" Orientation="Vertical"/>
     </Grid>
 </UserControl>
