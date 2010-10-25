@@ -11,7 +11,11 @@
 		<Storyboard x:Name="Posuv_frekvencie">
 			<DoubleAnimation 
                 x:Name="MyDoubleAnimation"
-                Duration="0:0:0.5" To="50" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="image" d:IsOptimized="True"/>
+                Duration="0:0:0.5" To="50" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="image">
+				<DoubleAnimation.EasingFunction>
+					<CubicEase EasingMode="EaseInOut"/>
+				</DoubleAnimation.EasingFunction>
+			</DoubleAnimation>
 		</Storyboard>
 	</navigation:Page.Resources>
     <Grid x:Name="LayoutRoot">

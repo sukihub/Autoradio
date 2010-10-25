@@ -107,6 +107,8 @@ namespace Autoradio.Views
 
         private void coverNow_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            if (coverMouseDown) stateChanged(State.PlaylistOn);
+
             coverMouseDown = false;
         }
 

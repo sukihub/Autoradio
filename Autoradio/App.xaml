@@ -1,5 +1,6 @@
 ﻿<Application xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+<<<<<<< HEAD
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
              x:Class="Autoradio.App"
              >
@@ -123,3 +124,8 @@
         
     </Application.Resources>
 </Application>
+=======
+             xmlns:local="clr-namespace:Autoradio" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+             x:Class="Autoradio.App"
+             />
+>>>>>>> 802e8841aed943da648a25c2b0711877dd5c5e32

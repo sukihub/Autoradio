@@ -18,7 +18,7 @@ namespace Autoradio
     public partial class MainPage : UserControl
     {
         //instacia aktualne zobrazenej stranky
-        private IModuleInterface current;
+        private IModuleInterface current, aboveCurrent;
         private Boolean player = true;
 
         //playlist
@@ -27,6 +27,7 @@ namespace Autoradio
         //URI modulov
         private Uri RadioUri = new Uri("/Views/Radio.xaml", UriKind.Relative);
         private Uri PlayerUri = new Uri("/Views/Player.xaml", UriKind.Relative);
+        private Uri PlaylistUri = new Uri("/Views/PlaylistView.xaml", UriKind.Relative);
 
         //pozadia
         BitmapImage backRadio, backPlayer, backPaused;
@@ -63,6 +64,12 @@ namespace Autoradio
             current.initialize(stateChanged, playlist);
         }
 
+        private void AboveContent_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
+            aboveCurrent = (IModuleInterface) e.Content;
+            aboveCurrent.initialize(stateChanged, playlist);
+        }
+
         /**
          *  Event handler volany pri zmene stavu prehravaca.
          *  
@@ -71,7 +78,7 @@ namespace Autoradio
         public void stateChanged(State newState)
         {
             this.state = newState;
-            ImageSource tmp = backPaused;
+            ImageSource tmp = null;
 
             switch (newState)
             { 
@@ -88,7 +95,16 @@ namespace Autoradio
                 case State.Playing:
                     tmp = (this.player) ? backPlayer : backRadio;
                     break;
+
+                case State.PlaylistOn:
+                    PlaylistShow.Begin();
+                    Content.IsHitTestVisible = false;
+                    AboveContent.IsHitTestVisible = true;
+                    AboveContent.Navigate(PlaylistUri);
+                    break;
             }
+
+            if (tmp == null) return;
             
             AnimationTmpImage.Source = BackgroundImage.ImageSource;
             AnimationTmpImage.Visibility = Visibility.Visible;

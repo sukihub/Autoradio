@@ -3,7 +3,7 @@
     //stavy prehravaca
     public enum State
     { 
-        Playing, Paused, Stopped, TurnedOff
+        Playing, Paused, Stopped, TurnedOff, PlaylistOn, PlaylistOff
     };
 
     //protoyp metody hlavnej aplikacie, ktora je volana modulom pri zmene stavu
