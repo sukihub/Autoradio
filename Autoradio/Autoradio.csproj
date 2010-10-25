@@ -87,9 +87,6 @@
     <Compile Include="SampleData\SampleDataSource1\SampleDataSource1.xaml.cs">
       <DependentUpon>SampleDataSource1.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SampleData\SampleDataSource\SampleDataSource.xaml.cs">
-      <DependentUpon>SampleDataSource.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\basic.xaml.cs">
       <DependentUpon>basic.xaml</DependentUpon>
     </Compile>
@@ -119,10 +116,6 @@
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="SampleData\SampleDataSource\SampleDataSource.xaml">
-      <Generator>MSBuild:MarkupCompilePass1</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Views\basic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -146,7 +139,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
-    <DesignTimeOnly Include="SampleData\SampleDataSource\SampleDataSource.xsd" />
     <DesignTimeOnly Include="SampleData\SampleDataSource1\SampleDataSource1.xsd" />
   </ItemGroup>
   <ItemGroup>
@@ -158,14 +150,8 @@
     <Resource Include="SampleData\SampleDataSource1\SampleDataSource1_Files\image03.png" />
     <Resource Include="SampleData\SampleDataSource1\SampleDataSource1_Files\image04.png" />
     <Resource Include="SampleData\SampleDataSource1\SampleDataSource1_Files\image05.png" />
-    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\BackgroundBlue.png" />
-    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\BackgroundPurple.png" />
-    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\default.png" />
-    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\image01.png" />
-    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\image02.png" />
-    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\image03.png" />
-    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\image04.png" />
-    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\image05.png" />
+    <Resource Include="Views\back_Images\Image.png" />
+    <Resource Include="Views\cd_Images\Image.png" />
     <Resource Include="Views\cover1.jpg" />
     <Resource Include="Views\cover2.jpg" />
     <Resource Include="Views\cover3.jpg" />
@@ -175,6 +161,10 @@
     <Resource Include="Views\palicka.png" />
     <Resource Include="Views\radio-skin_02.png" />
     <Resource Include="Views\radio.png" />
+    <Resource Include="Views\radio_Images\Image.png" />
+    <Resource Include="Views\repeat_Images\Image.png" />
+    <Resource Include="Views\shuffle_Images\Image.png" />
+    <Resource Include="Views\usb_Images\Image.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\BackgroundBlue.png">

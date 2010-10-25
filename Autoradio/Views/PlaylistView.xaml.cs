@@ -17,6 +17,9 @@ namespace Autoradio.Views
     public partial class PlaylistView : Page, IModuleInterface
     {
         private Playlist playlist;
+        private StateChangedNotify stateChanged;
+
+        private Boolean player = true;
 
         public PlaylistView()
         {
@@ -31,11 +34,59 @@ namespace Autoradio.Views
         public void initialize(StateChangedNotify stateChanged, Playlist playlist)
         {
             this.playlist = playlist;
+            this.stateChanged = stateChanged;
 
             playlist.Open();
 
             List.ItemsSource = playlist.items;
             //List.DisplayMemberPath = "uri";
+        }
+
+        private void Repeat_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Shuffle_Click(object sender, RoutedEventArgs e)
+        {
+            //Shuffle.IsChecked = !Shuffle.IsChecked;
+        }
+
+        private void BackArea_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            stateChanged(State.PlaylistOff);
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            stateChanged(State.PlaylistOff);
+        }
+
+        private void Radio_Checked(object sender, RoutedEventArgs e)
+        {
+            if (player)
+            {
+                stateChanged(State.TurnedOff);
+                player = false;
+            }
+        }
+
+        private void Disc_Checked(object sender, RoutedEventArgs e)
+        {
+            if (!player)
+            {
+                stateChanged(State.TurnedOff);
+                player = true;
+            }
+        }
+
+        private void Usb_Checked(object sender, RoutedEventArgs e)
+        {
+            if (!player)
+            {
+                stateChanged(State.TurnedOff);
+                player = true;
+            }
         }
     }
 }
