@@ -69,7 +69,11 @@
     <Reference Include="system" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Controls" />
+    <Reference Include="System.Windows.Controls.Layout.Toolkit" />
     <Reference Include="System.Windows.Controls.Navigation" />
+    <Reference Include="System.Windows.Controls.Toolkit" />
+    <Reference Include="System.Windows.Controls.Toolkit.Internals" />
     <Reference Include="System.Windows.Interactivity" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Windows.Browser" />
