@@ -158,6 +158,7 @@
     <Resource Include="Views\cover4.jpg" />
     <Resource Include="Views\frekvencie.png" />
     <Resource Include="Views\gradient_gradient.png" />
+    <Resource Include="Views\Image.png" />
     <Resource Include="Views\palicka.png" />
     <Resource Include="Views\pause_Images\Image.png" />
     <Resource Include="Views\play_Images\Image.png" />

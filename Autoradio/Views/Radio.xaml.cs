@@ -17,6 +17,8 @@ namespace Autoradio.Views
 {
     public partial class Radio : Page, IModuleInterface
     {
+        private State state = State.Playing;
+
         private const int minPozicia = -413;
         private const int maxPozicia = 455;
         private const double minimalnaFrekvencia = 87;
@@ -260,6 +262,32 @@ namespace Autoradio.Views
         private void frekvencia_text_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             stateChanged(State.PlaylistOn);
+        }
+
+        private void controlWrapper_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (state == State.Playing)
+            {
+                state = State.Paused;
+                Pause.Begin();
+            }
+            else
+            {
+                state = State.Playing;
+                Play.Begin();
+            }
+
+            stateChanged(state);
+        }
+
+        private void controlWrapper_MouseEnter(object sender, MouseEventArgs e)
+        {
+            PlayMouseEnter.Begin();
+        }
+
+        private void controlWrapper_MouseLeave(object sender, MouseEventArgs e)
+        {
+            PlayMouseLeave.Begin();
         }
 
         
