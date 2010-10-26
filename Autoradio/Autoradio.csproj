@@ -159,6 +159,8 @@
     <Resource Include="Views\frekvencie.png" />
     <Resource Include="Views\gradient_gradient.png" />
     <Resource Include="Views\palicka.png" />
+    <Resource Include="Views\pause_Images\Image.png" />
+    <Resource Include="Views\play_Images\Image.png" />
     <Resource Include="Views\radio-skin_02.png" />
     <Resource Include="Views\radio.png" />
     <Resource Include="Views\radio_Images\Image.png" />
