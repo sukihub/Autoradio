@@ -535,9 +535,9 @@
 									<RowDefinition Height="Auto"/>
 									<RowDefinition Height="Auto"/>
 								</Grid.RowDefinitions>
-								<Rectangle Fill="#3E4D4D4D" Margin="1,5,0,5" RadiusY="1" Grid.Row="0" RadiusX="1" Grid.RowSpan="2" Stroke="#FF4D4D4D" StrokeThickness="{TemplateBinding BorderThickness}"/>
+								<Rectangle Fill="#3E4D4D4D" Margin="1,5,0,5" RadiusY="1" Grid.Row="0" RadiusX="1" Grid.RowSpan="2" Stroke="#FF4D4D4D" StrokeThickness="{TemplateBinding BorderThickness}" Opacity="0.8"/>
 								<Rectangle x:Name="VerticalTrackRectangleDisabledOverlay" Fill="White" Margin="0,5,0,5" Opacity=".55" RadiusY="1" Grid.Row="0" RadiusX="1" Grid.RowSpan="3" Visibility="Collapsed" Width="3"/>
-								<RepeatButton x:Name="VerticalTrackLargeChangeDecreaseRepeatButton" IsTabStop="False" Grid.Row="2" Template="{StaticResource VerticalTrackDecreaseSliderVolume}" Width="18"/>
+								<RepeatButton x:Name="VerticalTrackLargeChangeDecreaseRepeatButton" IsTabStop="False" Grid.Row="2" Template="{StaticResource VerticalTrackDecreaseSliderVolume}" Width="18" Opacity="0.5"/>
 								<Thumb x:Name="VerticalThumb" Height="36" IsTabStop="True" Grid.Row="1" Style="{StaticResource Thumb}" Margin="-2,0,-3,0" VerticalAlignment="Bottom"/>
 								<RepeatButton x:Name="VerticalTrackLargeChangeIncreaseRepeatButton" IsTabStop="False" Grid.Row="0" Template="{StaticResource RepeatButtonTemplate}" Width="18"/>
 							</Grid>
