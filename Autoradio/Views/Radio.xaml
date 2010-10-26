@@ -124,6 +124,15 @@
 				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0.5"/>
 			</DoubleAnimationUsingKeyFrames>
 		</Storyboard>
+		<Storyboard x:Name="fadeInPridat">
+			<DoubleAnimation Duration="0:0:0.2" To="0.495" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="pridatFrekvenciu" d:IsOptimized="True"/>
+		</Storyboard>
+		<Storyboard x:Name="fadeOutPridat">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="pridatFrekvenciu">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.495"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0.2"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
 	
 	</navigation:Page.Resources>
     <Grid x:Name="LayoutRoot">
@@ -164,6 +173,17 @@
         		<Image x:Name="PsdLayer" Height="56" Canvas.Left="0" Source="pause_Images/Image.png" Canvas.Top="0" Width="56"/>
         	</Canvas>
         </Grid>
+		<TextBlock x:Name="pridatFrekvenciu" Margin="137,32,137,0" TextWrapping="Wrap" FontSize="24" Height="38" VerticalAlignment="Top" TextAlignment="Center" FontWeight="Bold" MouseLeftButtonDown="frekvencia_text_MouseLeftButtonDown" Opacity="0.2" Text="Pridať rádiostanicu" RenderTransformOrigin="0.5,0.5">
+			<TextBlock.RenderTransform>
+				<CompositeTransform/>
+			</TextBlock.RenderTransform><TextBlock.Foreground>
+				<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+					<GradientStop Color="#FFC6C6C6" Offset="0"/>
+					<GradientStop Color="White" Offset="1"/>
+				</LinearGradientBrush>
+			</TextBlock.Foreground><TextBlock.Effect>
+				<DropShadowEffect ShadowDepth="0" BlurRadius="38" Direction="300"/>
+			</TextBlock.Effect></TextBlock>
 		
     </Grid>
 </navigation:Page>

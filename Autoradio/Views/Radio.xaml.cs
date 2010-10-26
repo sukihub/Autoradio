@@ -26,6 +26,9 @@ namespace Autoradio.Views
         private const double pocetFrekvencii = maximalnaFrekvencia - minimalnaFrekvencia;
         private const double dlzkaFrekvencie = (maxPozicia + (-1 * minPozicia)) / pocetFrekvencii;
 
+        private const String pridatFrekText = "Pridať rádiostanicu";
+        private const String odobratFrekText = "Odobrať rádiostanicu";
+
         private bool bolPohyb = false;
 
         private double aktualnaFrekvencia = 0;
@@ -88,6 +91,7 @@ namespace Autoradio.Views
            
             nazov_stanice.Text = myPlaylist.items[index].radioName;
             aktualnaFrekvencia = myPlaylist.items[index].frequency;
+            pridatFrekvenciu.Text = "Odobrať rádiostanicu";
 
             poziciaFrekvencie = (-1 * (aktualnaFrekvencia - maximalnaFrekvencia)) * dlzkaFrekvencie - (-1 * minPozicia);
             prepocitajFrekvenciu();
@@ -118,6 +122,7 @@ namespace Autoradio.Views
 
             nazov_stanice.Text = myPlaylist.items[index].radioName;
             aktualnaFrekvencia = myPlaylist.items[index].frequency;
+            pridatFrekvenciu.Text = "Odobrať rádiostanicu";
 
             poziciaFrekvencie = (-1 * (aktualnaFrekvencia - maximalnaFrekvencia)) * dlzkaFrekvencie - (-1 * minPozicia);
             prepocitajFrekvenciu();
@@ -147,6 +152,7 @@ namespace Autoradio.Views
 
             nazov_stanice.Text = myPlaylist.items[index].radioName;
             aktualnaFrekvencia = myPlaylist.items[index].frequency;
+            pridatFrekvenciu.Text = "Odobrať rádiostanicu";
 
             poziciaFrekvencie = (-1 * (aktualnaFrekvencia - maximalnaFrekvencia)) * dlzkaFrekvencie - (-1 * minPozicia);
             prepocitajFrekvenciu();
@@ -165,11 +171,15 @@ namespace Autoradio.Views
                 if ((myPlaylist.items[i].frequency == aktualnaFrekvencia ))
                 {
                     nazov_stanice.Text = myPlaylist.items[i].radioName;
+                    if (pridatFrekvenciu.Text != "")
+
+                    pridatFrekvenciu.Text = "Odobrať rádiostanicu";
                     return;
                 }
             }
 
             nazov_stanice.Text = "";
+            pridatFrekvenciu.Text = "Pridať rádiostanicu";
             
         }
 
