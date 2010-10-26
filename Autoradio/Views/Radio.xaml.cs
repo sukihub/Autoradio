@@ -257,6 +257,11 @@ namespace Autoradio.Views
             coverMouseDown = false;
         }
 
+        private void frekvencia_text_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            stateChanged(State.PlaylistOn);
+        }
+
         
 
 

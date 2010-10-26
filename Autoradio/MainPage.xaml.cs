@@ -22,6 +22,9 @@ namespace Autoradio
         //instacia aktualne zobrazenej stranky
         private IModuleInterface current, aboveCurrent;
         private Boolean player = true;
+        private Boolean vysunMenu = false;
+
+        private Menu menu;
 
         //playlist
         private Playlist playlist = new Playlist();
@@ -30,6 +33,7 @@ namespace Autoradio
         private Uri RadioUri = new Uri("/Views/Radio.xaml", UriKind.Relative);
         private Uri PlayerUri = new Uri("/Views/Player.xaml", UriKind.Relative);
         private Uri PlaylistUri = new Uri("/Views/PlaylistView.xaml", UriKind.Relative);
+        private Uri MenuUri = new Uri("/Views/Menu.xaml", UriKind.Relative);
 
         //pozadia
         BitmapImage backRadio, backPlayer, backPaused;
@@ -49,6 +53,8 @@ namespace Autoradio
 
             BackgroundImage.ImageSource = backPlayer;
             Content.Navigate(PlayerUri);
+            AboveContent.Navigate(PlaylistUri);
+            Settings.Navigate(MenuUri);
         }
 
         /**
@@ -104,7 +110,6 @@ namespace Autoradio
                     PlaylistShow.Begin();
                     Content.IsHitTestVisible = false;
                     AboveContent.IsHitTestVisible = true;
-                    if (AboveContent.Source != PlaylistUri) AboveContent.Navigate(PlaylistUri);
                     break;
 
                 case State.PlaylistOff:
@@ -122,9 +127,36 @@ namespace Autoradio
             AnimationTmpImage.Visibility = Visibility.Visible;
             BackgroundImage.ImageSource = tmp;
 
-            BackgroundSwap.Begin();
+            BackgroundSwap.Begin();            
+        }
 
-            
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            if (!vysunMenu)
+            {
+                VysunMenu.Begin();
+                vysunMenu = true;
+                
+                Settings.IsHitTestVisible = true;
+                Settings.Visibility = Visibility.Visible;
+                
+                menu.fadeIn();
+            }
+            else
+            {
+                menu.fadeOut();
+                ZasunMenu.Begin();
+                vysunMenu = false;
+
+                Settings.IsHitTestVisible = false;
+                //AboveContent.Visibility = System.Windows.Visibility.Collapsed; 
+            }
+        }
+
+        private void Settings_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
+            menu = (Menu)e.Content;
+            menu.initialize(stateChanged, playlist);
         }
     }
 }
