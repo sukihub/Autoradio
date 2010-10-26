@@ -158,5 +158,15 @@ namespace Autoradio.Views
 
             stateChanged(state);
         }
+
+        private void controlWrapper_MouseEnter(object sender, MouseEventArgs e)
+        {
+            PlayMouseEnter.Begin();
+        }
+
+        private void controlWrapper_MouseLeave(object sender, MouseEventArgs e)
+        {
+            PlayMouseLeave.Begin();
+        }
     }
 }

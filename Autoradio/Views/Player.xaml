@@ -589,80 +589,108 @@
 				<EasingColorKeyFrame KeyTime="0:0:0.8" Value="White"/>
 			</ColorAnimationUsingKeyFrames>
 		</Storyboard>
-		<Storyboard x:Name="Pause">
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangle">
-				<EasingDoubleKeyFrame KeyTime="0" Value="0.495">
-					<EasingDoubleKeyFrame.EasingFunction>
-						<SineEase EasingMode="EaseOut"/>
-					</EasingDoubleKeyFrame.EasingFunction>
-				</EasingDoubleKeyFrame>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0">
-					<EasingDoubleKeyFrame.EasingFunction>
-						<SineEase EasingMode="EaseOut"/>
-					</EasingDoubleKeyFrame.EasingFunction>
-				</EasingDoubleKeyFrame>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangle1">
-				<EasingDoubleKeyFrame KeyTime="0" Value="0.495">
-					<EasingDoubleKeyFrame.EasingFunction>
-						<SineEase EasingMode="EaseOut"/>
-					</EasingDoubleKeyFrame.EasingFunction>
-				</EasingDoubleKeyFrame>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0">
-					<EasingDoubleKeyFrame.EasingFunction>
-						<SineEase EasingMode="EaseOut"/>
-					</EasingDoubleKeyFrame.EasingFunction>
-				</EasingDoubleKeyFrame>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="regularPolygon">
+		<Storyboard x:Name="Play">
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="play">
+				<DiscreteObjectKeyFrame KeyTime="0">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Visible</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.4">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Collapsed</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+			</ObjectAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="pause">
+				<DiscreteObjectKeyFrame KeyTime="0">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Visible</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.4">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Visible</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+			</ObjectAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="pause">
 				<EasingDoubleKeyFrame KeyTime="0" Value="0">
 					<EasingDoubleKeyFrame.EasingFunction>
-						<SineEase EasingMode="EaseIn"/>
+						<ExponentialEase EasingMode="EaseIn"/>
 					</EasingDoubleKeyFrame.EasingFunction>
 				</EasingDoubleKeyFrame>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0.5">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1">
 					<EasingDoubleKeyFrame.EasingFunction>
-						<SineEase EasingMode="EaseIn"/>
+						<ExponentialEase EasingMode="EaseIn"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="play">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
 					</EasingDoubleKeyFrame.EasingFunction>
 				</EasingDoubleKeyFrame>
 			</DoubleAnimationUsingKeyFrames>
 		</Storyboard>
-		<Storyboard x:Name="Play">
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangle">
+		<Storyboard x:Name="Pause">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="play">
 				<EasingDoubleKeyFrame KeyTime="0" Value="0">
 					<EasingDoubleKeyFrame.EasingFunction>
-						<SineEase EasingMode="EaseIn"/>
+						<ExponentialEase EasingMode="EaseIn"/>
 					</EasingDoubleKeyFrame.EasingFunction>
 				</EasingDoubleKeyFrame>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0.5">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1">
 					<EasingDoubleKeyFrame.EasingFunction>
-						<SineEase EasingMode="EaseIn"/>
+						<ExponentialEase EasingMode="EaseIn"/>
 					</EasingDoubleKeyFrame.EasingFunction>
 				</EasingDoubleKeyFrame>
 			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangle1">
-				<EasingDoubleKeyFrame KeyTime="0" Value="0">
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="play">
+				<DiscreteObjectKeyFrame KeyTime="0">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Visible</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+			</ObjectAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="pause">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1">
 					<EasingDoubleKeyFrame.EasingFunction>
-						<SineEase EasingMode="EaseIn"/>
+						<ExponentialEase EasingMode="EaseOut"/>
 					</EasingDoubleKeyFrame.EasingFunction>
 				</EasingDoubleKeyFrame>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0.5">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0">
 					<EasingDoubleKeyFrame.EasingFunction>
-						<SineEase EasingMode="EaseIn"/>
+						<ExponentialEase EasingMode="EaseOut"/>
 					</EasingDoubleKeyFrame.EasingFunction>
 				</EasingDoubleKeyFrame>
 			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="regularPolygon">
-				<EasingDoubleKeyFrame KeyTime="0" Value="0.5">
-					<EasingDoubleKeyFrame.EasingFunction>
-						<SineEase EasingMode="EaseOut"/>
-					</EasingDoubleKeyFrame.EasingFunction>
-				</EasingDoubleKeyFrame>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0">
-					<EasingDoubleKeyFrame.EasingFunction>
-						<SineEase EasingMode="EaseOut"/>
-					</EasingDoubleKeyFrame.EasingFunction>
-				</EasingDoubleKeyFrame>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="pause">
+				<DiscreteObjectKeyFrame KeyTime="0">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Visible</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.4">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Collapsed</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+			</ObjectAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Name="PlayMouseEnter">
+			<DoubleAnimation Duration="0:0:0.2" To="0.9" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="controlWrapper" d:IsOptimized="True"/>
+		</Storyboard>
+		<Storyboard x:Name="PlayMouseLeave">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="controlWrapper">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.9"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0.5"/>
 			</DoubleAnimationUsingKeyFrames>
 		</Storyboard>
 	</navigation:Page.Resources>
@@ -676,9 +704,9 @@
     		<RowDefinition Height="0.633*"/>
     		<RowDefinition Height="0.367*"/>
     	</Grid.RowDefinitions>
-        <Grid x:Name="progressArea" Height="24" VerticalAlignment="Bottom" MouseLeftButtonDown="progressFrame_MouseLeftButtonDown" MouseMove="progressFrame_MouseMove" MouseLeftButtonUp="progressFrame_MouseLeftButtonUp" Background="#00000000" Grid.Row="1" Grid.ColumnSpan="3" Margin="16,0">
-        	<Rectangle x:Name="progressBar" HorizontalAlignment="Left" Margin="4,7,4,0" Stroke="White" Width="0" Opacity="0.495" Height="2" VerticalAlignment="Top" MaxWidth="648"/>
-        	<Rectangle x:Name="progressFrame" Opacity="0.2" RadiusY="8" RadiusX="8" Stroke="White" Margin="0,5,0,0" Height="6" VerticalAlignment="Top"/>
+        <Grid x:Name="progressArea" Height="32" VerticalAlignment="Bottom" MouseLeftButtonDown="progressFrame_MouseLeftButtonDown" MouseMove="progressFrame_MouseMove" MouseLeftButtonUp="progressFrame_MouseLeftButtonUp" Background="#00000000" Grid.Row="1" Grid.ColumnSpan="3" Margin="16,0">
+        	<Rectangle x:Name="progressBar" HorizontalAlignment="Left" Margin="4,11,0,0" Stroke="White" Width="0" Opacity="0.495" Height="2" VerticalAlignment="Top" MaxWidth="648"/>
+        	<Rectangle x:Name="progressFrame" Opacity="0.2" RadiusY="8" RadiusX="8" Stroke="White" Margin="0,9,0,0" Height="6" VerticalAlignment="Top"/>
         </Grid>
         <Image x:Name="coverNow" Grid.Column="1" Margin="48,24" Source="cover1.jpg" Stretch="Fill" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="coverNow_MouseLeftButtonDown" MouseLeftButtonUp="coverNow_MouseLeftButtonUp" MouseMove="coverNow_MouseMove" MouseLeave="coverNow_MouseLeave">
         	<Image.RenderTransform>
@@ -825,14 +853,13 @@
         		<DropShadowEffect ShadowDepth="3"/>
         	</TextBlock.Effect>
         </TextBlock>
-        <Grid x:Name="controlWrapper" Grid.Column="2" Margin="-120,24,24,36" Grid.Row="1" Background="#00000000" MouseLeftButtonDown="controlWrapper_MouseLeftButtonDown">
-        	<Rectangle x:Name="rectangle" Fill="#FFF4F4F5" HorizontalAlignment="Left" Margin="96,48,0,28" Width="24" Opacity="0.495"/>
-        	<Rectangle x:Name="rectangle1" Fill="#FFF4F4F5" HorizontalAlignment="Right" Margin="0,48,104,28" Width="24" Opacity="0.495"/>
-        	<ed:RegularPolygon x:Name="regularPolygon" Fill="#FFF4F4F5" InnerRadius="1" Margin="108,36,116,16" PointCount="3" Stretch="Fill" UseLayoutRounding="False" RenderTransformOrigin="0.5,0.5" Opacity="0">
-        		<ed:RegularPolygon.RenderTransform>
-        			<CompositeTransform Rotation="90"/>
-        		</ed:RegularPolygon.RenderTransform>
-        	</ed:RegularPolygon>
+        <Grid x:Name="controlWrapper" Grid.Column="2" Margin="-120,24,24,36" Grid.Row="1" Background="#00000000" MouseLeftButtonDown="controlWrapper_MouseLeftButtonDown" MouseEnter="controlWrapper_MouseEnter" MouseLeave="controlWrapper_MouseLeave" Opacity="0.5">
+        	<Canvas x:Name="play" Clip="M0,0L56,0 56,56 0,56z" UseLayoutRounding="False" Margin="96,40,112,20" Visibility="Collapsed">
+        		<Image x:Name="PsdLayer1" Height="56" Canvas.Left="0" Source="play_Images/Image.png" Canvas.Top="0" Width="56"/>
+        	</Canvas>
+        	<Canvas x:Name="pause" Clip="M0,0L56,0 56,56 0,56z" UseLayoutRounding="False" Margin="96,40,112,20">
+        		<Image x:Name="PsdLayer" Height="56" Canvas.Left="0" Source="pause_Images/Image.png" Canvas.Top="0" Width="56"/>
+        	</Canvas>
         </Grid>
         <Grid x:Name="timeWrapper" Margin="24,24,-120,36" Grid.Row="1" Background="#00000000">
         	<TextBlock Margin="120,0" TextWrapping="Wrap" Text=":" FontSize="96" FontFamily="Candara" Foreground="White" Opacity="0.4"/>
