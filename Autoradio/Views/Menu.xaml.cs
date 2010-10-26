@@ -44,5 +44,10 @@ namespace Autoradio.Views
 			allFadeOut.Begin();
         }
 
+        private void RDS_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            rdsCheck.IsChecked = !rdsCheck.IsChecked;
+        }
+
     }
 }
