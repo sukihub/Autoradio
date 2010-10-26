@@ -109,7 +109,7 @@
     								<RowDefinition Height="Auto"/>
     								<RowDefinition Height="Auto"/>
     							</Grid.RowDefinitions>
-    							<Rectangle Fill="#FFE6EFF7" Margin="0,5,0,5" RadiusY="1" Grid.Row="0" RadiusX="1" Grid.RowSpan="3" Stroke="#FFA3AEB9" StrokeThickness="{TemplateBinding BorderThickness}" Width="3"/>
+    							<Rectangle Fill="#FFE6EFF7" Margin="0,-1001" RadiusY="1" Grid.Row="0" RadiusX="1" Grid.RowSpan="3" Stroke="#FFA3AEB9" StrokeThickness="{TemplateBinding BorderThickness}" d:LayoutOverrides="GridBox"/>
     							<Rectangle x:Name="VerticalTrackRectangleDisabledOverlay" Fill="White" Margin="0,5,0,5" Opacity=".55" RadiusY="1" Grid.Row="0" RadiusX="1" Grid.RowSpan="3" Visibility="Collapsed" Width="3"/>
     							<RepeatButton x:Name="VerticalTrackLargeChangeDecreaseRepeatButton" IsTabStop="False" Grid.Row="2" Template="{StaticResource RepeatButtonTemplate}" Width="18"/>
     							<Thumb x:Name="VerticalThumb" Height="11" IsTabStop="True" Grid.Row="1" Width="18"/>
@@ -120,6 +120,16 @@
     			</Setter.Value>
     		</Setter>
     	</Style>
+    	<ControlTemplate x:Key="VolumeSliderDescreaseRepeaButton" TargetType="RepeatButton">
+    		<Grid x:Name="Root" Width="20">
+    			<Grid.Background>
+    				<LinearGradientBrush EndPoint="0.538,0.025" StartPoint="0.531,0.894">
+    					<GradientStop Color="#FF838383" Offset="0"/>
+    					<GradientStop Color="#FFD4D4D4" Offset="0.996"/>
+    				</LinearGradientBrush>
+    			</Grid.Background>
+    		</Grid>
+    	</ControlTemplate>
         
     </Application.Resources>
 </Application>
