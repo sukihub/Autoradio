@@ -76,6 +76,10 @@ namespace Autoradio.Views
             {
                 playlist.current = track;
                 ChangeTrack();
+
+                coverPrevious.Source = playlist.GetPrevious().cover;
+                coverNow.Source = playlist.items[track].cover;
+                coverNext.Source = playlist.GetNext().cover;
             }
         }
 
@@ -88,6 +92,18 @@ namespace Autoradio.Views
             mediaPlayer.SetSource(current.file.OpenRead());
 
             duration = current.duration.TotalSeconds;
+        }
+
+        private void NextTrack()
+        {
+            playlist.MoveToNext();
+            ChangeTrack();
+        }
+
+        private void PreviousTrack()
+        {
+            playlist.MoveToPrevious();
+            ChangeTrack();
         }
         
         private void button1_Click(object sender, RoutedEventArgs e)
@@ -127,6 +143,9 @@ namespace Autoradio.Views
 
         private void coverNext_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            NextTrack();
+
+            animNew.Source = playlist.GetNext().cover;
             animNext.Source = coverNext.Source;
             animNow.Source = coverNow.Source;
             animPrevious.Source = coverPrevious.Source;
@@ -142,9 +161,12 @@ namespace Autoradio.Views
 
         private void coverPrevious_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            PreviousTrack();
+
             animNext.Source = coverNext.Source;
             animNow.Source = coverNow.Source;
             animPrevious.Source = coverPrevious.Source;
+            animNew.Source = playlist.GetPrevious().cover;
             //nacitat z playlistu
             //animNew.Source = 
 
@@ -228,6 +250,11 @@ namespace Autoradio.Views
         private void controlWrapper_MouseLeave(object sender, MouseEventArgs e)
         {
             PlayMouseLeave.Begin();
+        }
+
+        private void mediaPlayer_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            coverNext_MouseLeftButtonDown(null, null);
         }
     }
 }

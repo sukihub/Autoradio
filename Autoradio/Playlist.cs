@@ -45,16 +45,16 @@ namespace Autoradio
 
         public Playlist()
         {
-            //openDialog.Filter = "MP3 Files (.mp3)|*.mp3";
+            openDialog.Filter = "MP3 (.mp3)|*.mp3";
             openDialog.Multiselect = true;
         }
 
         /**
          *  Vrati cislo nasledujucej skladby.
          */
-        public int GetNext()
+        public PlaylistItem GetNext()
         {
-            return (current + 1) % items.Count;
+            return items[(current + 1) % items.Count];
         }
 
         /**
@@ -62,15 +62,15 @@ namespace Autoradio
          */
         public void MoveToNext()
         {
-            current = GetNext();
+            current = (current + 1) % items.Count;
         }
 
         /**
          *  Vrati cislo predchadzajucej skladby.
          */
-        public int GetPrevious()
+        public PlaylistItem GetPrevious()
         {
-            return current == 0 ? 0 : current-1;
+            return (current == 0) ? items[items.Count-1] : items[current - 1];
         }
 
         /**
@@ -78,7 +78,7 @@ namespace Autoradio
          */
         public void MoveToPrevious()
         {
-            current = GetPrevious();
+            current = (current == 0) ? items.Count-1 : current - 1;
         }
 
         /**
@@ -145,7 +145,7 @@ namespace Autoradio
                 }
                 else
                 {
-                    item.title = f.Name.Substring(0, 20);
+                    item.title = f.Name.Substring(0, f.Name.Length < 20 ? f.Name.Length : 20 );
                     item.artist = "Unknown";
                     item.cover = img[0];
                     item.duration = new TimeSpan(0, 0, 0);

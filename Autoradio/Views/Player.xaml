@@ -866,6 +866,6 @@
         	<TextBlock x:Name="timeSeconds" Margin="0,0,8,0" TextWrapping="Wrap" Text="00" FontSize="96" FontFamily="Candara" HorizontalAlignment="Right" Width="112" Foreground="White" Opacity="0.4"/>
         	<TextBlock x:Name="timeMinutes" Margin="8,0,0,0" TextWrapping="Wrap" Text="0" FontSize="96" FontFamily="Candara" TextAlignment="Right" Foreground="White" Opacity="0.4" HorizontalAlignment="Left" Width="112"/>
         </Grid>
-        <MediaElement Height="8" Margin="0,0,0,0" Width="8" x:Name="mediaPlayer" AutoPlay="False"   />
+        <MediaElement Margin="10,12,10,21" x:Name="mediaPlayer" AutoPlay="False" MediaEnded="mediaPlayer_MediaEnded" Grid.Column="1" />
     </Grid>
 </navigation:Page>
