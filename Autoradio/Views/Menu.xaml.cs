@@ -33,6 +33,10 @@ namespace Autoradio.Views
             this.stateChanged = stateChanged;
         }
 
+        public void playlistHidden()
+        {
+            //ziadna akcia
+        }
 
         public void fadeIn()
         {

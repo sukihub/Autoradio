@@ -59,11 +59,13 @@ namespace Autoradio.Views
         {
             this.stateChanged = stateChanged;
             myPlaylist = playlist;
-            myPlaylist.Open();
+            //myPlaylist.Open();
             searchForClosestRadio();
         }
 
-       
+        public void playlistHidden()
+        {
+        }
 
         private void prepocitajFrekvenciu()
         {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using System.Net;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Windows.Navigation;
+using System.Windows.Threading;
 using Autoradio.Helpers;
 
 namespace Autoradio.Views
@@ -17,11 +19,34 @@ namespace Autoradio.Views
     public partial class Player : Page, IModuleInterface
     {
         private StateChangedNotify stateChanged;
-        private State state = State.Playing;
+        private State state = State.Paused;
+        
+        private DispatcherTimer timer = new DispatcherTimer();
+        private double duration, position;
+
+        private Playlist playlist;
+
+        private Boolean progressFrameDown = false;
 
         public Player()
         {
             InitializeComponent();
+
+            timer.Interval = new TimeSpan(0, 0, 0, 0, 1000);
+            timer.Tick += timer_Tick;
+            timer.Start();
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            if (state != State.Playing || progressFrameDown) return;
+
+            timeMinutes.Text = mediaPlayer.Position.Minutes.ToString();
+            timeSeconds.Text = mediaPlayer.Position.Seconds.ToString().PadLeft(2, '0');
+
+            position = mediaPlayer.Position.TotalSeconds;
+
+            progressBar.Width = position * 648.0 / duration;
         }
 
         // Executes when the user navigates to this page.
@@ -32,14 +57,43 @@ namespace Autoradio.Views
         public void initialize(StateChangedNotify stateChanged, Playlist playlist)
         {
             this.stateChanged = stateChanged;
+            this.playlist = playlist;
         }
 
+        public void playlistHidden()
+        {
+            int track = playlist.changedTrackID;
+            playlist.changedTrackID = -1;
+
+            //ak bol zmeneny playlist, nastavime prehravanie prvej pesnicky (= zmenime skladbu)
+            if (playlist.isChanged() && track == -1)
+            {
+                track = 0;
+            }
+
+            //ak bola zmenena skladba
+            if (track != -1)
+            {
+                playlist.current = track;
+                ChangeTrack();
+            }
+        }
+
+        private void ChangeTrack()
+        {
+            PlaylistItem current = playlist.items[playlist.current];
+
+            mediaPlayer.Stop();
+            mediaPlayer.AutoPlay = (state == State.Playing) ? true : false;
+            mediaPlayer.SetSource(current.file.OpenRead());
+
+            duration = current.duration.TotalSeconds;
+        }
+        
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             stateChanged(State.TurnedOff);
         }
-
-        private Boolean progressFrameDown = false;
 
         private void progressFrame_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -48,6 +102,8 @@ namespace Autoradio.Views
             progressFrame_MouseMove(sender, e);
         }
 
+        private TimeSpan tmp;
+
         private void progressFrame_MouseMove(object sender, MouseEventArgs e)
         {
             if (!progressFrameDown) return;
@@ -55,15 +111,18 @@ namespace Autoradio.Views
             uint position = (uint)e.GetPosition(progressArea).X - 4;
             progressBar.Width = position;
 
-            uint minutes = (uint)progressBar.Width / 60;
-            uint seconds = (uint)progressBar.Width % 60;
-            timeMinutes.Text = minutes.ToString();
-            timeSeconds.Text = (seconds < 10 ? "0" : "") + seconds.ToString();
+            tmp = TimeSpan.FromSeconds((double)position * duration / 648.0);
+            
+            timeMinutes.Text = tmp.Minutes.ToString();
+            timeSeconds.Text = tmp.Seconds.ToString().PadLeft(2, '0');
         }
 
         private void progressFrame_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             progressFrameDown = false;
+
+            int position = (int)e.GetPosition(progressArea).X - 4;
+            mediaPlayer.Position = tmp; 
         }
 
         private void coverNext_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -149,11 +208,13 @@ namespace Autoradio.Views
             {
                 state = State.Paused;
                 Pause.Begin();
+                mediaPlayer.Pause();
             }
             else
             {
                 state = State.Playing;
                 Play.Begin();
+                mediaPlayer.Play();
             }
 
             stateChanged(state);

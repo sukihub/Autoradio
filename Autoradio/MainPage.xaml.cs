@@ -20,7 +20,8 @@ namespace Autoradio
         //static public MainPage mainPage;
 
         //instacia aktualne zobrazenej stranky
-        private IModuleInterface current, aboveCurrent;
+        private IModuleInterface current;
+        private PlaylistView aboveCurrent;
         private Boolean player = true;
         private Boolean vysunMenu = false;
 
@@ -76,7 +77,7 @@ namespace Autoradio
 
         private void AboveContent_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
         {
-            aboveCurrent = (IModuleInterface) e.Content;
+            aboveCurrent = (PlaylistView) e.Content;
             aboveCurrent.initialize(stateChanged, playlist);
         }
 
@@ -114,10 +115,9 @@ namespace Autoradio
 
                 case State.PlaylistOff:
                     PlaylistHide.Begin();
+                    current.playlistHidden();
                     Content.IsHitTestVisible = true;
                     AboveContent.IsHitTestVisible = false;
-                    //TODO tmp odnavigovat prec
-                    //AboveContent.
                     break;
             }
 

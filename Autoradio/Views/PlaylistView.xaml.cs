@@ -29,17 +29,18 @@ namespace Autoradio.Views
         // Executes when the user navigates to this page.
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            //playlist.Open();
         }
 
         public void initialize(StateChangedNotify stateChanged, Playlist playlist)
         {
             this.playlist = playlist;
             this.stateChanged = stateChanged;
-
-            playlist.Open();
-
-            List.ItemsSource = playlist.items;
             //List.DisplayMemberPath = "uri";
+        }
+
+        public void playlistHidden()
+        { 
         }
 
         private void Repeat_Click(object sender, RoutedEventArgs e)
@@ -54,10 +55,16 @@ namespace Autoradio.Views
 
         private void BackArea_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            stateChanged(State.PlaylistOff);
+            ActionBack();
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            ActionBack();
+        }
+
+        //volane pri zruseni playlistu
+        private void ActionBack()
         {
             stateChanged(State.PlaylistOff);
         }
@@ -78,6 +85,9 @@ namespace Autoradio.Views
                 stateChanged(State.TurnedOff);
                 player = true;
             }
+
+            playlist.Open();
+            List.ItemsSource = playlist.items;
         }
 
         private void Usb_Checked(object sender, RoutedEventArgs e)
@@ -87,6 +97,12 @@ namespace Autoradio.Views
                 stateChanged(State.TurnedOff);
                 player = true;
             }
+        }
+
+        private void List_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            playlist.changedTrackID = List.SelectedIndex;
+            ActionBack();
         }
     }
 }

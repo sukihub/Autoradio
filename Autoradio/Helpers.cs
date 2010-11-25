@@ -13,5 +13,11 @@
     interface IModuleInterface
     {
         void initialize(StateChangedNotify stateChanged, Playlist playlist);
+        void playlistHidden();
+    }
+
+    interface ICloneable
+    {
+        object Clone();
     }
 }

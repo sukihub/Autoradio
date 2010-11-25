@@ -272,7 +272,7 @@
 			<ColumnDefinition Width="0.756*"/>
 			<ColumnDefinition Width="0.244*"/>
 		</Grid.ColumnDefinitions>
-		<ListBox x:Name="List" Margin="96,16,16,16" Background="{x:Null}" BorderBrush="{x:Null}" DataContext="{Binding}" ItemTemplate="{StaticResource ItemTemplate}" ItemsSource="{Binding Collection, Source={StaticResource SampleDataSource1}}" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden" ItemContainerStyle="{StaticResource ListBoxItemStyle1}" />
+		<ListBox x:Name="List" Margin="96,16,16,16" Background="{x:Null}" BorderBrush="{x:Null}" DataContext="{Binding}" ItemTemplate="{StaticResource ItemTemplate}" ItemsSource="{Binding Collection, Source={StaticResource SampleDataSource1}}" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden" ItemContainerStyle="{StaticResource ListBoxItemStyle1}" MouseLeftButtonUp="List_MouseLeftButtonUp" />
 		<CheckBox x:Name="Repeat" Grid.Column="1" HorizontalAlignment="Left" Height="56" Margin="8,0,0,40" Style="{StaticResource RepeatStyle}" VerticalAlignment="Bottom" Width="56" Click="Repeat_Click" />
 		<CheckBox x:Name="Shuffle" Grid.Column="1" Height="56" Margin="80,0,32,40" Style="{StaticResource ShuffleStyle}" VerticalAlignment="Bottom" Click="Shuffle_Click"/>
 		<Grid x:Name="BackArea" HorizontalAlignment="Left" Margin="0,8" Width="88" Background="#00000000" MouseLeftButtonDown="BackArea_MouseLeftButtonDown">

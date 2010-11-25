@@ -33,6 +33,9 @@ namespace Autoradio.Views
             stateChanged(State.Paused);
         }
 
+        public void playlistHidden()
+        { }
+
         /**
          *  Metoda volana hlavnou aplikaciou tesne po vytvoreni stranky.
          *  Hlavna aplikacia moze posielat informacie modulu.
@@ -43,12 +46,6 @@ namespace Autoradio.Views
         public void initialize(StateChangedNotify stateChanged, Playlist playlist)
         {
             this.stateChanged = stateChanged;
-
-            playlist.Open();
-            foreach (PlaylistItem item in playlist.items)
-            {
-                listBox1.Items.Add(item.uri);
-            }
         }
 
     }

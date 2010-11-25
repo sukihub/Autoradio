@@ -3,5 +3,8 @@
   <OutOfBrowserSettings.WindowSettings>
     <WindowSettings Title="Autorádio" Height="480" Width="800" />
   </OutOfBrowserSettings.WindowSettings>
+  <OutOfBrowserSettings.SecuritySettings>
+    <SecuritySettings ElevatedPermissions="Required" />
+  </OutOfBrowserSettings.SecuritySettings>
   <OutOfBrowserSettings.Icons />
 </OutOfBrowserSettings>
