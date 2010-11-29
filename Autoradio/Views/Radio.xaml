@@ -5,8 +5,8 @@
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
            mc:Ignorable="d"
            xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
-           d:DesignWidth="640" d:DesignHeight="480"
-           Title="Radio Page" Loaded="Page_Loaded">
+           d:DesignWidth="688" d:DesignHeight="480"
+           Title="Radio Page">
 	<navigation:Page.Resources>
 		<Storyboard x:Name="Posuv_frekvencie">
 			<DoubleAnimation 
@@ -144,7 +144,7 @@
     	</Image>
         <Image x:Name="Gradient" Height="110" Source="gradient_gradient.png" Stretch="Fill" VerticalAlignment="Bottom" MouseLeftButtonDown="radioDown_MouseLeftButtonDown" MouseLeftButtonUp="radioDown_MouseLeftButtonUp" MouseMove="radioDown_MouseMove" MouseLeave="coverNow_MouseLeave"/>
     	<Image Height="73" Width="8" Margin="316,0" Source="palicka.png" Stretch="Fill" VerticalAlignment="Bottom"/>
-        <TextBlock x:Name="nazov_stanice" Margin="50,54,0,0" TextWrapping="Wrap" FontSize="100" Height="151" VerticalAlignment="Top" TextAlignment="Center" Text="98,5" FontWeight="Bold" MouseLeftButtonDown="frekvencia_text_MouseLeftButtonDown" HorizontalAlignment="Left" Width="545">
+        <TextBlock x:Name="nazov_stanice" Margin="50,54,0,0" TextWrapping="Wrap" FontSize="100" Height="151" VerticalAlignment="Top" TextAlignment="Center" Text="98,5" FontWeight="Bold"  MouseLeftButtonUp="frekvencia_text_MouseLeftButtonDown" HorizontalAlignment="Left" Width="546">
     		<TextBlock.Foreground>
     			<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
     				<GradientStop Color="#FFC6C6C6" Offset="0"/>
@@ -167,11 +167,12 @@
 		
 		<Grid x:Name="controlWrapper" Margin="219,233,184,127" Background="#00000000" MouseLeftButtonDown="controlWrapper_MouseLeftButtonDown" MouseEnter="controlWrapper_MouseEnter" MouseLeave="controlWrapper_MouseLeave" Opacity="0.5" d:LayoutOverrides="GridBox">
         	<Canvas x:Name="play" Clip="M0,0L56,0 56,56 0,56z" UseLayoutRounding="False" Margin="96,40,112,20" Visibility="Collapsed">
-        		<Image x:Name="PsdLayer1" Height="56" Canvas.Left="0" Source="play_Images/Image.png" Canvas.Top="0" Width="56"/>
+        		<Image x:Name="PsdLayer1" Height="56" Canvas.Left="0" Source="play_Images/Image.png" Canvas.Top="0" Width="56" MouseLeftButtonUp="PsdLayer1_MouseLeftButtonUp"/>
         	</Canvas>
         	<Canvas x:Name="pause" Clip="M0,0L56,0 56,56 0,56z" UseLayoutRounding="False" Margin="96,40,112,20">
-        		<Image x:Name="PsdLayer" Height="56" Canvas.Left="0" Source="pause_Images/Image.png" Canvas.Top="0" Width="56"/>
+        		<Image x:Name="PsdLayer" Height="56" Canvas.Left="0" Source="pause_Images/Image.png" Canvas.Top="0" Width="56" MouseLeftButtonUp="PsdLayer_MouseLeftButtonUp"/>
         	</Canvas>
+            <MediaElement x:Name="myRadioPlayer" AutoPlay="True" Source="radioMusic.mp3" MediaOpened="myRadioPlayer_MediaOpened"/>
         </Grid>
 		<TextBlock x:Name="pridatFrekvenciu" Margin="137,32,137,0" TextWrapping="Wrap" FontSize="24" Height="38" VerticalAlignment="Top" TextAlignment="Center" FontWeight="Bold" MouseLeftButtonDown="frekvencia_text_MouseLeftButtonDown" Opacity="0.2" Text="Pridať rádiostanicu" RenderTransformOrigin="0.5,0.5">
 			<TextBlock.RenderTransform>
@@ -184,6 +185,6 @@
 			</TextBlock.Foreground><TextBlock.Effect>
 				<DropShadowEffect ShadowDepth="0" BlurRadius="38" Direction="300"/>
 			</TextBlock.Effect></TextBlock>
-		
     </Grid>
+     
 </navigation:Page>

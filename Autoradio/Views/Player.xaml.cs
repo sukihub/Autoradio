@@ -37,6 +37,11 @@ namespace Autoradio.Views
             timer.Start();
         }
 
+        public void changedVolume(double newVolume)
+        {
+            mediaPlayer.Volume = newVolume;
+        }
+
         private void timer_Tick(object sender, EventArgs e)
         {
             if (state != State.Playing || progressFrameDown) return;

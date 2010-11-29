@@ -73,6 +73,7 @@ namespace Autoradio
         {
             current = (IModuleInterface) e.Content;
             current.initialize(stateChanged, playlist);
+            current.changedVolume(VolumeSlider.Value / 10);
         }
 
         private void AboveContent_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
@@ -95,7 +96,7 @@ namespace Autoradio
             { 
                 case State.TurnedOff:
                     tmp = (this.player) ? backRadio : backPlayer;
-                    Content.Navigate((this.player) ? RadioUri : PlayerUri);
+                    Content.Navigate((this.player) ? RadioUri : PlayerUri);              
                     this.player = !this.player;
                     break;
 
@@ -158,6 +159,12 @@ namespace Autoradio
         {
             menu = (Menu)e.Content;
             menu.initialize(stateChanged, playlist);
+        }
+
+        private void VolumeSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (current != null)
+                current.changedVolume(e.NewValue / 10); 
         }
     }
 }

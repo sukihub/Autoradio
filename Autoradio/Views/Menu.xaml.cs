@@ -28,6 +28,10 @@ namespace Autoradio.Views
         {
         }
 
+        public void changedVolume(double newVolume)
+        {
+        }
+
         public void initialize(StateChangedNotify stateChanged, Playlist playlist)
         {
             this.stateChanged = stateChanged;
