@@ -43,6 +43,22 @@ namespace Autoradio.Views
         { 
         }
 
+        public void beforeShow(bool player)
+        {
+            this.player = player;
+
+            if (player)
+            {
+                Usb.IsChecked = true;
+                //List.ItemsSource = playlist.items;
+            }
+            else
+            {
+                Radio.IsChecked = true;
+                //List.ItemsSource = playlist.radioItems;
+            }
+        }
+
         private void Repeat_Click(object sender, RoutedEventArgs e)
         {
             
