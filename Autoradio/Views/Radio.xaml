@@ -6,7 +6,7 @@
            mc:Ignorable="d"
            xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
            d:DesignWidth="640" d:DesignHeight="480"
-           Title="Radio Page">
+           Title="Radio Page" Loaded="Page_Loaded">
 	<navigation:Page.Resources>
 		<Storyboard x:Name="Posuv_frekvencie">
 			<DoubleAnimation 
@@ -144,7 +144,7 @@
     	</Image>
         <Image x:Name="Gradient" Height="110" Source="gradient_gradient.png" Stretch="Fill" VerticalAlignment="Bottom" MouseLeftButtonDown="radioDown_MouseLeftButtonDown" MouseLeftButtonUp="radioDown_MouseLeftButtonUp" MouseMove="radioDown_MouseMove" MouseLeave="coverNow_MouseLeave"/>
     	<Image Height="73" Width="8" Margin="316,0" Source="palicka.png" Stretch="Fill" VerticalAlignment="Bottom"/>
-        <TextBlock x:Name="frekvencia_text" Margin="137,54,137,0" TextWrapping="Wrap" FontSize="100" Height="151" VerticalAlignment="Top" TextAlignment="Center" Text="98,5" FontWeight="Bold" MouseLeftButtonDown="frekvencia_text_MouseLeftButtonDown">
+        <TextBlock x:Name="nazov_stanice" Margin="50,54,0,0" TextWrapping="Wrap" FontSize="100" Height="151" VerticalAlignment="Top" TextAlignment="Center" Text="98,5" FontWeight="Bold" MouseLeftButtonDown="frekvencia_text_MouseLeftButtonDown" HorizontalAlignment="Left" Width="545">
     		<TextBlock.Foreground>
     			<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
     				<GradientStop Color="#FFC6C6C6" Offset="0"/>
@@ -154,7 +154,7 @@
     		<TextBlock.Effect>
     			<DropShadowEffect ShadowDepth="0" BlurRadius="38" Direction="300"/>
     		</TextBlock.Effect></TextBlock>
-    	<TextBlock x:Name="nazov_stanice" Margin="80,176,80,0" TextWrapping="Wrap" FontSize="40" TextAlignment="Center" FontWeight="Bold" Height="57" VerticalAlignment="Top">
+    	<TextBlock x:Name="frekvencia_text" Margin="80,176,80,0" TextWrapping="Wrap" FontSize="40" TextAlignment="Center" FontWeight="Bold" Height="57" VerticalAlignment="Top">
     		<TextBlock.Foreground>
     			<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
     				<GradientStop Color="#FFC6C6C6" Offset="0"/>

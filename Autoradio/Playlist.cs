@@ -123,12 +123,11 @@ namespace Autoradio
             MemoryStream memory;
             BitmapImage bmp;
 
-            BitmapImage[] img = new BitmapImage[4];
+            BitmapImage[] img = new BitmapImage[1];
 
-            img[0] = new BitmapImage(new Uri("cover1.jpg", UriKind.Relative));
-            img[1] = new BitmapImage(new Uri("cover2.jpg", UriKind.Relative));
-            img[2] = new BitmapImage(new Uri("cover3.jpg", UriKind.Relative));
-            img[3] = new BitmapImage(new Uri("cover4.jpg", UriKind.Relative));
+            img[0] = new BitmapImage(new Uri("default_song.png", UriKind.Relative));
+            
+           
 
             foreach(FileInfo f in openDialog.Files)
             {                
@@ -175,11 +174,19 @@ namespace Autoradio
             radioItems = new List<PlaylistItem>();
             PlaylistItem item;
 
+            BitmapImage img = new BitmapImage();
+            img = new BitmapImage(new Uri("default_radio.png", UriKind.Relative));
+
             for (int i = 0; i < RADIA.Length; i++)
             {
                 item = new PlaylistItem();
+
+
+                item.cover = img;
                 item.radioName = RADIA[i];
                 item.frequency = (float)Math.Round((87 + (float)rand.NextDouble() * 21), 1);
+                item.artist = item.frequency.ToString();
+                item.title = item.radioName;
 
                 radioItems.Add(item);
             }

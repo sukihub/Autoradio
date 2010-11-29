@@ -1,5 +1,4 @@
 C:\Users\stevo\Documents\Visual Studio 2010\Projects\Autoradio\Autoradio\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\stevo\Documents\Visual Studio 2010\Projects\Autoradio\Autoradio\obj\Debug\App.g.i.cs
 C:\Users\stevo\Documents\Visual Studio 2010\Projects\Autoradio\Autoradio\obj\Debug\MainPage.g.i.cs
 C:\Users\stevo\Documents\Visual Studio 2010\Projects\Autoradio\Autoradio\obj\Debug\Views\basic.g.i.cs
 C:\Users\stevo\Documents\Visual Studio 2010\Projects\Autoradio\Autoradio\obj\Debug\Views\Menu.g.i.cs
@@ -84,3 +83,4 @@ C:\Users\stevo\Documents\Visual Studio 2010\Projects\Autoradio\Autoradio\Bin\Deb
 C:\Users\stevo\Documents\Visual Studio 2010\Projects\Autoradio\Autoradio\Bin\Debug\zh-Hans\System.Windows.Controls.Navigation.resources.dll
 C:\Users\stevo\Documents\Visual Studio 2010\Projects\Autoradio\Autoradio\Bin\Debug\zh-Hant\System.Windows.Controls.Navigation.resources.dll
 C:\Users\stevo\Documents\Visual Studio 2010\Projects\Autoradio\Autoradio\obj\Debug\XapCacheFile.xml
+C:\Users\stevo\Documents\Visual Studio 2010\Projects\Autoradio\Autoradio\obj\Debug\Views\App.g.i.cs

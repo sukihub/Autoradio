@@ -302,6 +302,11 @@ namespace Autoradio.Views
             PlayMouseLeave.Begin();
         }
 
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         
 
 
