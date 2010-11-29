@@ -50,10 +50,11 @@ namespace Autoradio.Views
         public void beforeShow(bool player)
         {
             this.player = player;
+            if (playlist.current < List.Items.Count) List.SelectedIndex = playlist.current;
 
             if (player)
             {
-                Usb.IsChecked = true;
+                if (Radio.IsChecked == true) Usb.IsChecked = true;
                 //List.ItemsSource = playlist.items;
             }
             else
@@ -127,10 +128,50 @@ namespace Autoradio.Views
             }
         }
 
+        private bool mouseDown = false;
+        private Point downPoint, movePoint;
+
         private void List_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            mouseDown = false;
             playlist.changedTrackID = List.SelectedIndex;
             ActionBack();
+        }
+
+        private void List_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            downPoint = e.GetPosition(List);
+            mouseDown = true;
+        }
+
+        private void List_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (!mouseDown) return;
+
+            movePoint = e.GetPosition(List);
+
+            if (movePoint.X <= 10)
+            { 
+                if (player)
+                {
+                    playlist.items.RemoveAt(List.SelectedIndex);
+                    List.ItemsSource = null;
+                    List.ItemsSource = playlist.items;
+                }
+                else 
+                {
+                    playlist.radioItems.RemoveAt(List.SelectedIndex);
+                    List.ItemsSource = null;
+                    List.ItemsSource = playlist.radioItems;
+                }
+
+                mouseDown = false;
+            }
+        }
+
+        private void List_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            mouseDown = true;
         }
     }
 }
