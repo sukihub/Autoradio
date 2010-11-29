@@ -26,8 +26,8 @@ namespace Autoradio.Views
         private const double pocetFrekvencii = maximalnaFrekvencia - minimalnaFrekvencia;
         private const double dlzkaFrekvencie = (maxPozicia + (-1 * minPozicia)) / pocetFrekvencii;
 
-        private const int PLAY = 0;
-        private const int PAUSE = 1;
+        private const int PLAY = 1;
+        private const int PAUSE = 0;
 
         private const String pridatFrekText = "Pridať rádiostanicu";
         private const String odobratFrekText = "Odobrať rádiostanicu";
@@ -78,6 +78,18 @@ namespace Autoradio.Views
 
         public void playlistHidden()
         {
+
+            nazov_stanice.Text = myPlaylist.radioItems[myPlaylist.changedTrackID].radioName;
+            aktualnaFrekvencia = myPlaylist.radioItems[myPlaylist.changedTrackID].frequency;
+            pridatFrekvenciu.Text = "Odobrať rádiostanicu";
+
+            poziciaFrekvencie = (-1 * (aktualnaFrekvencia - maximalnaFrekvencia)) * dlzkaFrekvencie - (-1 * minPozicia);
+            prepocitajFrekvenciu();
+
+            MyDoubleAnimation.To = poziciaFrekvencie;
+            Posuv_frekvencie.Begin();
+            stopMusic();
+            playMusic();
         }
 
         private void prepocitajFrekvenciu()
@@ -343,7 +355,7 @@ namespace Autoradio.Views
         {
            
             myRadioPlayer.Stop();
-  
+            stav = PAUSE;
         }
 
         private void myRadioPlayer_MediaOpened(object sender, RoutedEventArgs e)
