@@ -16,6 +16,8 @@ using TagLib;
 
 namespace Autoradio
 {
+    
+
     public struct PlaylistItem
     {
         public FileInfo file { get; set; }
@@ -29,9 +31,15 @@ namespace Autoradio
         public ImageSource cover { get; set; }
     }
 
+
+
     public class Playlist
     {
+        public string[] RADIA = { "Express", "Okey", "SRo", "Lumen", "Europa", "Jemne melodie", "Radio FM", "Radio Z", "Radio Suki", "Twist" };
+        
         public List<PlaylistItem> items;
+        public List<PlaylistItem> radioItems;
+
         public int current = 0;
 
         private Random rand = new Random();
@@ -45,8 +53,12 @@ namespace Autoradio
 
         public Playlist()
         {
+            radioOpen();
+
             openDialog.Filter = "MP3 (.mp3)|*.mp3";
             openDialog.Multiselect = true;
+
+
         }
 
         /**
@@ -155,6 +167,21 @@ namespace Autoradio
                 item.frequency = (float) Math.Round( (87 + (float)rand.NextDouble() * 21), 1);
 
                 items.Add(item);
+            }
+        }
+
+        public void radioOpen()
+        {
+            radioItems = new List<PlaylistItem>();
+            PlaylistItem item;
+
+            for (int i = 0; i < RADIA.Length; i++)
+            {
+                item = new PlaylistItem();
+                item.radioName = RADIA[i];
+                item.frequency = (float)Math.Round((87 + (float)rand.NextDouble() * 21), 1);
+
+                radioItems.Add(item);
             }
         }
     }
