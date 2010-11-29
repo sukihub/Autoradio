@@ -315,6 +315,7 @@
     <Content Include="Views\BackgroundYellow.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Views\radioMusic.mp3" />
     <Resource Include="Views\default_radio.png" />
     <Resource Include="Views\default_song.png" />
   </ItemGroup>

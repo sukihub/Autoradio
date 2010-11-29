@@ -14,6 +14,7 @@
     {
         void initialize(StateChangedNotify stateChanged, Playlist playlist);
         void playlistHidden();
+        void changedVolume(double newVolume);
     }
 
     interface ICloneable

@@ -586,6 +586,6 @@
 			</Button.RenderTransform>
 		</Button>
 		<navigation:Frame x:Name="Settings" Grid.Row="0" Grid.Column="1" BorderBrush="{x:Null}" Background="{x:Null}" JournalOwnership="OwnsJournal" IsHitTestVisible="False" Visibility="Collapsed" Grid.ColumnSpan="2" Margin="0" Navigated="Settings_Navigated" />
-		<Slider Margin="17,8,20,15" Orientation="Vertical" Style="{StaticResource SliderVolume}"/>
+		<Slider x:Name="VolumeSlider" Margin="17,8,20,15" Orientation="Vertical" Style="{StaticResource SliderVolume}" Maximum="10" Minimum="0" Value="5" ValueChanged="VolumeSlider_ValueChanged"/>
     </Grid>
 </UserControl>

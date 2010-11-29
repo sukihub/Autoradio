@@ -48,5 +48,9 @@ namespace Autoradio.Views
             this.stateChanged = stateChanged;
         }
 
+        public void changedVolume(double newVolume)
+        {
+        }
+
     }
 }

@@ -26,6 +26,9 @@ namespace Autoradio.Views
         private const double pocetFrekvencii = maximalnaFrekvencia - minimalnaFrekvencia;
         private const double dlzkaFrekvencie = (maxPozicia + (-1 * minPozicia)) / pocetFrekvencii;
 
+        private const int PLAY = 0;
+        private const int PAUSE = 1;
+
         private const String pridatFrekText = "Pridať rádiostanicu";
         private const String odobratFrekText = "Odobrať rádiostanicu";
 
@@ -41,12 +44,17 @@ namespace Autoradio.Views
 
         private Playlist myPlaylist;
 
+        private int stav;
+
         public Radio()
         {
             InitializeComponent();
 
             poziciaFrekvencie = 0;
+
+            stav = PLAY;
             prepocitajFrekvenciu();
+
             
         }
 
@@ -61,6 +69,11 @@ namespace Autoradio.Views
             myPlaylist = playlist;
             //myPlaylist.Open();
             searchForClosestRadio();
+        }
+
+        public void changedVolume(double newVolume)
+        {
+            myRadioPlayer.Volume = newVolume;
         }
 
         public void playlistHidden()
@@ -101,6 +114,10 @@ namespace Autoradio.Views
             MyDoubleAnimation.To = poziciaFrekvencie;
             Posuv_frekvencie.Begin();
 
+            playMusic();
+
+
+
         }
 
 
@@ -131,6 +148,8 @@ namespace Autoradio.Views
 
             MyDoubleAnimation.To = poziciaFrekvencie;
             Posuv_frekvencie.Begin();
+            stopMusic();
+            playMusic();
 
         }
 
@@ -161,6 +180,8 @@ namespace Autoradio.Views
 
             MyDoubleAnimation.To = poziciaFrekvencie;
             Posuv_frekvencie.Begin();
+            stopMusic();
+            playMusic();
         }
 
 
@@ -176,12 +197,15 @@ namespace Autoradio.Views
                     if (pridatFrekvenciu.Text != "")
 
                     pridatFrekvenciu.Text = "Odobrať rádiostanicu";
+                    playMusic();
                     return;
                 }
             }
 
+            
             nazov_stanice.Text = "";
             pridatFrekvenciu.Text = "Pridať rádiostanicu";
+            stopMusic();
             
         }
 
@@ -302,14 +326,54 @@ namespace Autoradio.Views
             PlayMouseLeave.Begin();
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
+
+        
+
+        private void playMusic()
+        {
+            //myRadioPlayer.Source = new Uri("radioMusic.mp3", UriKind.Relative);
+            if (stav == PLAY)
+                if (nazov_stanice.Text != "")
+                    myRadioPlayer.Play();
+            
+        }
+
+
+        private void stopMusic()
+        {
+           
+            myRadioPlayer.Stop();
+  
+        }
+
+        private void myRadioPlayer_MediaOpened(object sender, RoutedEventArgs e)
         {
 
         }
 
-        
+        private void PsdLayer1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (nazov_stanice.Text != "")
+                playMusic();
+        }
 
+        private void PsdLayer_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (stav == PLAY)
+            {
+                stav = PAUSE;
+                stopMusic();
+                
+            }
+            else
+            {
+                stav = PLAY;
+                playMusic();
+                
+            }
+        }
 
     
+         
     }
 }
