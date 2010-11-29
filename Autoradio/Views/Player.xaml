@@ -704,11 +704,16 @@
     		<RowDefinition Height="0.633*"/>
     		<RowDefinition Height="0.367*"/>
     	</Grid.RowDefinitions>
+        <TextBlock x:Name="emptyPlaylist" Grid.Column="1" Margin="-72,0,-72,8" TextWrapping="Wrap" Text="empty playlist" Foreground="White" FontFamily="Arial" FontWeight="Bold" FontSize="64" TextAlignment="Center" Opacity="0.495" Height="96" VerticalAlignment="Bottom">
+        	<TextBlock.Effect>
+        		<DropShadowEffect BlurRadius="38" Direction="300" ShadowDepth="0"/>
+        	</TextBlock.Effect>
+        </TextBlock>
         <Grid x:Name="progressArea" Height="32" VerticalAlignment="Bottom" MouseLeftButtonDown="progressFrame_MouseLeftButtonDown" MouseMove="progressFrame_MouseMove" MouseLeftButtonUp="progressFrame_MouseLeftButtonUp" Background="#00000000" Grid.Row="1" Grid.ColumnSpan="3" Margin="16,0">
         	<Rectangle x:Name="progressBar" HorizontalAlignment="Left" Margin="4,11,0,0" Stroke="White" Width="0" Opacity="0.495" Height="2" VerticalAlignment="Top" MaxWidth="648"/>
         	<Rectangle x:Name="progressFrame" Opacity="0.2" RadiusY="8" RadiusX="8" Stroke="White" Margin="0,9,0,0" Height="6" VerticalAlignment="Top"/>
         </Grid>
-        <Image x:Name="coverNow" Grid.Column="1" Margin="48,24" Source="cover1.jpg" Stretch="Fill" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="coverNow_MouseLeftButtonDown" MouseLeftButtonUp="coverNow_MouseLeftButtonUp" MouseMove="coverNow_MouseMove" MouseLeave="coverNow_MouseLeave">
+        <Image x:Name="coverNow" Grid.Column="1" Margin="48,24" Source="cover1.jpg" Stretch="Fill" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="coverNow_MouseLeftButtonDown" MouseLeftButtonUp="coverNow_MouseLeftButtonUp" MouseMove="coverNow_MouseMove" MouseLeave="coverNow_MouseLeave" Opacity="0">
         	<Image.RenderTransform>
         		<CompositeTransform/>
         	</Image.RenderTransform>
@@ -727,7 +732,7 @@
         		<DropShadowEffect ShadowDepth="10" BlurRadius="20"/>
         	</Image.Effect>
         </Image>
-        <Image x:Name="coverNext" Grid.Column="2" Margin="0,112,24,48" Source="cover2.jpg" Stretch="Fill" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="coverNext_MouseLeftButtonDown" >
+        <Image x:Name="coverNext" Grid.Column="2" Margin="0,112,24,48" Source="cover2.jpg" Stretch="Fill" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="coverNext_MouseLeftButtonDown" Opacity="0" >
             <Image.RenderTransform>
         		<CompositeTransform/>
         	</Image.RenderTransform>
@@ -744,7 +749,7 @@
         		</LinearGradientBrush>
         	</Image.OpacityMask>
         </Image>
-        <Image x:Name="coverPrevious" Margin="24,112,0,48" Source="cover3.jpg" Stretch="Fill" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="coverPrevious_MouseLeftButtonDown">
+        <Image x:Name="coverPrevious" Margin="24,112,0,48" Source="cover3.jpg" Stretch="Fill" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="coverPrevious_MouseLeftButtonDown" Opacity="0">
             <Image.RenderTransform>
         		<CompositeTransform/>
         	</Image.RenderTransform>
@@ -837,7 +842,7 @@
         		<DropShadowEffect BlurRadius="10" ShadowDepth="7"/>
         	</Image.Effect>
         </Image>
-        <TextBlock x:Name="labelTitle" Grid.Column="1" Height="52" Margin="48,-24,48,0" TextWrapping="Wrap" Text="No Cars Go" VerticalAlignment="Top" FontFamily="Candara" FontSize="32" Foreground="White" Grid.Row="1" RenderTransformOrigin="0.5,0.5">
+        <TextBlock x:Name="labelTitle" Grid.Column="1" Height="52" Margin="48,-24,48,0" TextWrapping="Wrap" Text="No Cars Go" VerticalAlignment="Top" FontFamily="Candara" FontSize="32" Foreground="White" Grid.Row="1" RenderTransformOrigin="0.5,0.5" Opacity="0">
         	<TextBlock.RenderTransform>
         		<CompositeTransform/>
         	</TextBlock.RenderTransform>
@@ -845,7 +850,7 @@
         		<DropShadowEffect Opacity="0.8"/>
         	</TextBlock.Effect>
         </TextBlock>
-        <TextBlock x:Name="labelInterpret" Grid.Column="1" Height="20" Margin="48,8,48,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Text="Arcade Fire" FontFamily="Candara" FontSize="17.333" RenderTransformOrigin="0.5,0.5">
+        <TextBlock x:Name="labelInterpret" Grid.Column="1" Height="20" Margin="48,8,48,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Text="Arcade Fire" FontFamily="Candara" FontSize="17.333" RenderTransformOrigin="0.5,0.5" Opacity="0">
         	<TextBlock.RenderTransform>
         		<CompositeTransform/>
         	</TextBlock.RenderTransform>
@@ -866,6 +871,6 @@
         	<TextBlock x:Name="timeSeconds" Margin="0,0,8,0" TextWrapping="Wrap" Text="00" FontSize="96" FontFamily="Candara" HorizontalAlignment="Right" Width="112" Foreground="White" Opacity="0.4"/>
         	<TextBlock x:Name="timeMinutes" Margin="8,0,0,0" TextWrapping="Wrap" Text="0" FontSize="96" FontFamily="Candara" TextAlignment="Right" Foreground="White" Opacity="0.4" HorizontalAlignment="Left" Width="112"/>
         </Grid>
-        <MediaElement Margin="10,12,10,21" x:Name="mediaPlayer" AutoPlay="False" MediaEnded="mediaPlayer_MediaEnded" Grid.Column="1" />
+        <MediaElement Margin="10,12,0,0" x:Name="mediaPlayer" AutoPlay="False" MediaEnded="mediaPlayer_MediaEnded" Grid.Column="1" HorizontalAlignment="Left" Height="12" VerticalAlignment="Top" Width="14" />
     </Grid>
 </navigation:Page>
