@@ -109,6 +109,7 @@ namespace Autoradio
                     break;
 
                 case State.PlaylistOn:
+                    aboveCurrent.beforeShow(player);
                     PlaylistShow.Begin();
                     Content.IsHitTestVisible = false;
                     AboveContent.IsHitTestVisible = true;

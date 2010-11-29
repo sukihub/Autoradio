@@ -167,6 +167,8 @@ namespace Autoradio
 
                 items.Add(item);
             }
+
+            this.current = 0;
         }
 
         public void radioOpen()

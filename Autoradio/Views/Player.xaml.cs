@@ -71,9 +71,28 @@ namespace Autoradio.Views
             playlist.changedTrackID = -1;
 
             //ak bol zmeneny playlist, nastavime prehravanie prvej pesnicky (= zmenime skladbu)
-            if (playlist.isChanged() && track == -1)
+            if (playlist.isChanged())
             {
-                track = 0;
+                if (track == -1) track = 0;
+
+                if (playlist.items.Count == 0)
+                {
+                    emptyPlaylist.Visibility = Visibility.Visible;
+                    coverNow.Opacity = 0.0;
+                    coverPrevious.Opacity = 0.0;
+                    coverNext.Opacity = 0.0;
+                    labelInterpret.Opacity = 0.0;
+                    labelTitle.Opacity = 0.0;
+                }
+                else
+                {
+                    emptyPlaylist.Visibility = Visibility.Collapsed;
+                    coverNow.Opacity = 100.0;
+                    coverPrevious.Opacity = 100.0;
+                    coverNext.Opacity = 100.0;
+                    labelInterpret.Opacity = 100.0;
+                    labelTitle.Opacity = 100.0;
+                }
             }
 
             //ak bola zmenena skladba
@@ -85,6 +104,9 @@ namespace Autoradio.Views
                 coverPrevious.Source = playlist.GetPrevious().cover;
                 coverNow.Source = playlist.items[track].cover;
                 coverNext.Source = playlist.GetNext().cover;
+
+                labelTitle.Text = playlist.items[playlist.current].title;
+                labelInterpret.Text = playlist.items[playlist.current].artist;
             }
         }
 
@@ -162,6 +184,9 @@ namespace Autoradio.Views
             coverNow.Source = animNext.Source;
             coverPrevious.Source = animNow.Source;
             coverNext.Source = animNew.Source;
+
+            labelTitle.Text = playlist.items[playlist.current].title;
+            labelInterpret.Text = playlist.items[playlist.current].artist;
         }
 
         private void coverPrevious_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -180,6 +205,9 @@ namespace Autoradio.Views
             coverNow.Source = animPrevious.Source;
             coverPrevious.Source = animNew.Source;
             coverNext.Source = animNow.Source;
+
+            labelTitle.Text = playlist.items[playlist.current].title;
+            labelInterpret.Text = playlist.items[playlist.current].artist;
         }
 
         private Boolean coverMouseDown = false;
