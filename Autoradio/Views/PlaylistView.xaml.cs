@@ -97,6 +97,13 @@ namespace Autoradio.Views
                 stateChanged(State.TurnedOff);
                 player = true;
             }
+
+            //ak je vytvoreny playlist
+            if (playlist != null)
+            {
+                playlist.Open();
+                List.ItemsSource = playlist.items;
+            }
         }
 
         private void List_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
