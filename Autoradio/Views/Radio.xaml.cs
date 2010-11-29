@@ -82,17 +82,17 @@ namespace Autoradio.Views
             int i,  index = 0;
             double najblizsie = 100;
             
-            for (i=0; i<10; i++)
+            for (i=0; i<myPlaylist.radioItems.Count; i++)
             {
-                if (Math.Abs(aktualnaFrekvencia - myPlaylist.items[i].frequency) < najblizsie)
+                if (Math.Abs(aktualnaFrekvencia - myPlaylist.radioItems[i].frequency) < najblizsie)
                 {
-                    najblizsie = Math.Abs(aktualnaFrekvencia - myPlaylist.items[i].frequency);
+                    najblizsie = Math.Abs(aktualnaFrekvencia - myPlaylist.radioItems[i].frequency);
                     index = i;
                 }
              }
            
-            nazov_stanice.Text = myPlaylist.items[index].radioName;
-            aktualnaFrekvencia = myPlaylist.items[index].frequency;
+            nazov_stanice.Text = myPlaylist.radioItems[index].radioName;
+            aktualnaFrekvencia = myPlaylist.radioItems[index].frequency;
             pridatFrekvenciu.Text = "Odobrať rádiostanicu";
 
             poziciaFrekvencie = (-1 * (aktualnaFrekvencia - maximalnaFrekvencia)) * dlzkaFrekvencie - (-1 * minPozicia);
@@ -110,11 +110,11 @@ namespace Autoradio.Views
             int i, index = -1;
             double najblizsie = 100;
 
-            for (i = 0; i < 10; i++)
+            for (i = 0; i < myPlaylist.radioItems.Count; i++)
             {
-                if ((myPlaylist.items[i].frequency > aktualnaFrekvencia) && (Math.Abs(aktualnaFrekvencia - myPlaylist.items[i].frequency) < najblizsie))
+                if ((myPlaylist.radioItems[i].frequency > aktualnaFrekvencia) && (Math.Abs(aktualnaFrekvencia - myPlaylist.radioItems[i].frequency) < najblizsie))
                 {
-                    najblizsie = Math.Abs(aktualnaFrekvencia - myPlaylist.items[i].frequency);
+                    najblizsie = Math.Abs(aktualnaFrekvencia - myPlaylist.radioItems[i].frequency);
                     index = i;
                 }
             }
@@ -122,8 +122,8 @@ namespace Autoradio.Views
             if (index == -1)
                 return;
 
-            nazov_stanice.Text = myPlaylist.items[index].radioName;
-            aktualnaFrekvencia = myPlaylist.items[index].frequency;
+            nazov_stanice.Text = myPlaylist.radioItems[index].radioName;
+            aktualnaFrekvencia = myPlaylist.radioItems[index].frequency;
             pridatFrekvenciu.Text = "Odobrať rádiostanicu";
 
             poziciaFrekvencie = (-1 * (aktualnaFrekvencia - maximalnaFrekvencia)) * dlzkaFrekvencie - (-1 * minPozicia);
@@ -140,11 +140,11 @@ namespace Autoradio.Views
             int i, index = -1;
             double najblizsie = 100;
 
-            for (i = 0; i < 10; i++)
+            for (i = 0; i < myPlaylist.radioItems.Count; i++)
             {
-                if ((myPlaylist.items[i].frequency < aktualnaFrekvencia) && (Math.Abs(aktualnaFrekvencia - myPlaylist.items[i].frequency) < najblizsie))
+                if ((myPlaylist.radioItems[i].frequency < aktualnaFrekvencia) && (Math.Abs(aktualnaFrekvencia - myPlaylist.radioItems[i].frequency) < najblizsie))
                 {
-                    najblizsie = Math.Abs(aktualnaFrekvencia - myPlaylist.items[i].frequency);
+                    najblizsie = Math.Abs(aktualnaFrekvencia - myPlaylist.radioItems[i].frequency);
                     index = i;
                 }
             }
@@ -152,8 +152,8 @@ namespace Autoradio.Views
             if (index == -1)
                 return;
 
-            nazov_stanice.Text = myPlaylist.items[index].radioName;
-            aktualnaFrekvencia = myPlaylist.items[index].frequency;
+            nazov_stanice.Text = myPlaylist.radioItems[index].radioName;
+            aktualnaFrekvencia = myPlaylist.radioItems[index].frequency;
             pridatFrekvenciu.Text = "Odobrať rádiostanicu";
 
             poziciaFrekvencie = (-1 * (aktualnaFrekvencia - maximalnaFrekvencia)) * dlzkaFrekvencie - (-1 * minPozicia);
@@ -168,11 +168,11 @@ namespace Autoradio.Views
         {
             int i;
 
-            for (i = 0; i < 10; i++)
+            for (i = 0; i < myPlaylist.radioItems.Count; i++)
             {
-                if ((myPlaylist.items[i].frequency == aktualnaFrekvencia ))
+                if ((myPlaylist.radioItems[i].frequency == aktualnaFrekvencia ))
                 {
-                    nazov_stanice.Text = myPlaylist.items[i].radioName;
+                    nazov_stanice.Text = myPlaylist.radioItems[i].radioName;
                     if (pridatFrekvenciu.Text != "")
 
                     pridatFrekvenciu.Text = "Odobrať rádiostanicu";
@@ -202,7 +202,7 @@ namespace Autoradio.Views
                 //na lavu polku
                 if (startPoint.X < 320)
                 {
-                    poziciaFrekvencie += (dlzkaFrekvencie / 10);
+                    poziciaFrekvencie += (dlzkaFrekvencie / myPlaylist.radioItems.Count);
 
                     if (poziciaFrekvencie < minPozicia)
                         poziciaFrekvencie = minPozicia;
@@ -218,7 +218,7 @@ namespace Autoradio.Views
                 //na pravu polku
                 else
                 {
-                    poziciaFrekvencie -= (dlzkaFrekvencie / 10);
+                    poziciaFrekvencie -= (dlzkaFrekvencie / myPlaylist.radioItems.Count);
 
                     if (poziciaFrekvencie < minPozicia)
                         poziciaFrekvencie = minPozicia;
@@ -300,6 +300,11 @@ namespace Autoradio.Views
         private void controlWrapper_MouseLeave(object sender, MouseEventArgs e)
         {
             PlayMouseLeave.Begin();
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
 
         

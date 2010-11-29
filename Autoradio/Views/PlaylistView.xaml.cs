@@ -76,6 +76,7 @@ namespace Autoradio.Views
                 stateChanged(State.TurnedOff);
                 player = false;
             }
+            List.ItemsSource = playlist.radioItems;
         }
 
         private void Disc_Checked(object sender, RoutedEventArgs e)

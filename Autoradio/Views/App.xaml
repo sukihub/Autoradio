@@ -1,0 +1,137 @@
+﻿<Application xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+             x:Class="Autoradio.App"
+             >
+    <Application.Resources>
+        
+    	<Style x:Key="AutoradioSlideSkin" TargetType="Slider">
+    		<Setter Property="BorderThickness" Value="1"/>
+    		<Setter Property="Maximum" Value="10"/>
+    		<Setter Property="Minimum" Value="0"/>
+    		<Setter Property="Value" Value="0"/>
+    		<Setter Property="BorderBrush">
+    			<Setter.Value>
+    				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+    					<GradientStop Color="#FFA3AEB9" Offset="0"/>
+    					<GradientStop Color="#FF8399A9" Offset="0.375"/>
+    					<GradientStop Color="#FF718597" Offset="0.375"/>
+    					<GradientStop Color="#FF617584" Offset="1"/>
+    				</LinearGradientBrush>
+    			</Setter.Value>
+    		</Setter>
+    		<Setter Property="IsTabStop" Value="False"/>
+    		<Setter Property="Template">
+    			<Setter.Value>
+    				<ControlTemplate TargetType="Slider">
+    					<Grid x:Name="Root">
+    						<Grid.Resources>
+    							<ControlTemplate x:Key="RepeatButtonTemplate">
+    								<Grid x:Name="Root" Background="Transparent" Opacity="0"/>
+    							</ControlTemplate>
+    						</Grid.Resources>
+    						<VisualStateManager.VisualStateGroups>
+    							<VisualStateGroup x:Name="CommonStates">
+    								<VisualState x:Name="Normal"/>
+    								<VisualState x:Name="MouseOver"/>
+    								<VisualState x:Name="Disabled">
+    									<Storyboard>
+    										<ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Visibility" Storyboard.TargetName="HorizontalTrackRectangleDisabledOverlay">
+    											<DiscreteObjectKeyFrame KeyTime="0">
+    												<DiscreteObjectKeyFrame.Value>
+    													<Visibility>Visible</Visibility>
+    												</DiscreteObjectKeyFrame.Value>
+    											</DiscreteObjectKeyFrame>
+    										</ObjectAnimationUsingKeyFrames>
+    										<ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Visibility" Storyboard.TargetName="ThumbDisabledOverlay">
+    											<DiscreteObjectKeyFrame KeyTime="0">
+    												<DiscreteObjectKeyFrame.Value>
+    													<Visibility>Visible</Visibility>
+    												</DiscreteObjectKeyFrame.Value>
+    											</DiscreteObjectKeyFrame>
+    										</ObjectAnimationUsingKeyFrames>
+    										<ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Visibility" Storyboard.TargetName="VerticalTrackRectangleDisabledOverlay">
+    											<DiscreteObjectKeyFrame KeyTime="0">
+    												<DiscreteObjectKeyFrame.Value>
+    													<Visibility>Visible</Visibility>
+    												</DiscreteObjectKeyFrame.Value>
+    											</DiscreteObjectKeyFrame>
+    										</ObjectAnimationUsingKeyFrames>
+    									</Storyboard>
+    								</VisualState>
+    							</VisualStateGroup>
+    						</VisualStateManager.VisualStateGroups>
+    						<Grid x:Name="HorizontalTemplate" Background="{TemplateBinding Background}">
+    							<Grid.ColumnDefinitions>
+    								<ColumnDefinition Width="Auto"/>
+    								<ColumnDefinition Width="Auto"/>
+    								<ColumnDefinition Width="0.153*"/>
+    								<ColumnDefinition Width="0.548*"/>
+    								<ColumnDefinition Width="0.299*"/>
+    							</Grid.ColumnDefinitions>
+    							<Rectangle x:Name="__" Grid.ColumnSpan="4" Grid.Column="1" Margin="4.5,5,5,5" RadiusY="1" RadiusX="1" StrokeThickness="{TemplateBinding BorderThickness}">
+    								<Rectangle.Stroke>
+    									<LinearGradientBrush EndPoint="0.013,0.472" StartPoint="0.991,0.528">
+    										<GradientStop Color="#FF1F1F1F" Offset="0"/>
+    										<GradientStop Color="#FFA3A3A3" Offset="1"/>
+    									</LinearGradientBrush>
+    								</Rectangle.Stroke>
+    								<Rectangle.Fill>
+    									<LinearGradientBrush EndPoint="0.993,0.51" StartPoint="0.017,0.471">
+    										<GradientStop Color="#FF002B4D" Offset="1"/>
+    										<GradientStop Color="#FF256799"/>
+    									</LinearGradientBrush>
+    								</Rectangle.Fill>
+    							</Rectangle>
+    							<Rectangle x:Name="HorizontalTrackRectangleDisabledOverlay" Grid.ColumnSpan="4" Grid.Column="1" Fill="White" Height="3" Margin="5,12.5" Opacity=".55" RadiusY="1" RadiusX="1" Visibility="Collapsed"/>
+    							<RepeatButton x:Name="HorizontalTrackLargeChangeDecreaseRepeatButton" Grid.Column="1" Height="18" IsTabStop="False" Template="{StaticResource RepeatButtonTemplate}" Margin="5.5,5" d:LayoutOverrides="GridBox"/>
+    							<Thumb x:Name="HorizontalThumb" IsTabStop="True" Margin="0,2.834,-7.083,3" Grid.Column="1" Foreground="White">
+    								<Thumb.Background>
+    									<LinearGradientBrush EndPoint="0.881,0.473" StartPoint="0.149,0.478">
+    										<GradientStop Color="White" Offset="1"/>
+    										<GradientStop Color="#FF3D3D3D"/>
+    									</LinearGradientBrush>
+    								</Thumb.Background>
+    								<Thumb.BorderBrush>
+    									<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+    										<GradientStop Color="#FFA3AEB9" Offset="0"/>
+    										<GradientStop Color="#FFD4D4D4"/>
+    										<GradientStop Color="#FFB1B1B1" Offset="1"/>
+    									</LinearGradientBrush>
+    								</Thumb.BorderBrush>
+    							</Thumb>
+    							<Rectangle x:Name="ThumbDisabledOverlay" Grid.Column="1" Fill="White" Opacity=".55" RadiusY="2" RadiusX="2" Visibility="Collapsed" Width="11"/>
+    							<RepeatButton x:Name="HorizontalTrackLargeChangeIncreaseRepeatButton" Grid.Column="2" Height="18" IsTabStop="False" Template="{StaticResource RepeatButtonTemplate}" Grid.ColumnSpan="3" Margin="0,5" d:IsHidden="True"/>
+    						</Grid>
+    						<Grid x:Name="VerticalTemplate" Background="{TemplateBinding Background}" Visibility="Collapsed">
+    							<Grid.RowDefinitions>
+    								<RowDefinition Height="*"/>
+    								<RowDefinition Height="Auto"/>
+    								<RowDefinition Height="Auto"/>
+    							</Grid.RowDefinitions>
+    							<Rectangle Fill="#FFE6EFF7" Margin="0,-1001" RadiusY="1" Grid.Row="0" RadiusX="1" Grid.RowSpan="3" Stroke="#FFA3AEB9" StrokeThickness="{TemplateBinding BorderThickness}" d:LayoutOverrides="GridBox"/>
+    							<Rectangle x:Name="VerticalTrackRectangleDisabledOverlay" Fill="White" Margin="0,5,0,5" Opacity=".55" RadiusY="1" Grid.Row="0" RadiusX="1" Grid.RowSpan="3" Visibility="Collapsed" Width="3"/>
+    							<RepeatButton x:Name="VerticalTrackLargeChangeDecreaseRepeatButton" IsTabStop="False" Grid.Row="2" Template="{StaticResource RepeatButtonTemplate}" Width="18"/>
+    							<Thumb x:Name="VerticalThumb" Height="11" IsTabStop="True" Grid.Row="1" Width="18"/>
+    							<RepeatButton x:Name="VerticalTrackLargeChangeIncreaseRepeatButton" IsTabStop="False" Grid.Row="0" Template="{StaticResource RepeatButtonTemplate}" Width="18"/>
+    						</Grid>
+    					</Grid>
+    				</ControlTemplate>
+    			</Setter.Value>
+    		</Setter>
+    	</Style>
+    	<ControlTemplate x:Key="VolumeSliderDescreaseRepeaButton" TargetType="RepeatButton">
+    		<Grid x:Name="Root" Width="20">
+    			<Grid.Background>
+    				<LinearGradientBrush EndPoint="0.538,0.025" StartPoint="0.531,0.894">
+    					<GradientStop Color="#FF838383" Offset="0"/>
+    					<GradientStop Color="#FFD4D4D4" Offset="0.996"/>
+    				</LinearGradientBrush>
+    			</Grid.Background>
+    		</Grid>
+    	</ControlTemplate>
+        
+    </Application.Resources>
+</Application>
+
+
