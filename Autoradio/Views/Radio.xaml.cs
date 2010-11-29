@@ -79,6 +79,9 @@ namespace Autoradio.Views
         public void playlistHidden()
         {
 
+            if (myPlaylist.changedTrackID == -1)
+                return;
+
             nazov_stanice.Text = myPlaylist.radioItems[myPlaylist.changedTrackID].radioName;
             aktualnaFrekvencia = myPlaylist.radioItems[myPlaylist.changedTrackID].frequency;
             pridatFrekvenciu.Text = "Odobrať rádiostanicu";
@@ -90,7 +93,10 @@ namespace Autoradio.Views
             Posuv_frekvencie.Begin();
             stopMusic();
             playMusic();
-        }
+
+            myPlaylist.changedTrackID = -1;
+            
+         }
 
         private void prepocitajFrekvenciu()
         {
@@ -317,11 +323,13 @@ namespace Autoradio.Views
             if (state == State.Playing)
             {
                 state = State.Paused;
+                stopMusic();
                 Pause.Begin();
             }
             else
             {
                 state = State.Playing;
+                playMusic();
                 Play.Begin();
             }
 
@@ -344,7 +352,7 @@ namespace Autoradio.Views
         private void playMusic()
         {
             //myRadioPlayer.Source = new Uri("radioMusic.mp3", UriKind.Relative);
-            if (stav == PLAY)
+            if (state == State.Playing)
                 if (nazov_stanice.Text != "")
                     myRadioPlayer.Play();
             
@@ -365,12 +373,15 @@ namespace Autoradio.Views
 
         private void PsdLayer1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            /*
             if (nazov_stanice.Text != "")
                 playMusic();
+             * /
         }
 
         private void PsdLayer_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            /*
             if (stav == PLAY)
             {
                 stav = PAUSE;
@@ -383,6 +394,7 @@ namespace Autoradio.Views
                 playMusic();
                 
             }
+             * */
         }
 
     
