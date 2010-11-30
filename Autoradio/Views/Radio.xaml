@@ -172,7 +172,7 @@
         	<Canvas x:Name="pause" Clip="M0,0L56,0 56,56 0,56z" UseLayoutRounding="False" Margin="96,40,112,20">
         		<Image x:Name="PsdLayer" Height="56" Canvas.Left="0" Source="pause_Images/Image.png" Canvas.Top="0" Width="56"/>
         	</Canvas>
-            <MediaElement x:Name="myRadioPlayer" AutoPlay="True" Source="radioMusic.mp3" MediaOpened="myRadioPlayer_MediaOpened"/>
+            <MediaElement x:Name="myRadioPlayer" AutoPlay="True" Source="radioMusic.mp3" MediaOpened="myRadioPlayer_MediaOpened" MediaEnded="myRadioPlayer_MediaEnded"  />
         </Grid>
 		<TextBlock x:Name="pridatFrekvenciu" Margin="137,32,137,0" TextWrapping="Wrap" FontSize="24" Height="38" VerticalAlignment="Top" TextAlignment="Center" FontWeight="Bold" MouseLeftButtonDown="frekvencia_text_MouseLeftButtonDown" Opacity="0.2" Text="Pridať rádiostanicu" RenderTransformOrigin="0.5,0.5">
 			<TextBlock.RenderTransform>

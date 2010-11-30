@@ -397,6 +397,12 @@ namespace Autoradio.Views
              * */
         }
 
+        private void myRadioPlayer_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            myRadioPlayer.Stop();
+            myRadioPlayer.Play();
+        }
+
     
          
     }
