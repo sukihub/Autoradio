@@ -397,11 +397,18 @@ namespace Autoradio.Views
              * */
         }
 
+<<<<<<< HEAD
         private void pridatFrekvenciu_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             myPlaylist.radioItems = myPlaylist.generateRadioStation((float)aktualnaFrekvencia);
             nazov_stanice.Text = myPlaylist.radioItems[myPlaylist.radioItems.Count-1].radioName;
            
+=======
+        private void myRadioPlayer_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            myRadioPlayer.Stop();
+            myRadioPlayer.Play();
+>>>>>>> 77bb1d158a11ea81ac8d462ba61619cff5e90f03
         }
 
     
