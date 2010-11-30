@@ -136,6 +136,9 @@ namespace Autoradio
 
                 item.file = f;
 
+                //System.Text.Encoding.Convert(System.Text.Encoding.
+                
+
                 if (id3File.Tag.TagTypes.HasFlag(TagLib.TagTypes.Id3v2))
                 {
                     item.title = id3File.Tag.Title;

@@ -52,7 +52,7 @@ namespace Autoradio
             backPlayer = new BitmapImage(new Uri("/Views/BackgroundBlue.png", UriKind.Relative));
             backPaused = new BitmapImage(new Uri("/Views/BackgroundYellow.png", UriKind.Relative));
 
-            BackgroundImage.ImageSource = backPlayer;
+            BackgroundImage.ImageSource = backPaused;
             Content.Navigate(PlayerUri);
             AboveContent.Navigate(PlaylistUri);
             Settings.Navigate(MenuUri);

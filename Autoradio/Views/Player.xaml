@@ -850,7 +850,7 @@
         		<DropShadowEffect Opacity="0.8"/>
         	</TextBlock.Effect>
         </TextBlock>
-        <TextBlock x:Name="labelInterpret" Grid.Column="1" Height="32" Margin="48,8,48,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Text="Arcade Fire" FontFamily="Candara" FontSize="17.333" RenderTransformOrigin="0.5,0.5" Opacity="0">
+        <TextBlock x:Name="labelInterpret" Grid.Column="1" Height="32" Margin="48,8,48,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Text="Arcade Fire" FontFamily="Candara" FontSize="17.333" RenderTransformOrigin="0.5,0.5" Opacity="0" LineHeight="96">
         	<TextBlock.RenderTransform>
         		<CompositeTransform/>
         	</TextBlock.RenderTransform>
@@ -859,10 +859,10 @@
         	</TextBlock.Effect>
         </TextBlock>
         <Grid x:Name="controlWrapper" Grid.Column="2" Margin="-120,24,24,36" Grid.Row="1" Background="#00000000" MouseLeftButtonDown="controlWrapper_MouseLeftButtonDown" MouseEnter="controlWrapper_MouseEnter" MouseLeave="controlWrapper_MouseLeave" Opacity="0.5">
-        	<Canvas x:Name="play" Clip="M0,0L56,0 56,56 0,56z" UseLayoutRounding="False" Margin="96,40,112,20" Visibility="Collapsed">
+        	<Canvas x:Name="play" Clip="M0,0L56,0 56,56 0,56z" UseLayoutRounding="False" Margin="96,40,112,20">
         		<Image x:Name="PsdLayer1" Height="56" Canvas.Left="0" Source="play_Images/Image.png" Canvas.Top="0" Width="56"/>
         	</Canvas>
-        	<Canvas x:Name="pause" Clip="M0,0L56,0 56,56 0,56z" UseLayoutRounding="False" Margin="96,40,112,20">
+        	<Canvas x:Name="pause" Clip="M0,0L56,0 56,56 0,56z" UseLayoutRounding="False" Margin="96,40,112,20" Visibility="Collapsed">
         		<Image x:Name="PsdLayer" Height="56" Canvas.Left="0" Source="pause_Images/Image.png" Canvas.Top="0" Width="56"/>
         	</Canvas>
         </Grid>
