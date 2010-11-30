@@ -170,7 +170,7 @@
         		<Image x:Name="PsdLayer1" Height="56" Canvas.Left="0" Source="play_Images/Image.png" Canvas.Top="0" Width="56" MouseLeftButtonUp="PsdLayer1_MouseLeftButtonUp"/>
         	</Canvas>
         	<Canvas x:Name="pause" Clip="M0,0L56,0 56,56 0,56z" UseLayoutRounding="False" Margin="96,40,112,20">
-        		<Image x:Name="PsdLayer" Height="56" Canvas.Left="0" Source="pause_Images/Image.png" Canvas.Top="0" Width="56" MouseLeftButtonUp="PsdLayer_MouseLeftButtonUp"/>
+        		<Image x:Name="PsdLayer" Height="56" Canvas.Left="0" Source="pause_Images/Image.png" Canvas.Top="0" Width="56"/>
         	</Canvas>
             <MediaElement x:Name="myRadioPlayer" AutoPlay="True" Source="radioMusic.mp3" MediaOpened="myRadioPlayer_MediaOpened"/>
         </Grid>
