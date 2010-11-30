@@ -60,7 +60,8 @@ namespace Autoradio.Views
             else
             {
                 Radio.IsChecked = true;
-                //List.ItemsSource = playlist.radioItems;
+                List.ItemsSource = null;
+                List.ItemsSource = playlist.radioItems;
             }
         }
 

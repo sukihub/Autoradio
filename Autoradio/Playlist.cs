@@ -196,5 +196,25 @@ namespace Autoradio
                 radioItems.Add(item);
             }
         }
+
+        public List<PlaylistItem> generateRadioStation(float frekvencia)
+        {
+            PlaylistItem item;
+            BitmapImage img = new BitmapImage();
+            img = new BitmapImage(new Uri("default_radio.png", UriKind.Relative));
+
+            item = new PlaylistItem();
+            item.cover = img;
+            item.radioName = RADIA[((int)rand.Next()) % RADIA.Length];
+            item.frequency = (float)Math.Round(frekvencia,1);
+            item.artist = item.frequency.ToString();
+            item.title = item.radioName;
+
+            radioItems.Add(item);
+        
+            return radioItems;
+        }
+
+        
     }
 }

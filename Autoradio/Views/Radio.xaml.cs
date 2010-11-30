@@ -84,7 +84,7 @@ namespace Autoradio.Views
 
             nazov_stanice.Text = myPlaylist.radioItems[myPlaylist.changedTrackID].radioName;
             aktualnaFrekvencia = myPlaylist.radioItems[myPlaylist.changedTrackID].frequency;
-            pridatFrekvenciu.Text = "Odobrať rádiostanicu";
+            pridatFrekvenciu.Text = "";
 
             poziciaFrekvencie = (-1 * (aktualnaFrekvencia - maximalnaFrekvencia)) * dlzkaFrekvencie - (-1 * minPozicia);
             prepocitajFrekvenciu();
@@ -124,7 +124,7 @@ namespace Autoradio.Views
            
             nazov_stanice.Text = myPlaylist.radioItems[index].radioName;
             aktualnaFrekvencia = myPlaylist.radioItems[index].frequency;
-            pridatFrekvenciu.Text = "Odobrať rádiostanicu";
+            pridatFrekvenciu.Text = "";
 
             poziciaFrekvencie = (-1 * (aktualnaFrekvencia - maximalnaFrekvencia)) * dlzkaFrekvencie - (-1 * minPozicia);
             prepocitajFrekvenciu();
@@ -159,7 +159,7 @@ namespace Autoradio.Views
 
             nazov_stanice.Text = myPlaylist.radioItems[index].radioName;
             aktualnaFrekvencia = myPlaylist.radioItems[index].frequency;
-            pridatFrekvenciu.Text = "Odobrať rádiostanicu";
+            pridatFrekvenciu.Text = "";
 
             poziciaFrekvencie = (-1 * (aktualnaFrekvencia - maximalnaFrekvencia)) * dlzkaFrekvencie - (-1 * minPozicia);
             prepocitajFrekvenciu();
@@ -191,7 +191,7 @@ namespace Autoradio.Views
 
             nazov_stanice.Text = myPlaylist.radioItems[index].radioName;
             aktualnaFrekvencia = myPlaylist.radioItems[index].frequency;
-            pridatFrekvenciu.Text = "Odobrať rádiostanicu";
+            pridatFrekvenciu.Text = "";
 
             poziciaFrekvencie = (-1 * (aktualnaFrekvencia - maximalnaFrekvencia)) * dlzkaFrekvencie - (-1 * minPozicia);
             prepocitajFrekvenciu();
@@ -214,7 +214,7 @@ namespace Autoradio.Views
                     nazov_stanice.Text = myPlaylist.radioItems[i].radioName;
                     if (pridatFrekvenciu.Text != "")
 
-                    pridatFrekvenciu.Text = "Odobrať rádiostanicu";
+                    pridatFrekvenciu.Text = "";
                     playMusic();
                     return;
                 }
@@ -395,6 +395,13 @@ namespace Autoradio.Views
                 
             }
              * */
+        }
+
+        private void pridatFrekvenciu_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            myPlaylist.radioItems = myPlaylist.generateRadioStation((float)aktualnaFrekvencia);
+            nazov_stanice.Text = myPlaylist.radioItems[myPlaylist.radioItems.Count-1].radioName;
+           
         }
 
     

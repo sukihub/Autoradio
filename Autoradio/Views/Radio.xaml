@@ -144,7 +144,7 @@
     	</Image>
         <Image x:Name="Gradient" Height="110" Source="gradient_gradient.png" Stretch="Fill" VerticalAlignment="Bottom" MouseLeftButtonDown="radioDown_MouseLeftButtonDown" MouseLeftButtonUp="radioDown_MouseLeftButtonUp" MouseMove="radioDown_MouseMove" MouseLeave="coverNow_MouseLeave"/>
     	<Image Height="73" Width="8" Margin="316,0" Source="palicka.png" Stretch="Fill" VerticalAlignment="Bottom"/>
-        <TextBlock x:Name="nazov_stanice" Margin="50,54,0,0" TextWrapping="Wrap" FontSize="100" Height="151" VerticalAlignment="Top" TextAlignment="Center" Text="98,5" FontWeight="Bold"  MouseLeftButtonUp="frekvencia_text_MouseLeftButtonDown" HorizontalAlignment="Left" Width="546">
+        <TextBlock x:Name="nazov_stanice" Margin="50,64,0,0" TextWrapping="Wrap" FontSize="100" Height="141" VerticalAlignment="Top" TextAlignment="Center" Text="98,5" FontWeight="Bold"  MouseLeftButtonUp="frekvencia_text_MouseLeftButtonDown" HorizontalAlignment="Left" Width="546">
     		<TextBlock.Foreground>
     			<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
     				<GradientStop Color="#FFC6C6C6" Offset="0"/>
@@ -174,7 +174,7 @@
         	</Canvas>
             <MediaElement x:Name="myRadioPlayer" AutoPlay="True" Source="radioMusic.mp3" MediaOpened="myRadioPlayer_MediaOpened"/>
         </Grid>
-		<TextBlock x:Name="pridatFrekvenciu" Margin="137,32,137,0" TextWrapping="Wrap" FontSize="24" Height="38" VerticalAlignment="Top" TextAlignment="Center" FontWeight="Bold" MouseLeftButtonDown="frekvencia_text_MouseLeftButtonDown" Opacity="0.2" Text="Pridať rádiostanicu" RenderTransformOrigin="0.5,0.5">
+		<TextBlock x:Name="pridatFrekvenciu" Margin="135,7,139,0" TextWrapping="Wrap" FontSize="24" Height="38" VerticalAlignment="Top" TextAlignment="Center" FontWeight="Bold" MouseLeftButtonDown="pridatFrekvenciu_MouseLeftButtonDown" Opacity="0.2" Text="Pridať rádiostanicu" RenderTransformOrigin="0.5,0.5">
 			<TextBlock.RenderTransform>
 				<CompositeTransform/>
 			</TextBlock.RenderTransform><TextBlock.Foreground>
